@@ -13,6 +13,9 @@ final class Sweep
     public const STATUS_DONE = 'done';
     public const STATUS_CANCELLED = 'cancelled';
 
+    /** Delsi "uklid" nez tyden je poskozeny zaznam, ne realny termin. */
+    private const MAX_DURATION_SECONDS = 7 * 24 * 3600;
+
     public function __construct(
         public readonly string $id,
         public readonly string $name,
@@ -43,11 +46,14 @@ final class Sweep
 
         [$lat, $lon] = self::firstWaypoint($section);
 
+        $from = self::parseDateTime((string) $data['from']);
+        $to = self::normalizeEnd($from, self::parseDateTime((string) $data['to']));
+
         return new self(
             id: self::safeId((string) $data['id'], 'id'),
             name: (string) ($data['name'] ?? ''),
-            from: self::parseDateTime((string) $data['from']),
-            to: self::parseDateTime((string) $data['to']),
+            from: $from,
+            to: $to,
             sectionId: (string) ($section['id'] ?? $data['sid'] ?? ''),
             sectionName: (string) ($section['name'] ?? $data['name'] ?? ''),
             streetId: $streetId,
@@ -64,17 +70,31 @@ final class Sweep
      */
     public static function fromArray(array $data): self
     {
+        foreach (['id', 'name', 'from', 'to', 'sectionId', 'sectionName', 'streetId', 'status'] as $key) {
+            if (!isset($data[$key]) || !is_scalar($data[$key])) {
+                throw new \InvalidArgumentException("Zaznam ve snapshotu nema klic \"{$key}\".");
+            }
+        }
+
+        $status = (string) $data['status'];
+        if (!in_array($status, [self::STATUS_PLANNED, self::STATUS_DONE, self::STATUS_CANCELLED], true)) {
+            throw new \InvalidArgumentException("Neznamy status ve snapshotu: \"{$status}\".");
+        }
+
+        $from = self::parseDateTime((string) $data['from']);
+        $to = self::normalizeEnd($from, self::parseDateTime((string) $data['to']));
+
         return new self(
-            id: (string) $data['id'],
+            id: self::safeId((string) $data['id'], 'id'),
             name: (string) $data['name'],
-            from: self::parseDateTime((string) $data['from']),
-            to: self::parseDateTime((string) $data['to']),
+            from: $from,
+            to: $to,
             sectionId: (string) $data['sectionId'],
             sectionName: (string) $data['sectionName'],
-            streetId: (string) $data['streetId'],
+            streetId: self::safeId((string) $data['streetId'], 'streetId'),
             lat: isset($data['lat']) ? (float) $data['lat'] : null,
             lon: isset($data['lon']) ? (float) $data['lon'] : null,
-            status: (string) $data['status'],
+            status: $status,
             cancelledAt: isset($data['cancelledAt']) ? (string) $data['cancelledAt'] : null,
         );
     }
@@ -153,8 +173,41 @@ final class Sweep
         return $value;
     }
 
+    /**
+     * Srovna casovy rozsah uklidu.
+     *
+     * BKOM u nocnich uklidu (typicky parkoviste, 19:00-05:00) uvadi konec se
+     * stejnym datem jako zacatek, takze "to" vychazi o 14 hodin driv nez "from".
+     * Na jejich webu to nevadi, protoze se vypisuje jen cas; v kalendari by ale
+     * vznikla udalost se zapornou delkou. Konec proto posouvame na dalsi den.
+     *
+     * Co nedava smysl ani po posunu, je poskozeny zaznam.
+     */
+    private static function normalizeEnd(\DateTimeImmutable $from, \DateTimeImmutable $to): \DateTimeImmutable
+    {
+        if ($to < $from) {
+            $to = $to->modify('+1 day');
+        }
+
+        if ($to < $from) {
+            throw new \InvalidArgumentException('Konec uklidu predchazi jeho zacatku.');
+        }
+
+        if ($to->getTimestamp() - $from->getTimestamp() > self::MAX_DURATION_SECONDS) {
+            throw new \InvalidArgumentException('Uklid trva nepravdepodobne dlouho.');
+        }
+
+        return $to;
+    }
+
     private static function parseDateTime(string $value): \DateTimeImmutable
     {
+        // Prazdny retezec by DateTimeImmutable prijal jako "ted" a tise vyrobil
+        // udalost se spatnym datem.
+        if (trim($value) === '') {
+            throw new \InvalidArgumentException('Prazdne datum.');
+        }
+
         try {
             return new \DateTimeImmutable($value, new \DateTimeZone('UTC'));
         } catch (\Exception $e) {

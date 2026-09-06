@@ -19,6 +19,17 @@ final class SweepStorage
     /** Jak stara historie se v snapshotu jeste uchovava. */
     private const HISTORY_RETENTION_DAYS = 365;
 
+    /**
+     * Nad timto podilem zrusenych budoucich terminu se beh zastavi.
+     * Hromadne "zruseni" skoro vzdy znamena vypadek nebo neuplnou odpoved API,
+     * ne skutecne zruseni uklidu - a rozeslat to do odebranych kalendaru
+     * je horsi nez neaktualizovat je vubec.
+     */
+    private const MAX_CANCELLED_RATIO = 0.25;
+
+    /** Pod timto poctem ulozenych terminu je pomer neprukazny. */
+    private const CANCELLED_RATIO_MIN_SAMPLE = 20;
+
     public function __construct(
         private readonly string $path,
     ) {
@@ -49,12 +60,28 @@ final class SweepStorage
             : [];
 
         $sweeps = [];
+        $skipped = 0;
+
         foreach ($items as $item) {
             if (!is_array($item)) {
+                $skipped++;
                 continue;
             }
-            $sweep = Sweep::fromArray($item);
+
+            try {
+                $sweep = Sweep::fromArray($item);
+            } catch (\InvalidArgumentException) {
+                // Poskozeny zaznam se zahodi; chybejici termin se pri dalsim behu
+                // doplni z API. Tise vyrobit udalost se spatnym datem je horsi.
+                $skipped++;
+                continue;
+            }
+
             $sweeps[$sweep->id] = $sweep;
+        }
+
+        if ($skipped > 0) {
+            fwrite(STDERR, "WARNING: Snapshot obsahoval {$skipped} poskozenych zaznamu, byly preskoceny.\n");
         }
 
         return $sweeps;
@@ -123,6 +150,8 @@ final class SweepStorage
                 : $sweep->withStatus(Sweep::STATUS_CANCELLED, $now->format('Y-m-d\TH:i:s\Z'));
         }
 
+        $this->assertCancellationIsPlausible($cancelled, $stored, $windowFrom, $windowTo, $now);
+
         $before = count($result);
         $result = $this->prune($result, $now);
         $pruned = $before - count($result);
@@ -161,7 +190,55 @@ final class SweepStorage
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR,
         );
 
-        file_put_contents($this->path, $json . "\n");
+        // Zapis pres docasny soubor a rename: preruseny beh (napr. zruseny CI job)
+        // nesmi po sobe nechat useknuty JSON, ktery by rozbil kazdy dalsi beh.
+        $temp = $this->path . '.tmp';
+        // Chyba se resi vyjimkou nize, PHP warning by jen zasumil vystup.
+        if (@file_put_contents($temp, $json . "\n") === false) {
+            throw new \RuntimeException("Nepodarilo se zapsat snapshot do {$temp}.");
+        }
+
+        if (!rename($temp, $this->path)) {
+            @unlink($temp);
+            throw new \RuntimeException("Nepodarilo se presunout snapshot na {$this->path}.");
+        }
+    }
+
+    /**
+     * @param array<string, Sweep> $stored
+     */
+    private function assertCancellationIsPlausible(
+        int $cancelled,
+        array $stored,
+        \DateTimeImmutable $windowFrom,
+        \DateTimeImmutable $windowTo,
+        \DateTimeImmutable $now,
+    ): void {
+        $future = count(array_filter(
+            $stored,
+            static fn (Sweep $sweep): bool => $sweep->from > $now
+                && $sweep->from >= $windowFrom
+                && $sweep->from <= $windowTo
+                && !$sweep->isCancelled(),
+        ));
+
+        if ($future < self::CANCELLED_RATIO_MIN_SAMPLE) {
+            return;
+        }
+
+        $ratio = $cancelled / $future;
+        if ($ratio <= self::MAX_CANCELLED_RATIO) {
+            return;
+        }
+
+        throw new \RuntimeException(sprintf(
+            'Z API zmizelo %d z %d naplanovanych terminu (%.0f %%). Vypada to na vypadek '
+            . 'nebo neuplnou odpoved, ne na skutecne zruseni - beh se zastavuje, aby se '
+            . 'do odebranych kalendaru neposlalo hromadne ZRUSENO.',
+            $cancelled,
+            $future,
+            $ratio * 100,
+        ));
     }
 
     /**

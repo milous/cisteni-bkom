@@ -112,6 +112,56 @@ final class SweepTest extends TestCase
         self::assertSame([], BkomClient::parseSweeps([$item]));
     }
 
+    /**
+     * BKOM u nocnich uklidu parkovist uvadi konec se stejnym datem jako zacatek
+     * (19:00-05:00 vyjde jako from 17:00Z, to 03:00Z tehoz dne). Takovy zaznam
+     * se nesmi zahodit - jsou to prave mista, kde lidi nechavaji auta pres noc.
+     */
+    public function testRollsOvernightSweepEndToNextDay(): void
+    {
+        $item = $this->fixture()[0];
+        $item['from'] = '2026-09-29T17:00:00.000Z';
+        $item['to'] = '2026-09-29T03:00:00.000Z';
+
+        $sweep = BkomClient::parseSweeps([$item])['91176'];
+
+        self::assertSame('2026-09-30T03:00:00+00:00', $sweep->to->format('c'));
+        self::assertSame(10 * 3600, $sweep->to->getTimestamp() - $sweep->from->getTimestamp());
+    }
+
+    public function testRejectsSweepEndingBeforeItStartsEvenAfterRollover(): void
+    {
+        $item = $this->fixture()[0];
+        $item['to'] = '2026-09-01T06:00:00.000Z';
+
+        self::assertSame([], BkomClient::parseSweeps([$item]));
+    }
+
+    public function testRejectsImplausiblyLongSweep(): void
+    {
+        $item = $this->fixture()[0];
+        $item['to'] = '2026-11-14T08:00:00.000Z';
+
+        self::assertSame([], BkomClient::parseSweeps([$item]));
+    }
+
+    public function testRejectsEmptyDate(): void
+    {
+        $item = $this->fixture()[0];
+        $item['from'] = '';
+
+        self::assertSame([], BkomClient::parseSweeps([$item]));
+    }
+
+    public function testRejectsSnapshotRecordWithUnknownStatus(): void
+    {
+        $data = BkomClient::parseSweeps($this->fixture())['91176']->toArray();
+        $data['status'] = 'whatever';
+
+        $this->expectException(\InvalidArgumentException::class);
+        Sweep::fromArray($data);
+    }
+
     public function testHasSameContentIgnoresStatus(): void
     {
         $sweep = BkomClient::parseSweeps($this->fixture())['91176'];

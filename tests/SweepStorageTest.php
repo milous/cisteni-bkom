@@ -165,6 +165,100 @@ final class SweepStorageTest extends TestCase
         self::assertSame(['10', '20'], array_map('strval', array_keys($storage->load())));
     }
 
+    public function testRefusesMassCancellationFromPartialApiResponse(): void
+    {
+        // Vypadek API: misto 100 terminu prijdou 3. Bez pojistky by se do vsech
+        // odebranych kalendaru rozeslalo [ZRUSENO].
+        $stored = [];
+        for ($i = 1; $i <= 100; $i++) {
+            $stored[(string) $i] = $this->sweep((string) $i, '2026-10-' . str_pad((string) (($i % 28) + 1), 2, '0', STR_PAD_LEFT) . 'T08:00:00Z');
+        }
+        $this->store($stored);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessageMatches('/zmizelo 97 z 100/');
+
+        $this->sync(array_slice($stored, 0, 3, true));
+    }
+
+    public function testSnapshotIsUntouchedWhenMassCancellationIsRefused(): void
+    {
+        $stored = [];
+        for ($i = 1; $i <= 100; $i++) {
+            $stored[(string) $i] = $this->sweep((string) $i, '2026-10-15T08:00:00Z');
+        }
+        $this->store($stored);
+        $before = file_get_contents($this->path);
+
+        try {
+            $this->sync([]);
+        } catch (\RuntimeException) {
+            // ocekavane
+        }
+
+        self::assertSame($before, file_get_contents($this->path));
+    }
+
+    public function testAllowsRealisticNumberOfCancellations(): void
+    {
+        $stored = [];
+        for ($i = 1; $i <= 100; $i++) {
+            $stored[(string) $i] = $this->sweep((string) $i, '2026-10-15T08:00:00Z');
+        }
+        $this->store($stored);
+
+        // 10 % zrusenych je bezna zmena planu, ta projit musi.
+        $result = $this->sync(array_slice($stored, 0, 90, true));
+
+        self::assertSame(10, $result['cancelled']);
+    }
+
+    public function testSmallSnapshotIsNotSubjectToRatioGuard(): void
+    {
+        // Na par zaznamech je pomer neprukazny, jinak by nesel rozjet novy region.
+        $this->store([
+            '1' => $this->sweep('1', '2026-10-15T08:00:00Z'),
+            '2' => $this->sweep('2', '2026-10-16T08:00:00Z'),
+        ]);
+
+        $result = $this->sync([]);
+
+        self::assertSame(2, $result['cancelled']);
+    }
+
+    public function testSkipsCorruptedSnapshotRecordsInsteadOfInventingDates(): void
+    {
+        mkdir(dirname($this->path), 0755, true);
+        file_put_contents($this->path, json_encode(['sweeps' => [
+            ['id' => '1', 'streetId' => '2526', 'status' => 'planned'],
+            ['id' => '2', 'name' => 'X', 'from' => '', 'to' => '', 'sectionId' => 's', 'sectionName' => 'X', 'streetId' => '2526', 'status' => 'planned'],
+            $this->sweep('3', '2026-10-15T08:00:00Z')->toArray(),
+        ]], JSON_THROW_ON_ERROR));
+
+        self::assertSame(['3'], array_map('strval', array_keys((new SweepStorage($this->path))->load())));
+    }
+
+    public function testFailedWriteLeavesPreviousSnapshotIntact(): void
+    {
+        $storage = new SweepStorage($this->path);
+        $storage->save(['1' => $this->sweep('1', '2026-10-15T08:00:00Z')]);
+        $before = file_get_contents($this->path);
+
+        // Docasny soubor nelze prejmenovat -> puvodni snapshot musi zustat.
+        mkdir($this->path . '.tmp');
+
+        try {
+            $storage->save(['2' => $this->sweep('2', '2026-10-16T08:00:00Z')]);
+            self::fail('Ocekavana vyjimka pri zapisu snapshotu.');
+        } catch (\RuntimeException) {
+            // ocekavane
+        } finally {
+            @rmdir($this->path . '.tmp');
+        }
+
+        self::assertSame($before, file_get_contents($this->path));
+    }
+
     public function testLoadReturnsEmptyArrayWhenSnapshotMissing(): void
     {
         self::assertSame([], (new SweepStorage($this->path))->load());
