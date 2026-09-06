@@ -3,3 +3,10 @@
 !/output/.gitkeep
 /.phpunit.cache/
 .DS_Store
+
+# Preventivne - projekt zadne tajemstvi v souborech nedrzi, ale nesmi se to zmenit omylem.
+.env
+.env.*
+*.log
+*.pem
+*.key
