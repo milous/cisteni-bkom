@@ -20,6 +20,17 @@ $now = new DateTimeImmutable('now', new DateTimeZone('UTC'));
 $windowFrom = $now->modify('-1 year');
 $windowTo = $now->modify('+2 years');
 
+/**
+ * Zapise soubor a pri chybe skonci vyjimkou - useknuty kalendar by se jinak
+ * tise nasadil na GitHub Pages.
+ */
+function writeFile(string $path, string $content): void
+{
+    if (file_put_contents($path, $content) !== strlen($content)) {
+        throw new RuntimeException("Zapis do {$path} selhal.");
+    }
+}
+
 // Volitelne omezeni pro lokalni ladeni: CISTENI_STREET_IDS=2526,1234
 $onlyStreetIds = array_filter(array_map(
     'trim',
@@ -74,8 +85,8 @@ try {
     }
 
     // Step 4: Vygenerovat ICS pro kazdou ulici a jeden souhrnny
-    if (!is_dir($outputDir)) {
-        mkdir($outputDir, 0755, true);
+    if (!is_dir($outputDir) && !mkdir($outputDir, 0755, true) && !is_dir($outputDir)) {
+        throw new RuntimeException("Nepodarilo se vytvorit {$outputDir}.");
     }
 
     echo "Generating ICS files...\n";
@@ -86,7 +97,7 @@ try {
         $street = $streets[$streetId] ?? null;
         $name = $street?->name ?? $sweeps[0]->sectionName;
 
-        file_put_contents(
+        writeFile(
             $outputDir . '/' . $streetId . '.ics',
             $generator->generate($sweeps, 'Čištění – ' . $name, $street),
         );
@@ -108,7 +119,7 @@ try {
             $latest = $sectionSweeps;
             usort($latest, static fn (Sweep $a, Sweep $b): int => $b->from <=> $a->from);
 
-            file_put_contents(
+            writeFile(
                 $outputDir . '/' . $streetId . '-' . $key . '.ics',
                 $generator->generate($sectionSweeps, 'Čištění – ' . $latest[0]->sectionName, $street),
             );
@@ -118,7 +129,7 @@ try {
 
     $all = $result['sweeps'];
     usort($all, static fn (Sweep $a, Sweep $b): int => $a->from <=> $b->from);
-    file_put_contents(
+    writeFile(
         $outputDir . '/all.ics',
         $generator->generate($all, 'Blokové čištění Brno – vše'),
     );

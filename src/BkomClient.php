@@ -16,6 +16,10 @@ final class BkomClient
     private const USER_AGENT = 'cisteni-bkom-calendar (+https://github.com/milous/cisteni-bkom)';
     private const TIMEOUT_SECONDS = 120;
     private const MAX_ATTEMPTS = 3;
+    private const MAX_REDIRECTS = 3;
+
+    /** Vetsi odpoved nez tato je chyba nebo utok, ne data - vsechno se drzi v pameti. */
+    private const MAX_RESPONSE_BYTES = 50 * 1024 * 1024;
 
     /** Minimalni pocet zaznamu, pod kterym povazujeme odpoved za rozbitou. */
     private const MIN_SWEEPS = 1;
@@ -155,6 +159,11 @@ final class BkomClient
             curl_setopt_array($curl, [
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_MAXREDIRS => self::MAX_REDIRECTS,
+                // Presmerovani nesmi shodit spojeni na http ani jiny protokol.
+                CURLOPT_PROTOCOLS_STR => 'https',
+                CURLOPT_REDIR_PROTOCOLS_STR => 'https',
+                CURLOPT_MAXFILESIZE => self::MAX_RESPONSE_BYTES,
                 CURLOPT_TIMEOUT => self::TIMEOUT_SECONDS,
                 CURLOPT_CONNECTTIMEOUT => 15,
                 CURLOPT_USERAGENT => self::USER_AGENT,

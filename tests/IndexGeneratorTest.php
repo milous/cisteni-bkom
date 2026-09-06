@@ -37,6 +37,15 @@ final class IndexGeneratorTest extends TestCase
         rmdir(dirname($this->outputDir));
     }
 
+    public function testFailsLoudlyWhenOutputCannotBeWritten(): void
+    {
+        $generator = new IndexGenerator($this->outputDir . '/neexistuje', $this->publicDir);
+
+        $this->expectException(\RuntimeException::class);
+        // Poskozeny vystup se nesmi tise nasadit - chyba zapisu musi shodit sync.
+        @$generator->generate(['2526' => array_values($this->sweeps())], [], new \DateTimeImmutable('2026-09-01T00:00:00Z'));
+    }
+
     /**
      * @return array<string, Sweep>
      */

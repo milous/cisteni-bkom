@@ -194,6 +194,66 @@ final class IcsGeneratorTest extends TestCase
         self::assertLessThan(strpos($ics, 'BEGIN:VEVENT'), strpos($ics, 'X-WR-CALNAME'));
     }
 
+    /**
+     * Nazev kalendare se vklada do hotoveho ICS za PRODID. Znaky, ktere maji
+     * v nahrade preg_replace() zvlastni vyznam, musi zustat doslovne.
+     *
+     * @return array<string, array{0: string, 1: string}>
+     */
+    public static function replacementPayloadProvider(): array
+    {
+        return [
+            'odkaz na skupinu' => ['Ulice $1 a ${0}', 'X-WR-CALNAME:Ulice $1 a ${0}'],
+            'zpetne lomitko' => ['Ulice \\ konec', 'X-WR-CALNAME:Ulice \\\\ konec'],
+            'odkaz zpetnym lomitkem' => ['Ulice \\0', 'X-WR-CALNAME:Ulice \\\\0'],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('replacementPayloadProvider')]
+    public function testCalendarNameIsInsertedLiterally(string $name, string $expectedHeader): void
+    {
+        $ics = (new IcsGenerator())->generate([$this->sweeps()['91176']], $name, $this->street());
+        $lines = explode("\r\n", $this->unfold($ics));
+
+        self::assertContains($expectedHeader, $lines);
+        // Obsah PRODID se nesmi propsat do nazvu kalendare.
+        self::assertCount(1, preg_grep('/^X-WR-CALNAME:/', $lines));
+        self::assertCount(0, preg_grep('/^X-WR-CALNAME:.*PRODID/', $lines));
+        self::assertCount(1, preg_grep('/^PRODID:/', $lines));
+    }
+
+    public function testControlCharactersAreStrippedFromCalendarName(): void
+    {
+        $name = "Uli\x00ce \x1b[31mBAR\x7f\x0bVA";
+        $ics = (new IcsGenerator())->generate([$this->sweeps()['91176']], $name, $this->street());
+
+        self::assertSame(0, preg_match('/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/', $ics), 'ridici znak v souboru');
+        self::assertStringContainsString('X-WR-CALNAME:Ulice [31mBARVA', $this->unfold($ics));
+    }
+
+    public function testCancelledStatusSurvivesFoldedUidLine(): void
+    {
+        // UID: + id + @cisteni.bkom.cz presahne 75 oktetu, knihovna radek slozi.
+        $id = str_repeat('a', 60);
+        $item = ['id' => $id, 'name' => 'Křídlovická', 'from' => '2026-09-14T08:00:00.000Z',
+            'to' => '2026-09-14T12:30:00.000Z', 'sid' => '3570',
+            'section' => ['id' => '3570', 'name' => 'Křídlovická', 'streetID' => '2526', 'waypoints' => []]];
+        $sweep = BkomClient::parseSweeps([$item])[$id]
+            ->withStatus(Sweep::STATUS_CANCELLED, '2026-09-06T12:00:00Z')
+            ->withSequence(4);
+
+        $ics = (new IcsGenerator())->generate([$sweep], 'Test', $this->street());
+
+        self::assertStringContainsString("UID:{$id}@cisteni.bkom.cz", $this->unfold($ics));
+        self::assertStringContainsString("\r\n ", $ics, 'ocekava se slozeny radek');
+
+        $lines = explode("\r\n", $this->unfold($ics));
+        $uidIndex = array_search("UID:{$id}@cisteni.bkom.cz", $lines, true);
+        self::assertIsInt($uidIndex);
+        self::assertSame('SEQUENCE:4', $lines[$uidIndex + 1]);
+        self::assertSame('STATUS:CANCELLED', $lines[$uidIndex + 2]);
+    }
+
     public function testFallsBackToStreetCoordinatesWhenSectionHasNoWaypoints(): void
     {
         $street = Street::fromApi([

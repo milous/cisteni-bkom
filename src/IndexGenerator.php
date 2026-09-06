@@ -69,10 +69,12 @@ final class IndexGenerator
             'streets' => $items,
         ];
 
-        file_put_contents(
-            $this->outputDir . '/streets.json',
-            json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR),
-        );
+        $json = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+        $path = $this->outputDir . '/streets.json';
+
+        if (file_put_contents($path, $json) !== strlen($json)) {
+            throw new \RuntimeException("Zapis do {$path} selhal.");
+        }
     }
 
     /**
@@ -151,8 +153,8 @@ final class IndexGenerator
         }
 
         foreach (glob($this->publicDir . '/*') ?: [] as $file) {
-            if (is_file($file)) {
-                copy($file, $this->outputDir . '/' . basename($file));
+            if (is_file($file) && !copy($file, $this->outputDir . '/' . basename($file))) {
+                throw new \RuntimeException("Kopirovani {$file} selhalo.");
             }
         }
     }

@@ -197,27 +197,30 @@ final class IcsGenerator
         }
 
         $result = [];
-        $pending = null;
+        // Rozbalena (unfolded) vlastnost, ktera se prave cte. Knihovna dlouhe
+        // radky sklada dle RFC 5545, takze se UID musi porovnavat az slozene -
+        // jinak by delsi id tise prislo o SEQUENCE i STATUS:CANCELLED.
+        $property = null;
 
         foreach (explode("\r\n", $ics) as $line) {
             $isContinuation = $line !== '' && ($line[0] === ' ' || $line[0] === "\t");
 
-            // Vklada se az za celou vlastnost UID vcetne pripadnych pokracovacich
-            // radku, aby se nerozbilo skladani radku dle RFC 5545.
-            if ($pending !== null && !$isContinuation) {
-                array_push($result, ...$pending);
-                $pending = null;
+            if ($isContinuation) {
+                $property .= substr($line, 1);
+            } else {
+                // Predchozi vlastnost je kompletni - vklada se az za ni vcetne
+                // pokracovacich radku, aby se nerozbilo skladani.
+                if ($property !== null && isset($byUid[$property])) {
+                    array_push($result, ...$byUid[$property]);
+                }
+                $property = $line;
             }
 
             $result[] = $line;
-
-            if (isset($byUid[$line])) {
-                $pending = $byUid[$line];
-            }
         }
 
-        if ($pending !== null) {
-            array_push($result, ...$pending);
+        if ($property !== null && isset($byUid[$property])) {
+            array_push($result, ...$byUid[$property]);
         }
 
         return implode("\r\n", $result);
@@ -242,9 +245,12 @@ final class IcsGenerator
             ],
         ));
 
-        return preg_replace(
-            '/^(PRODID:[^\r\n]*(?:\r\n[ \t][^\r\n]*)*)/m',
-            '$1' . "\r\n" . $headers,
+        // Nahrada se sklada z nazvu ulice z ciziho API. V preg_replace() by se
+        // v ni interpretovaly odkazy "$1" a zpetna lomitka, callback vraci text
+        // doslovne.
+        return preg_replace_callback(
+            '/^PRODID:[^\r\n]*(?:\r\n[ \t][^\r\n]*)*/m',
+            static fn (array $match): string => $match[0] . "\r\n" . $headers,
             $ics,
             1,
         ) ?? $ics;
@@ -297,6 +303,10 @@ final class IcsGenerator
     private function escapeText(string $value): string
     {
         $value = str_replace(["\r\n", "\r"], "\n", $value);
+
+        // Ostatni ridici znaky (vcetne nuloveho bajtu) v hodnote nemaji co delat -
+        // prisnejsi parsery soubor odmitnou, stejne se chova i eluceo/ical.
+        $value = (string) preg_replace('/[\x00-\x09\x0B-\x1F\x7F]/', '', $value);
 
         return str_replace(["\\", ';', ',', "\n"], ['\\\\', '\;', '\,', '\n'], $value);
     }
