@@ -11,6 +11,8 @@ generuje se jeden `.ics` na každou ulici a všechno se publikuje na GitHub Page
 1. Otevři [stránku s vyhledáváním](https://milous.github.io/cisteni-bkom/) a najdi svou ulici.
 2. Klikni na **Přidat do kalendáře** (odkaz `webcal://`), nebo si zkopíruj URL
    `https://milous.github.io/cisteni-bkom/<ID ulice>.ics`.
+   U ulic čištěných po částech se pod ulicí nabídnou jednotlivé úseky s vlastním
+   kalendářem — ať nedostáváš upozornění na část ulice, kde neparkuješ.
 3. Kalendář se sám aktualizuje, upozornění přijde 18 hodin před začátkem čištění.
 
 Přidání odebíraného kalendáře:
@@ -31,12 +33,20 @@ Kalendář se všemi termíny v Brně najednou: [`all.ics`](https://milous.githu
 | 1 | `GET /api/sweep/map?from=…&to=…` stáhne všechny úklidy v okně −1 rok … +2 roky (jeden request, ~2600 záznamů). |
 | 2 | `GET /api/street` stáhne číselník ulic (názvy, městské části, souřadnice). |
 | 3 | `SweepStorage` porovná data se snapshotem `data/sweeps.json`. Termín, který z API zmizel a ještě nenastal, se označí jako zrušený. |
-| 4 | `IcsGenerator` vygeneruje `output/<ID ulice>.ics` a `output/all.ics`. |
+| 4 | `IcsGenerator` vygeneruje `output/<ID ulice>.ics`, u ulic s více úseky navíc `output/<ID ulice>-<úsek>.ics`, a `output/all.ics`. |
 | 5 | `IndexGenerator` vygeneruje `output/streets.json` a překopíruje `public/` (vyhledávací stránka). |
 | 6 | GitHub Action commitne snapshot a nasadí `output/` na GitHub Pages. |
 
-Poznámka k API: pokud se v `/api/sweep/map` uvede `streetID`, parametry `from`/`to`
-se ignorují. Proto se stahuje celý dataset najednou a filtruje se až lokálně.
+Poznámky k API:
+
+- Pokud se v `/api/sweep/map` uvede `streetID`, parametry `from`/`to` se ignorují.
+  Proto se stahuje celý dataset najednou a filtruje se až lokálně.
+- `section.id` (`sid`) **není stabilní** — stejný úsek dostane při každém termínu
+  jiné id (Bítešská: `3539` v září, `2616` v říjnu). Úseky se proto identifikují
+  podle normalizovaného názvu, což zároveň sloučí drobné rozdíly v zápisu
+  (`Sabinova ||` vs `Sabinova`).
+- Noční úklidy mají konec se stejným datem jako začátek (19:00–05:00 přijde jako
+  `from 17:00Z`, `to 03:00Z` téhož dne); konec se posouvá na další den.
 
 Zrušené termíny dostanou `STATUS:CANCELLED` a prefix `[ZRUSENO]`, aby zmizely
 i z už odebíraných kalendářů. Ve snapshotu se drží ještě 30 dní po plánovaném termínu,

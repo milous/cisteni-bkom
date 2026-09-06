@@ -80,6 +80,7 @@ try {
 
     echo "Generating ICS files...\n";
     $generator = new IcsGenerator();
+    $sectionFiles = 0;
 
     foreach ($byStreet as $streetId => $sweeps) {
         $street = $streets[$streetId] ?? null;
@@ -89,6 +90,29 @@ try {
             $outputDir . '/' . $streetId . '.ics',
             $generator->generate($sweeps, 'Čištění – ' . $name, $street),
         );
+
+        // Ulice cistena po castech dostane navic kalendar pro kazdy usek - jinak
+        // by clovek dostaval upozorneni i na cast ulice, kde neparkuje.
+        $bySection = [];
+        foreach ($sweeps as $sweep) {
+            $bySection[$sweep->sectionKey()][] = $sweep;
+        }
+
+        if (count($bySection) < 2) {
+            continue;
+        }
+
+        foreach ($bySection as $key => $sectionSweeps) {
+            file_put_contents(
+                $outputDir . '/' . $streetId . '-' . $key . '.ics',
+                $generator->generate(
+                    $sectionSweeps,
+                    'Čištění – ' . $sectionSweeps[0]->sectionName,
+                    $street,
+                ),
+            );
+            $sectionFiles++;
+        }
     }
 
     $all = $result['sweeps'];
@@ -103,8 +127,9 @@ try {
     (new IndexGenerator($outputDir, $publicDir))->generate($byStreet, $streets, $now);
 
     printf(
-        "Done! %d street calendars, %d sweeps total.\n",
+        "Done! %d street calendars, %d section calendars, %d sweeps total.\n",
         count($byStreet),
+        $sectionFiles,
         count($result['sweeps']),
     );
     echo "Output: {$outputDir}\n";

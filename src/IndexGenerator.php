@@ -57,6 +57,7 @@ final class IndexGenerator
                 'upcoming' => count($upcoming),
                 'next' => $next?->from->setTimezone($timezone)->format('c'),
                 'nextText' => $next !== null ? $this->formatCzech($next, $timezone) : null,
+                'sections' => $this->sections((string) $streetId, $sweeps, $now, $timezone),
             ];
         }
 
@@ -72,6 +73,56 @@ final class IndexGenerator
             $this->outputDir . '/streets.json',
             json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR),
         );
+    }
+
+    /**
+     * Useky ulice s vlastnim kalendarem. Ulice cistena vcelku zadny nema,
+     * jeji kalendar je pak totozny s kalendarem ulice.
+     *
+     * @param array<int, Sweep> $sweeps
+     * @return array<int, array<string, mixed>>
+     */
+    private function sections(
+        string $streetId,
+        array $sweeps,
+        \DateTimeImmutable $now,
+        \DateTimeZone $timezone,
+    ): array {
+        $grouped = [];
+        foreach ($sweeps as $sweep) {
+            $grouped[$sweep->sectionKey()][] = $sweep;
+        }
+
+        if (count($grouped) < 2) {
+            return [];
+        }
+
+        $sections = [];
+        foreach ($grouped as $key => $sectionSweeps) {
+            $upcoming = array_values(array_filter(
+                $sectionSweeps,
+                static fn (Sweep $sweep): bool => $sweep->to >= $now && !$sweep->isCancelled(),
+            ));
+            usort($upcoming, static fn (Sweep $a, Sweep $b): int => $a->from <=> $b->from);
+            $next = $upcoming[0] ?? null;
+
+            $sections[] = [
+                'id' => $streetId . '-' . $key,
+                'name' => $sectionSweeps[0]->sectionName,
+                'count' => count($sectionSweeps),
+                'upcoming' => count($upcoming),
+                'next' => $next?->from->setTimezone($timezone)->format('c'),
+                'nextText' => $next !== null ? $this->formatCzech($next, $timezone) : null,
+            ];
+        }
+
+        usort($sections, static function (array $a, array $b): int {
+            // Nejdriv useky s nejblizsim terminem, zbytek podle nazvu.
+            return [$a['next'] === null, $a['next'] ?? '', $a['name']]
+                <=> [$b['next'] === null, $b['next'] ?? '', $b['name']];
+        });
+
+        return $sections;
     }
 
     private function formatCzech(Sweep $sweep, \DateTimeZone $timezone): string

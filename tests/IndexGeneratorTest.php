@@ -105,6 +105,27 @@ final class IndexGeneratorTest extends TestCase
         self::assertStringContainsString('stred', $streets['2526']['search']);
     }
 
+    public function testListsSectionsForStreetCleanedInParts(): void
+    {
+        $streets = array_column($this->generate()['streets'], null, 'id');
+
+        self::assertCount(2, $streets['2526']['sections']);
+        self::assertSame(
+            ['2526-kridlovicka-v-useku-nove-sady-viadukt', '2526-kridlovicka-v-useku-krizova-nove-sady'],
+            array_column($streets['2526']['sections'], 'id'),
+        );
+        // Radi se podle nejblizsiho terminu.
+        self::assertSame('14. 9. 2026, 10:00 - 14:30', $streets['2526']['sections'][0]['nextText']);
+    }
+
+    public function testStreetCleanedAsWholeHasNoSections(): void
+    {
+        $streets = array_column($this->generate()['streets'], null, 'id');
+
+        // Jediny usek by dal kalendar totozny s kalendarem ulice - nema smysl.
+        self::assertSame([], $streets['3254']['sections']);
+    }
+
     public function testCopiesPublicAssets(): void
     {
         $this->generate();

@@ -67,6 +67,67 @@
         return icsUrl(id).replace(/^https?:/, 'webcal:');
     }
 
+    function buildActions(id, label) {
+        var actions = document.createElement('div');
+        actions.className = 'actions';
+
+        var add = document.createElement('a');
+        add.className = 'btn primary';
+        add.href = webcalUrl(id);
+        add.textContent = label;
+        actions.appendChild(add);
+
+        var copy = document.createElement('button');
+        copy.className = 'btn';
+        copy.type = 'button';
+        copy.textContent = 'Kopírovat odkaz';
+        copy.addEventListener('click', function () {
+            var url = icsUrl(id);
+            var done = function () {
+                copy.textContent = 'Zkopírováno';
+                setTimeout(function () { copy.textContent = 'Kopírovat odkaz'; }, 1500);
+            };
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(done, function () { prompt('Zkopíruj odkaz:', url); });
+            } else {
+                prompt('Zkopíruj odkaz:', url);
+            }
+        });
+        actions.appendChild(copy);
+
+        return actions;
+    }
+
+    function buildSections(sections) {
+        var wrap = document.createElement('div');
+        wrap.className = 'sections';
+
+        var hint = document.createElement('p');
+        hint.className = 'sections-hint';
+        hint.textContent = 'Ulice se čistí po částech – vyber jen tu svou:';
+        wrap.appendChild(hint);
+
+        sections.forEach(function (section) {
+            var row = document.createElement('div');
+            row.className = 'section';
+
+            var name = document.createElement('span');
+            name.className = 'section-name';
+            name.textContent = section.name;
+            row.appendChild(name);
+
+            var when = document.createElement('span');
+            when.className = 'section-next';
+            when.textContent = section.nextText || 'bez naplánovaného termínu';
+            row.appendChild(when);
+
+            row.appendChild(buildActions(section.id, 'Přidat do kalendáře'));
+            wrap.appendChild(row);
+        });
+
+        return wrap;
+    }
+
     function render(items, query) {
         results.innerHTML = '';
 
@@ -111,34 +172,14 @@
                 : 'Momentálně bez naplánovaného termínu';
             li.appendChild(next);
 
-            var actions = document.createElement('div');
-            actions.className = 'actions';
+            li.appendChild(buildActions(street.id, street.sections && street.sections.length
+                ? 'Celá ulice do kalendáře'
+                : 'Přidat do kalendáře'));
 
-            var add = document.createElement('a');
-            add.className = 'btn primary';
-            add.href = webcalUrl(street.id);
-            add.textContent = 'Přidat do kalendáře';
-            actions.appendChild(add);
+            if (street.sections && street.sections.length) {
+                li.appendChild(buildSections(street.sections));
+            }
 
-            var copy = document.createElement('button');
-            copy.className = 'btn';
-            copy.type = 'button';
-            copy.textContent = 'Kopírovat odkaz';
-            copy.addEventListener('click', function () {
-                var url = icsUrl(street.id);
-                var done = function () {
-                    copy.textContent = 'Zkopírováno';
-                    setTimeout(function () { copy.textContent = 'Kopírovat odkaz'; }, 1500);
-                };
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(url).then(done, function () { prompt('Zkopíruj odkaz:', url); });
-                } else {
-                    prompt('Zkopíruj odkaz:', url);
-                }
-            });
-            actions.appendChild(copy);
-
-            li.appendChild(actions);
             fragment.appendChild(li);
         });
 

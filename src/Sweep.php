@@ -170,6 +170,22 @@ final class Sweep
         );
     }
 
+    /**
+     * Stabilni klic useku ulice.
+     *
+     * sectionId z API pouzit nejde - stejny usek dostane pri kazdem terminu jine
+     * sid (napr. Bitesska: 3539 v zari, 2616 v rijnu). Stabilni je az nazev useku,
+     * ktery se navic normalizuje, cimz se sloucí i drobne rozdily v zapisu
+     * ("Sabinova ||" vs "Sabinova", "jelení" vs "Jelení").
+     */
+    public function sectionKey(): string
+    {
+        $slug = Street::normalize($this->sectionName !== '' ? $this->sectionName : $this->name);
+        $slug = preg_replace('/[^a-z0-9]+/', '-', $slug) ?? '';
+
+        return trim($slug, '-');
+    }
+
     public function isCancelled(): bool
     {
         return $this->status === self::STATUS_CANCELLED;

@@ -126,6 +126,37 @@ h2 { font-size: 1.05rem; margin: 0 0 .4rem; }
     color: var(--accent-fg);
 }
 
+.sections {
+    margin-top: .9rem;
+    padding-top: .8rem;
+    border-top: 1px dashed var(--border);
+}
+
+.sections-hint {
+    margin: 0 0 .6rem;
+    font-size: .8rem;
+    color: var(--muted);
+}
+
+.section + .section {
+    margin-top: .7rem;
+    padding-top: .7rem;
+    border-top: 1px solid var(--border);
+}
+
+.section-name {
+    display: block;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.section-next {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: .8rem;
+    color: var(--muted);
+}
+
 .all {
     margin-top: 2.5rem;
     font-size: .9rem;

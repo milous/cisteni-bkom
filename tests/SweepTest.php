@@ -162,6 +162,39 @@ final class SweepTest extends TestCase
         Sweep::fromArray($data);
     }
 
+    public function testSectionKeyIsStableAcrossChangingSectionIds(): void
+    {
+        // BKOM prideluje stejnemu useku pri kazdem terminu jine sid, klic se
+        // proto odvozuje od nazvu useku.
+        $first = $this->fixture()[0];
+        $second = $this->fixture()[0];
+        $second['id'] = '99999';
+        $second['section']['id'] = '4242';
+
+        $sweeps = BkomClient::parseSweeps([$first, $second]);
+
+        self::assertSame(
+            $sweeps['91176']->sectionKey(),
+            $sweeps['99999']->sectionKey(),
+        );
+        self::assertSame('kridlovicka-v-useku-nove-sady-viadukt', $sweeps['91176']->sectionKey());
+    }
+
+    public function testSectionKeyMergesSloppyNameVariants(): void
+    {
+        $variants = ['Sabinova', 'Sabinova ||', 'sabinova', 'Sabinova  '];
+        $keys = [];
+
+        foreach ($variants as $i => $name) {
+            $item = $this->fixture()[0];
+            $item['id'] = (string) (1000 + $i);
+            $item['section']['name'] = $name;
+            $keys[] = BkomClient::parseSweeps([$item])[(string) (1000 + $i)]->sectionKey();
+        }
+
+        self::assertSame(['sabinova'], array_unique($keys));
+    }
+
     public function testHasSameContentIgnoresStatus(): void
     {
         $sweep = BkomClient::parseSweeps($this->fixture())['91176'];
