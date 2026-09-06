@@ -1,0 +1,143 @@
+:root {
+    color-scheme: light dark;
+    --bg: #f6f6f4;
+    --fg: #1c1c1a;
+    --muted: #63635e;
+    --card: #ffffff;
+    --border: #e0e0da;
+    --accent: #14572c;
+    --accent-fg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #16161a;
+        --fg: #ececeb;
+        --muted: #9b9b96;
+        --card: #202026;
+        --border: #33333b;
+        --accent: #4ea96f;
+        --accent-fg: #10190f;
+    }
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    max-width: 44rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+h1 { margin: 0 0 .5rem; font-size: 1.7rem; }
+h2 { font-size: 1.05rem; margin: 0 0 .4rem; }
+
+.lead { margin: 0 0 2rem; color: var(--muted); }
+
+.search input {
+    width: 100%;
+    padding: .8rem 1rem;
+    font-size: 1.05rem;
+    color: var(--fg);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: .6rem;
+}
+
+.search input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.hint {
+    margin: .6rem 0 1.2rem;
+    font-size: .85rem;
+    color: var(--muted);
+}
+
+.results {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: .7rem;
+}
+
+.results li {
+    padding: .9rem 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: .6rem;
+}
+
+.results li.more {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: .85rem;
+    text-align: center;
+}
+
+.street {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .5rem;
+}
+
+.name { font-weight: 600; }
+
+.part {
+    font-size: .8rem;
+    color: var(--muted);
+}
+
+.next {
+    margin: .3rem 0 .8rem;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: .45rem .9rem;
+    font: inherit;
+    font-size: .9rem;
+    color: var(--fg);
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: .4rem;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-fg);
+}
+
+.all {
+    margin-top: 2.5rem;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: .8rem;
+    color: var(--muted);
+}
+
+a { color: inherit; }

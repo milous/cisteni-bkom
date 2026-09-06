@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blokové čištění Brno – kalendáře</title>
+<meta name="description" content="Kalendář blokového čištění ulic v Brně ve formátu iCalendar. Najdi svou ulici a odebírej termíny v telefonu.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Blokové čištění Brno</h1>
+    <p class="lead">
+        Najdi svou ulici a přidej si termíny blokového čištění do kalendáře v telefonu.
+        Kalendář se sám aktualizuje, upozornění přijde 18 hodin před začátkem.
+    </p>
+</header>
+
+<main>
+    <div class="search">
+        <input type="search" id="q" placeholder="Napiš název ulice…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Hledat ulici">
+        <p class="hint" id="status">Načítám seznam ulic…</p>
+    </div>
+
+    <ul id="results" class="results"></ul>
+
+    <section class="all">
+        <h2>Všechny ulice najednou</h2>
+        <p>
+            Kalendář se všemi termíny v Brně (velký, spíš pro zvědavce):
+            <a id="allLink" href="all.ics">all.ics</a>
+        </p>
+    </section>
+</main>
+
+<footer>
+    <p>
+        Data pocházejí z <a href="https://cisteni.bkom.cz/cs">cisteni.bkom.cz</a> (Brněnské komunikace a.s.)
+        a aktualizují se několikrát denně.
+    </p>
+    <p>
+        Neoficiální nástroj. <strong>Závazné je vždy dopravní značení na místě.</strong>
+        Zdrojový kód: <a href="https://github.com/milous/cisteni-bkom">github.com/milous/cisteni-bkom</a>.
+    </p>
+    <p id="generated"></p>
+</footer>
+
+<script>
+(function () {
+    var input = document.getElementById('q');
+    var results = document.getElementById('results');
+    var status = document.getElementById('status');
+    var streets = [];
+
+    var base = location.href.replace(/[^/]*$/, '');
+    document.getElementById('allLink').href = base + 'all.ics';
+
+    function normalize(value) {
+        return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function icsUrl(id) {
+        return base + id + '.ics';
+    }
+
+    function webcalUrl(id) {
+        return icsUrl(id).replace(/^https?:/, 'webcal:');
+    }
+
+    function render(items, query) {
+        results.innerHTML = '';
+
+        if (!query) {
+            status.textContent = streets.length + ' ulic s naplánovaným čištěním. Začni psát název.';
+            return;
+        }
+
+        if (items.length === 0) {
+            status.textContent = 'Nic nenalezeno. Zkus kratší část názvu.';
+            return;
+        }
+
+        status.textContent = items.length === 1 ? '1 ulice' : items.length + ' ulic';
+
+        var fragment = document.createDocumentFragment();
+
+        items.slice(0, 50).forEach(function (street) {
+            var li = document.createElement('li');
+
+            var head = document.createElement('div');
+            head.className = 'street';
+
+            var name = document.createElement('span');
+            name.className = 'name';
+            name.textContent = street.name;
+            head.appendChild(name);
+
+            if (street.cityPart) {
+                var part = document.createElement('span');
+                part.className = 'part';
+                part.textContent = street.cityPart;
+                head.appendChild(part);
+            }
+
+            li.appendChild(head);
+
+            var next = document.createElement('p');
+            next.className = 'next';
+            next.textContent = street.nextText
+                ? 'Nejbližší termín: ' + street.nextText
+                : 'Momentálně bez naplánovaného termínu';
+            li.appendChild(next);
+
+            var actions = document.createElement('div');
+            actions.className = 'actions';
+
+            var add = document.createElement('a');
+            add.className = 'btn primary';
+            add.href = webcalUrl(street.id);
+            add.textContent = 'Přidat do kalendáře';
+            actions.appendChild(add);
+
+            var copy = document.createElement('button');
+            copy.className = 'btn';
+            copy.type = 'button';
+            copy.textContent = 'Kopírovat odkaz';
+            copy.addEventListener('click', function () {
+                var url = icsUrl(street.id);
+                var done = function () {
+                    copy.textContent = 'Zkopírováno';
+                    setTimeout(function () { copy.textContent = 'Kopírovat odkaz'; }, 1500);
+                };
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(url).then(done, function () { prompt('Zkopíruj odkaz:', url); });
+                } else {
+                    prompt('Zkopíruj odkaz:', url);
+                }
+            });
+            actions.appendChild(copy);
+
+            li.appendChild(actions);
+            fragment.appendChild(li);
+        });
+
+        if (items.length > 50) {
+            var more = document.createElement('li');
+            more.className = 'more';
+            more.textContent = 'Zobrazeno prvních 50 z ' + items.length + ' výsledků – upřesni hledání.';
+            fragment.appendChild(more);
+        }
+
+        results.appendChild(fragment);
+    }
+
+    function search() {
+        var query = normalize(input.value.trim());
+        if (!query) {
+            render([], '');
+            return;
+        }
+
+        var starts = [];
+        var contains = [];
+
+        streets.forEach(function (street) {
+            var index = street.search.indexOf(query);
+            if (index === 0) {
+                starts.push(street);
+            } else if (index > 0) {
+                contains.push(street);
+            }
+        });
+
+        render(starts.concat(contains), query);
+    }
+
+    fetch('streets.json')
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+            streets = data.streets || [];
+            if (data.generated) {
+                document.getElementById('generated').textContent =
+                    'Poslední aktualizace: ' + new Date(data.generated).toLocaleString('cs-CZ');
+            }
+            render([], '');
+            input.addEventListener('input', search);
+            search();
+        })
+        .catch(function () {
+            status.textContent = 'Seznam ulic se nepodařilo načíst.';
+        });
+})();
+</script>
+</body>
+</html>

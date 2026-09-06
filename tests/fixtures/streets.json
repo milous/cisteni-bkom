@@ -1,0 +1,50 @@
+{
+ "streets": [
+  {
+   "id": "2526",
+   "name": "Křídlovická",
+   "searchName": "kridlovicka",
+   "privateRoad": false,
+   "updated": "2016-03-29T11:56:56.831Z",
+   "bounds": {
+    "sw": {
+     "lat": 49.1838446519837,
+     "lng": 16.5945242143642
+    },
+    "ne": {
+     "lat": 49.1889754455857,
+     "lng": 16.6069909166327
+    }
+   },
+   "cityPart": [
+    {
+     "id": "22",
+     "name": "Střed"
+    }
+   ]
+  },
+  {
+   "id": "3254",
+   "name": "Srnčí",
+   "searchName": "srnci",
+   "privateRoad": false,
+   "updated": "2016-03-29T11:57:39.650Z",
+   "bounds": {
+    "sw": {
+     "lat": 49.2046760907648,
+     "lng": 16.479282153144
+    },
+    "ne": {
+     "lat": 49.2068058141129,
+     "lng": 16.4813162898529
+    }
+   },
+   "cityPart": [
+    {
+     "id": "27",
+     "name": "Žebětín"
+    }
+   ]
+  }
+ ]
+}

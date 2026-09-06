@@ -1,0 +1,29 @@
+{
+    "name": "milous/cisteni-bkom",
+    "description": "Kalendare blokoveho cisteni ulic v Brne (BKOM) ve formatu iCalendar",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "CisteniBkom\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CisteniBkom\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "eluceo/ical": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "scripts": {
+        "test": "phpunit tests/",
+        "sync": "php sync.php"
+    }
+}

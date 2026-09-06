@@ -1,0 +1,94 @@
+{
+ "sweeps": [
+  {
+   "id": "91176",
+   "name": "Křídlovická v úseku Nové Sady-viadukt",
+   "from": "2026-09-14T08:00:00.000Z",
+   "to": "2026-09-14T12:30:00.000Z",
+   "sid": "3570",
+   "planned": true,
+   "section": {
+    "id": "3570",
+    "name": "Křídlovická v úseku Nové Sady-viadukt",
+    "privateRoad": false,
+    "streetID": "2526",
+    "waypoints": [
+     {
+      "id": "36981",
+      "lat": 49.1853530487531,
+      "lon": 16.6037853490469,
+      "order": 0,
+      "globalID": "1103514640"
+     },
+     {
+      "id": "36982",
+      "lat": 49.1850174503592,
+      "lon": 16.604588871085,
+      "order": 1,
+      "globalID": "1103514640"
+     }
+    ]
+   },
+   "fromToText": "14. 9. 2026, 10:00 - 14:30"
+  },
+  {
+   "id": "91219",
+   "name": "Křídlovická v úseku Křížová-Nové Sady",
+   "from": "2026-09-15T06:00:00.000Z",
+   "to": "2026-09-15T09:00:00.000Z",
+   "sid": "1630",
+   "planned": true,
+   "section": {
+    "id": "1630",
+    "name": "Křídlovická v úseku Křížová-Nové Sady",
+    "privateRoad": false,
+    "streetID": "2526",
+    "waypoints": [
+     {
+      "id": "43408",
+      "lat": 49.1882800381539,
+      "lon": 16.5956100180827,
+      "order": 0,
+      "globalID": "1103514578"
+     },
+     {
+      "id": "43409",
+      "lat": 49.1883121588488,
+      "lon": 16.5955056318632,
+      "order": 1,
+      "globalID": "1103514578"
+     }
+    ]
+   },
+   "fromToText": "15. 9. 2026, 08:00 - 11:00"
+  },
+  {
+   "id": "89309",
+   "name": "Srnčí",
+   "from": "2026-03-16T07:00:00.000Z",
+   "to": "2026-03-16T14:00:00.000Z",
+   "sid": "3162",
+   "done": true,
+   "section": {
+    "id": "3162",
+    "name": "Srnčí",
+    "privateRoad": false,
+    "streetID": "3254",
+    "waypoints": []
+   },
+   "fromToText": "16. 3. 2026, 08:00 - 15:00"
+  },
+  {
+   "id": "999999",
+   "name": "Rozbity",
+   "from": "2026-10-01T06:00:00.000Z",
+   "to": "2026-10-01T09:00:00.000Z",
+   "sid": "1",
+   "section": {
+    "id": "1",
+    "name": "Rozbity",
+    "waypoints": []
+   }
+  }
+ ]
+}
