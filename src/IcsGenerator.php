@@ -28,6 +28,9 @@ final class IcsGenerator
     private const SOURCE_URL = 'https://cisteni.bkom.cz/cs';
     private const CANCELLED_PREFIX = '[ZRUSENO] ';
 
+    /** Maximalni delka radku dle RFC 5545 (bez ukonceni CRLF). */
+    private const MAX_LINE_OCTETS = 75;
+
     /** Kolik hodin pred zacatkem se ma pripomenout (18 h = vecer predem u rannich uklidu). */
     private const REMINDER_HOURS_BEFORE = 18;
 
@@ -225,14 +228,17 @@ final class IcsGenerator
      */
     private function addCalendarHeaders(string $ics, string $calendarName): string
     {
-        $headers = implode("\r\n", [
-            'X-WR-CALNAME:' . $this->escapeText($calendarName),
-            'X-WR-CALDESC:' . $this->escapeText('Termíny blokového čištění ulic v Brně (zdroj: BKOM)'),
-            'X-WR-TIMEZONE:' . self::TIMEZONE,
-            'NAME:' . $this->escapeText($calendarName),
-            'REFRESH-INTERVAL;VALUE=DURATION:PT12H',
-            'X-PUBLISHED-TTL:PT12H',
-        ]);
+        $headers = implode("\r\n", array_map(
+            fn (string $line): string => $this->fold($line),
+            [
+                'X-WR-CALNAME:' . $this->escapeText($calendarName),
+                'X-WR-CALDESC:' . $this->escapeText('Termíny blokového čištění ulic v Brně (zdroj: BKOM)'),
+                'X-WR-TIMEZONE:' . self::TIMEZONE,
+                'NAME:' . $this->escapeText($calendarName),
+                'REFRESH-INTERVAL;VALUE=DURATION:PT12H',
+                'X-PUBLISHED-TTL:PT12H',
+            ],
+        ));
 
         return preg_replace(
             '/^(PRODID:[^\r\n]*(?:\r\n[ \t][^\r\n]*)*)/m',
@@ -249,6 +255,43 @@ final class IcsGenerator
      * syrovy bajt a nektere parsery ho berou jako konec radku, cimz by se dal
      * z nazvu prichazejiciho z API rozbit soubor.
      */
+    /**
+     * Slozi radek dle RFC 5545: nejvyse 75 oktetu, pokracovani zacina mezerou.
+     *
+     * Hlavicky si vkladame do hotoveho vystupu sami, takze se na ne skladani
+     * z knihovny nevztahuje - dlouhy nazev ulice by jinak vyrobil radek, ktery
+     * prisnejsi parsery odmitnou. Deli se po celych UTF-8 znacich.
+     */
+    private function fold(string $line): string
+    {
+        if (strlen($line) <= self::MAX_LINE_OCTETS) {
+            return $line;
+        }
+
+        $chunks = [];
+        $current = '';
+        $limit = self::MAX_LINE_OCTETS;
+
+        foreach (preg_split('//u', $line, -1, PREG_SPLIT_NO_EMPTY) ?: [] as $char) {
+            if (strlen($current) + strlen($char) > $limit) {
+                $chunks[] = $current;
+                $current = '';
+                // Pokracovaci radek zacina mezerou, ktera se do limitu pocita.
+                $limit = self::MAX_LINE_OCTETS - 1;
+            }
+
+            $current .= $char;
+        }
+
+        if ($current !== '') {
+            $chunks[] = $current;
+        }
+
+        $first = array_shift($chunks);
+
+        return $first . ($chunks === [] ? '' : "\r\n " . implode("\r\n ", $chunks));
+    }
+
     private function escapeText(string $value): string
     {
         $value = str_replace(["\r\n", "\r"], "\n", $value);

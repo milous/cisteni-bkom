@@ -184,6 +184,33 @@ final class IcsGeneratorTest extends TestCase
         self::assertStringContainsString('BEGIN:STANDARD', $ics);
     }
 
+    public function testFoldsLongCalendarNameHeader(): void
+    {
+        $name = 'Čištění – Žebětínská před bytovým domem Žebětínská 72,74 a u Sběrného střediska odpadu';
+        $ics = (new IcsGenerator())->generate([$this->sweeps()['91176']], $name, $this->street());
+
+        foreach (explode("\r\n", $ics) as $line) {
+            self::assertLessThanOrEqual(75, strlen($line), "Radek presahuje 75 oktetu: {$line}");
+        }
+
+        // Rozbaleni musi dat zpet puvodni text vcetne escapovane carky.
+        self::assertStringContainsString(
+            'X-WR-CALNAME:' . str_replace(',', '\,', $name),
+            $this->unfold($ics),
+        );
+    }
+
+    public function testFoldingNeverSplitsMultibyteCharacter(): void
+    {
+        // Sam diakriticke znaky: kazde deleni na hranici 75 oktetu by pri
+        // delceni po bajtech rozseklo vicebajtovy znak.
+        $ics = (new IcsGenerator())->generate([$this->sweeps()['91176']], str_repeat('ě', 120), $this->street());
+
+        foreach (explode("\r\n", $ics) as $line) {
+            self::assertSame($line, mb_convert_encoding($line, 'UTF-8', 'UTF-8'), 'Rozseknuty UTF-8 znak.');
+        }
+    }
+
     public function testProducesValidCalendarEnvelope(): void
     {
         $ics = $this->generate();
