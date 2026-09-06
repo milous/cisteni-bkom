@@ -114,12 +114,19 @@ final class SweepStorage
 
             if ($previous === null) {
                 $added++;
-            } elseif (!$previous->hasSameContent($sweep) || $previous->isCancelled()) {
-                // Termin se zmenil, nebo se drive zruseny uklid vratil zpet do planu.
-                $updated++;
+                $result[$id] = $sweep;
+                continue;
             }
 
-            $result[$id] = $sweep;
+            if (!$previous->hasSameContent($sweep) || $previous->isCancelled()) {
+                // Termin se zmenil, nebo se drive zruseny uklid vratil zpet do planu.
+                // Obojí je pro klienta vyznamna zmena, takze se zvysuje revize.
+                $updated++;
+                $result[$id] = $sweep->withSequence($previous->sequence + 1);
+                continue;
+            }
+
+            $result[$id] = $sweep->withSequence($previous->sequence);
         }
 
         foreach ($stored as $id => $sweep) {
@@ -147,7 +154,8 @@ final class SweepStorage
 
             $result[$id] = $sweep->isCancelled()
                 ? $sweep
-                : $sweep->withStatus(Sweep::STATUS_CANCELLED, $now->format('Y-m-d\TH:i:s\Z'));
+                : $sweep->withStatus(Sweep::STATUS_CANCELLED, $now->format('Y-m-d\TH:i:s\Z'))
+                    ->withSequence($sweep->sequence + 1);
         }
 
         $this->assertCancellationIsPlausible($cancelled, $stored, $windowFrom, $windowTo, $now);

@@ -259,6 +259,68 @@ final class SweepStorageTest extends TestCase
         self::assertSame($before, file_get_contents($this->path));
     }
 
+    public function testSequenceStartsAtZeroAndSurvivesUnchangedRuns(): void
+    {
+        $sweep = ['1' => $this->sweep('1', '2026-09-14T08:00:00Z')];
+
+        $first = $this->sync($sweep);
+        self::assertSame(0, $first['sweeps']['1']->sequence);
+
+        $this->store($first['sweeps']);
+        $second = $this->sync($sweep);
+
+        // Beh beze zmeny nesmi revizi zvysovat, jinak by klienti hlasili
+        // zmenu udalosti kazdych sest hodin.
+        self::assertSame(0, $second['sweeps']['1']->sequence);
+    }
+
+    public function testSequenceIncrementsWhenTimeChanges(): void
+    {
+        $this->store(['1' => $this->sweep('1', '2026-09-14T08:00:00Z')]);
+
+        $result = $this->sync(['1' => $this->sweep('1', '2026-09-14T10:00:00Z')]);
+
+        self::assertSame(1, $result['sweeps']['1']->sequence);
+    }
+
+    public function testSequenceIncrementsOnCancellationAndOnReturnToPlan(): void
+    {
+        $this->store(['1' => $this->sweep('1', '2026-09-14T08:00:00Z')]);
+
+        $cancelled = $this->sync([]);
+        self::assertTrue($cancelled['sweeps']['1']->isCancelled());
+        self::assertSame(1, $cancelled['sweeps']['1']->sequence);
+
+        // Opakovany beh uz revizi nezvysuje.
+        $this->store($cancelled['sweeps']);
+        $again = $this->sync([]);
+        self::assertSame(1, $again['sweeps']['1']->sequence);
+
+        // Navrat do planu je pro klienta zase vyznamna zmena.
+        $this->store($again['sweeps']);
+        $restored = $this->sync(['1' => $this->sweep('1', '2026-09-14T08:00:00Z')]);
+        self::assertFalse($restored['sweeps']['1']->isCancelled());
+        self::assertSame(2, $restored['sweeps']['1']->sequence);
+    }
+
+    public function testSequenceIsPersistedInSnapshot(): void
+    {
+        $storage = new SweepStorage($this->path);
+        $storage->save(['1' => $this->sweep('1', '2026-09-14T08:00:00Z')->withSequence(7)]);
+
+        self::assertSame(7, $storage->load()['1']->sequence);
+    }
+
+    public function testOlderSnapshotWithoutSequenceLoadsAsZero(): void
+    {
+        $data = $this->sweep('1', '2026-09-14T08:00:00Z')->toArray();
+        unset($data['sequence']);
+        mkdir(dirname($this->path), 0755, true);
+        file_put_contents($this->path, json_encode(['sweeps' => [$data]], JSON_THROW_ON_ERROR));
+
+        self::assertSame(0, (new SweepStorage($this->path))->load()['1']->sequence);
+    }
+
     public function testLoadReturnsEmptyArrayWhenSnapshotMissing(): void
     {
         self::assertSame([], (new SweepStorage($this->path))->load());

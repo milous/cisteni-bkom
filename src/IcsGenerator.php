@@ -52,11 +52,7 @@ final class IcsGenerator
         $factory = new CalendarFactory();
         $ics = (string) $factory->createCalendar($calendar);
 
-        $cancelledIds = array_map(
-            static fn (Sweep $sweep): string => $sweep->id,
-            array_filter($sweeps, static fn (Sweep $sweep): bool => $sweep->isCancelled()),
-        );
-        $ics = $this->addCancelledStatus($ics, $cancelledIds);
+        $ics = $this->addEventProperties($ics, $sweeps);
 
         return $this->addCalendarHeaders($ics, $calendarName);
     }
@@ -175,48 +171,53 @@ final class IcsGenerator
     }
 
     /**
-     * Doplni STATUS:CANCELLED k udalostem se zrusenym terminem.
+     * Doplni vlastnosti, ktere eluceo/ical negeneruje: SEQUENCE u kazde udalosti
+     * a STATUS:CANCELLED u zrusenych.
      *
-     * eluceo/ical vlastnost STATUS neumi, musi se dopsat do vysledneho textu.
+     * SEQUENCE je podstatne prave u ruseni - klient, ktery uz udalost zna, muze
+     * novou verzi se stejnou (implicitni) revizi povazovat za nezmenenou a zruseni
+     * by se k uzivateli nedostalo.
+     *
      * Zaznamy se paruji podle UID, ne podle textu shrnuti - nazev useku prichazi
      * z ciziho API a kdyby obsahoval nas vlastni prefix, oznacil by se jako
      * zruseny i termin, ktery ve skutecnosti plati.
      *
-     * @param array<int, string> $cancelledIds
+     * @param array<int, Sweep> $sweeps
      */
-    private function addCancelledStatus(string $ics, array $cancelledIds): string
+    private function addEventProperties(string $ics, array $sweeps): string
     {
-        if ($cancelledIds === []) {
-            return $ics;
-        }
+        $byUid = [];
+        foreach ($sweeps as $sweep) {
+            $properties = ['SEQUENCE:' . $sweep->sequence];
+            if ($sweep->isCancelled()) {
+                $properties[] = 'STATUS:CANCELLED';
+            }
 
-        $uids = [];
-        foreach ($cancelledIds as $id) {
-            $uids['UID:' . $id . '@cisteni.bkom.cz'] = true;
+            $byUid['UID:' . $sweep->id . '@cisteni.bkom.cz'] = $properties;
         }
 
         $result = [];
-        $pending = false;
+        $pending = null;
 
         foreach (explode("\r\n", $ics) as $line) {
             $isContinuation = $line !== '' && ($line[0] === ' ' || $line[0] === "\t");
 
-            // STATUS se vklada az za celou vlastnost UID vcetne pripadnych
-            // pokracovacich radku, aby se nerozbilo skladani radku dle RFC 5545.
-            if ($pending && !$isContinuation) {
-                $result[] = 'STATUS:CANCELLED';
-                $pending = false;
+            // Vklada se az za celou vlastnost UID vcetne pripadnych pokracovacich
+            // radku, aby se nerozbilo skladani radku dle RFC 5545.
+            if ($pending !== null && !$isContinuation) {
+                array_push($result, ...$pending);
+                $pending = null;
             }
 
             $result[] = $line;
 
-            if (isset($uids[$line])) {
-                $pending = true;
+            if (isset($byUid[$line])) {
+                $pending = $byUid[$line];
             }
         }
 
-        if ($pending) {
-            $result[] = 'STATUS:CANCELLED';
+        if ($pending !== null) {
+            array_push($result, ...$pending);
         }
 
         return implode("\r\n", $result);
@@ -231,6 +232,7 @@ final class IcsGenerator
         $headers = implode("\r\n", array_map(
             fn (string $line): string => $this->fold($line),
             [
+                'METHOD:PUBLISH',
                 'X-WR-CALNAME:' . $this->escapeText($calendarName),
                 'X-WR-CALDESC:' . $this->escapeText('Termíny blokového čištění ulic v Brně (zdroj: BKOM)'),
                 'X-WR-TIMEZONE:' . self::TIMEZONE,

@@ -146,7 +146,41 @@ final class IcsGeneratorTest extends TestCase
         $lines = explode("\r\n", $ics);
         $statusIndex = array_search('STATUS:CANCELLED', $lines, true);
         self::assertIsInt($statusIndex);
-        self::assertSame('UID:91176@cisteni.bkom.cz', $lines[$statusIndex - 1]);
+        self::assertSame('UID:91176@cisteni.bkom.cz', $lines[$statusIndex - 2]);
+    }
+
+    public function testEmitsSequenceAndMethodSoClientsAcceptUpdates(): void
+    {
+        $sweep = $this->sweeps()['91176']->withSequence(3);
+        $ics = (new IcsGenerator())->generate([$sweep], 'Čištění – Křídlovická', $this->street());
+
+        $lines = explode("\r\n", $ics);
+        $uidIndex = array_search('UID:91176@cisteni.bkom.cz', $lines, true);
+
+        self::assertIsInt($uidIndex);
+        self::assertSame('SEQUENCE:3', $lines[$uidIndex + 1]);
+        self::assertContains('METHOD:PUBLISH', $lines);
+    }
+
+    public function testCancelledEventCarriesSequenceAndStatusTogether(): void
+    {
+        $cancelled = $this->sweeps()['91176']
+            ->withStatus(Sweep::STATUS_CANCELLED, '2026-09-06T12:00:00Z')
+            ->withSequence(2);
+
+        $ics = (new IcsGenerator())->generate([$cancelled, $this->sweeps()['91219']], 'Test', $this->street());
+        $lines = explode("\r\n", $ics);
+
+        $uidIndex = array_search('UID:91176@cisteni.bkom.cz', $lines, true);
+        self::assertIsInt($uidIndex);
+        self::assertSame('SEQUENCE:2', $lines[$uidIndex + 1]);
+        self::assertSame('STATUS:CANCELLED', $lines[$uidIndex + 2]);
+
+        // Platny termin ve stejnem souboru zustava nedotceny.
+        $otherIndex = array_search('UID:91219@cisteni.bkom.cz', $lines, true);
+        self::assertIsInt($otherIndex);
+        self::assertSame('SEQUENCE:0', $lines[$otherIndex + 1]);
+        self::assertSame(1, substr_count($ics, 'STATUS:CANCELLED'));
     }
 
     public function testAddsCalendarNameHeaders(): void

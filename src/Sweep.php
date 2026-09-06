@@ -28,6 +28,11 @@ final class Sweep
         public readonly ?float $lon,
         public readonly string $status,
         public readonly ?string $cancelledAt = null,
+        /**
+         * Poradi revize udalosti dle RFC 5545. Klient bez zvyseneho SEQUENCE
+         * muze zmenu ignorovat, takze se musi pamatovat mezi behy.
+         */
+        public readonly int $sequence = 0,
     ) {
     }
 
@@ -96,6 +101,7 @@ final class Sweep
             lon: isset($data['lon']) ? (float) $data['lon'] : null,
             status: $status,
             cancelledAt: isset($data['cancelledAt']) ? (string) $data['cancelledAt'] : null,
+            sequence: isset($data['sequence']) ? max(0, (int) $data['sequence']) : 0,
         );
     }
 
@@ -115,6 +121,7 @@ final class Sweep
             'lat' => $this->lat,
             'lon' => $this->lon,
             'status' => $this->status,
+            'sequence' => $this->sequence,
         ];
 
         if ($this->cancelledAt !== null) {
@@ -138,6 +145,28 @@ final class Sweep
             $this->lon,
             $status,
             $cancelledAt ?? $this->cancelledAt,
+            $this->sequence,
+        );
+    }
+
+    /**
+     * Vrati kopii s danou revizi udalosti.
+     */
+    public function withSequence(int $sequence): self
+    {
+        return new self(
+            $this->id,
+            $this->name,
+            $this->from,
+            $this->to,
+            $this->sectionId,
+            $this->sectionName,
+            $this->streetId,
+            $this->lat,
+            $this->lon,
+            $this->status,
+            $this->cancelledAt,
+            $sequence,
         );
     }
 
