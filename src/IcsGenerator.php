@@ -49,7 +49,11 @@ final class IcsGenerator
         $factory = new CalendarFactory();
         $ics = (string) $factory->createCalendar($calendar);
 
-        $ics = $this->addCancelledStatus($ics);
+        $cancelledIds = array_map(
+            static fn (Sweep $sweep): string => $sweep->id,
+            array_filter($sweeps, static fn (Sweep $sweep): bool => $sweep->isCancelled()),
+        );
+        $ics = $this->addCancelledStatus($ics, $cancelledIds);
 
         return $this->addCalendarHeaders($ics, $calendarName);
     }
@@ -82,17 +86,19 @@ final class IcsGenerator
 
         $event = new Event(new UniqueIdentifier($sweep->id . '@cisteni.bkom.cz'));
 
-        $summary = 'Blokové čištění: ' . ($sweep->sectionName !== '' ? $sweep->sectionName : $sweep->name);
+        $sectionName = $this->sanitizeName($sweep->sectionName !== '' ? $sweep->sectionName : $sweep->name);
+        $streetName = $this->sanitizeName($street?->name ?? $sectionName);
+
+        $summary = 'Blokové čištění: ' . $sectionName;
         if ($sweep->isCancelled()) {
             $summary = self::CANCELLED_PREFIX . $summary;
         }
 
         $event->setSummary($summary);
-        $event->setDescription($this->createDescription($sweep, $street));
+        $event->setDescription($this->createDescription($sweep, $street, $sectionName, $streetName));
         $event->setOccurrence(new TimeSpan(new DateTime($start, true), new DateTime($end, true)));
         $event->setUrl(new Uri(self::SOURCE_URL));
 
-        $streetName = $street?->name ?? $sweep->sectionName;
         $location = new Location($streetName . ', Brno');
 
         $lat = $sweep->lat ?? $street?->lat;
@@ -104,7 +110,7 @@ final class IcsGenerator
 
         if (!$sweep->isCancelled()) {
             $event->addAlarm(new Alarm(
-                new DisplayAction('Blokové čištění: ' . $sweep->sectionName . ' - odstraňte vozidlo.'),
+                new DisplayAction('Blokové čištění: ' . $sectionName . ' - odstraňte vozidlo.'),
                 (new RelativeTrigger($this->reminderOffset()))->withRelationToStart(),
             ));
         }
@@ -123,7 +129,22 @@ final class IcsGenerator
         return $interval;
     }
 
-    private function createDescription(Sweep $sweep, ?Street $street): string
+    /**
+     * Nazev prichazi z ciziho API a zobrazuje se uzivateli. Nesmi predstirat
+     * nas vlastni prefix pro zruseny termin - jinak by slo v odebranem
+     * kalendari vyvolat dojem, ze uklid neplati.
+     */
+    private function sanitizeName(string $name): string
+    {
+        return trim(str_replace([self::CANCELLED_PREFIX, '[ZRUSENO]'], '', $name));
+    }
+
+    private function createDescription(
+        Sweep $sweep,
+        ?Street $street,
+        string $sectionName,
+        string $streetName,
+    ): string
     {
         $lines = [];
 
@@ -136,13 +157,13 @@ final class IcsGenerator
         }
 
         if ($street !== null) {
-            $lines[] = 'Ulice: ' . $street->name;
+            $lines[] = 'Ulice: ' . $streetName;
             if ($street->cityPart !== null) {
-                $lines[] = 'Městská část: ' . $street->cityPart;
+                $lines[] = 'Městská část: ' . $this->sanitizeName($street->cityPart);
             }
         }
 
-        $lines[] = 'Úsek: ' . $sweep->sectionName;
+        $lines[] = 'Úsek: ' . $sectionName;
         $lines[] = '';
         $lines[] = 'Zdroj: ' . self::SOURCE_URL;
         $lines[] = 'Závazné je dopravní značení na místě.';
@@ -154,27 +175,45 @@ final class IcsGenerator
      * Doplni STATUS:CANCELLED k udalostem se zrusenym terminem.
      *
      * eluceo/ical vlastnost STATUS neumi, musi se dopsat do vysledneho textu.
-     * Respektuje RFC 5545 skladani radku (pokracovaci radky zacinaji mezerou/tabem).
+     * Zaznamy se paruji podle UID, ne podle textu shrnuti - nazev useku prichazi
+     * z ciziho API a kdyby obsahoval nas vlastni prefix, oznacil by se jako
+     * zruseny i termin, ktery ve skutecnosti plati.
+     *
+     * @param array<int, string> $cancelledIds
      */
-    private function addCancelledStatus(string $ics): string
+    private function addCancelledStatus(string $ics, array $cancelledIds): string
     {
-        $lines = explode("\r\n", $ics);
-        $result = [];
-        $needsStatus = false;
+        if ($cancelledIds === []) {
+            return $ics;
+        }
 
-        foreach ($lines as $line) {
+        $uids = [];
+        foreach ($cancelledIds as $id) {
+            $uids['UID:' . $id . '@cisteni.bkom.cz'] = true;
+        }
+
+        $result = [];
+        $pending = false;
+
+        foreach (explode("\r\n", $ics) as $line) {
             $isContinuation = $line !== '' && ($line[0] === ' ' || $line[0] === "\t");
 
-            if ($needsStatus && !$isContinuation) {
+            // STATUS se vklada az za celou vlastnost UID vcetne pripadnych
+            // pokracovacich radku, aby se nerozbilo skladani radku dle RFC 5545.
+            if ($pending && !$isContinuation) {
                 $result[] = 'STATUS:CANCELLED';
-                $needsStatus = false;
+                $pending = false;
             }
 
             $result[] = $line;
 
-            if (str_starts_with($line, 'SUMMARY:') && str_contains($line, self::CANCELLED_PREFIX)) {
-                $needsStatus = true;
+            if (isset($uids[$line])) {
+                $pending = true;
             }
+        }
+
+        if ($pending) {
+            $result[] = 'STATUS:CANCELLED';
         }
 
         return implode("\r\n", $result);
@@ -203,8 +242,17 @@ final class IcsGenerator
         ) ?? $ics;
     }
 
+    /**
+     * Escapovani textove hodnoty dle RFC 5545.
+     *
+     * Konce radku se nejdriv sjednoti - samotny CR by v hodnote zustal jako
+     * syrovy bajt a nektere parsery ho berou jako konec radku, cimz by se dal
+     * z nazvu prichazejiciho z API rozbit soubor.
+     */
     private function escapeText(string $value): string
     {
+        $value = str_replace(["\r\n", "\r"], "\n", $value);
+
         return str_replace(["\\", ';', ',', "\n"], ['\\\\', '\;', '\,', '\n'], $value);
     }
 }

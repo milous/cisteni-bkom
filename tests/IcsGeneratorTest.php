@@ -83,21 +83,70 @@ final class IcsGeneratorTest extends TestCase
         self::assertStringNotContainsString('BEGIN:VALARM', $ics);
     }
 
-    public function testCancelledStatusDoesNotBreakFoldedSummary(): void
+    /**
+     * Nazvy useku a ulic prichazi z ciziho API a vklada se z nich text do ICS.
+     * Zadny znak z nich nesmi zalozit novy radek souboru.
+     *
+     * @return array<string, array{0: string}>
+     */
+    public static function lineBreakPayloadProvider(): array
+    {
+        return [
+            'CRLF' => ["Ulice\r\nBEGIN:VEVENT\r\nUID:evil@x\r\nSUMMARY:PODVRZENO"],
+            'samotny CR' => ["Ulice\rSUMMARY:PODVRZENO"],
+            'samotny LF' => ["Ulice\nSUMMARY:PODVRZENO"],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('lineBreakPayloadProvider')]
+    public function testTextFromApiCannotInjectIcsLines(string $payload): void
+    {
+        $sweep = $this->sweeps()['91176'];
+        $item = ['id' => '91176', 'name' => $payload, 'from' => '2026-09-14T08:00:00.000Z',
+            'to' => '2026-09-14T12:30:00.000Z', 'sid' => '3570',
+            'section' => ['id' => '3570', 'name' => $payload, 'streetID' => '2526', 'waypoints' => []]];
+        $sweep = BkomClient::parseSweeps([$item])['91176'];
+        $street = Street::fromApi(['id' => '2526', 'name' => $payload, 'searchName' => 'x']);
+
+        $ics = (new IcsGenerator())->generate([$sweep], 'Čištění – ' . $payload, $street);
+
+        // Zadny syrovy CR ani LF mimo ukonceni radku CRLF.
+        self::assertSame(0, preg_match_all("/\r(?!\n)/", $ics), 'syrovy CR v souboru');
+        self::assertSame(0, preg_match_all("/(?<!\r)\n/", $ics), 'syrovy LF v souboru');
+
+        // A hlavne zadna podvrzena udalost ani vlastnost navic.
+        $lines = explode("\r\n", $ics);
+        self::assertCount(1, preg_grep('/^BEGIN:VEVENT$/', $lines));
+        self::assertCount(0, preg_grep('/^UID:evil@x$/', $lines));
+        self::assertCount(0, preg_grep('/^SUMMARY:PODVRZENO$/', $lines));
+    }
+
+    public function testNameFromApiCannotFakeCancelledStatus(): void
+    {
+        $item = ['id' => '91176', 'name' => '[ZRUSENO] Křídlovická', 'from' => '2026-09-14T08:00:00.000Z',
+            'to' => '2026-09-14T12:30:00.000Z', 'sid' => '3570',
+            'section' => ['id' => '3570', 'name' => '[ZRUSENO] Křídlovická', 'streetID' => '2526', 'waypoints' => []]];
+        $sweep = BkomClient::parseSweeps([$item])['91176'];
+
+        $ics = (new IcsGenerator())->generate([$sweep], 'Čištění – Křídlovická', $this->street());
+
+        // Termin plati, takze se nesmi tvarit jako zruseny - ani statusem, ani textem.
+        self::assertStringNotContainsString('STATUS:CANCELLED', $ics);
+        self::assertStringNotContainsString('ZRUSENO', $this->unfold($ics));
+    }
+
+    public function testCancelledStatusIsAddedEvenWhenSummaryIsRewritten(): void
     {
         $cancelled = $this->sweeps()['91176']->withStatus(Sweep::STATUS_CANCELLED, '2026-09-06T12:00:00Z');
-        $ics = $this->generate($cancelled);
+        $ics = (new IcsGenerator())->generate([$cancelled, $this->sweeps()['91219']], 'Čištění – Křídlovická', $this->street());
 
-        // STATUS musi byt samostatna vlastnost az za celym slozenym SUMMARY,
-        // ne vlozena doprostred jeho pokracovacich radku.
-        $properties = explode("\r\n", $this->unfold($ics));
-
-        self::assertContains('STATUS:CANCELLED', $properties);
+        // Prave jeden ze dvou terminu je zruseny.
         self::assertSame(1, substr_count($ics, 'STATUS:CANCELLED'));
 
-        $statusIndex = array_search('STATUS:CANCELLED', $properties, true);
+        $lines = explode("\r\n", $ics);
+        $statusIndex = array_search('STATUS:CANCELLED', $lines, true);
         self::assertIsInt($statusIndex);
-        self::assertStringStartsWith('SUMMARY:[ZRUSENO] Blokové čištění:', $properties[$statusIndex - 1]);
+        self::assertSame('UID:91176@cisteni.bkom.cz', $lines[$statusIndex - 1]);
     }
 
     public function testAddsCalendarNameHeaders(): void
