@@ -90,7 +90,7 @@ final class IndexGenerator
     ): array {
         $grouped = [];
         foreach ($sweeps as $sweep) {
-            $grouped[$sweep->sectionKey()][] = $sweep;
+            $grouped[$sweep->sectionKey][] = $sweep;
         }
 
         if (count($grouped) < 2) {
@@ -106,9 +106,13 @@ final class IndexGenerator
             usort($upcoming, static fn (Sweep $a, Sweep $b): int => $a->from <=> $b->from);
             $next = $upcoming[0] ?? null;
 
+            // BKOM nazvy useku mezi terminy prepisuje, bereme ten nejnovejsi.
+            $latest = $sectionSweeps;
+            usort($latest, static fn (Sweep $a, Sweep $b): int => $b->from <=> $a->from);
+
             $sections[] = [
                 'id' => $streetId . '-' . $key,
-                'name' => $sectionSweeps[0]->sectionName,
+                'name' => $latest[0]->sectionName,
                 'count' => count($sectionSweeps),
                 'upcoming' => count($upcoming),
                 'next' => $next?->from->setTimezone($timezone)->format('c'),

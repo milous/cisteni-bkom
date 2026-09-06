@@ -95,7 +95,7 @@ try {
         // by clovek dostaval upozorneni i na cast ulice, kde neparkuje.
         $bySection = [];
         foreach ($sweeps as $sweep) {
-            $bySection[$sweep->sectionKey()][] = $sweep;
+            $bySection[$sweep->sectionKey][] = $sweep;
         }
 
         if (count($bySection) < 2) {
@@ -103,13 +103,14 @@ try {
         }
 
         foreach ($bySection as $key => $sectionSweeps) {
+            // Nazev useku se u BKOM mezi terminy meni, kalendar pojmenujeme
+            // podle nejnovejsiho.
+            $latest = $sectionSweeps;
+            usort($latest, static fn (Sweep $a, Sweep $b): int => $b->from <=> $a->from);
+
             file_put_contents(
                 $outputDir . '/' . $streetId . '-' . $key . '.ics',
-                $generator->generate(
-                    $sectionSweeps,
-                    'Čištění – ' . $sectionSweeps[0]->sectionName,
-                    $street,
-                ),
+                $generator->generate($sectionSweeps, 'Čištění – ' . $latest[0]->sectionName, $street),
             );
             $sectionFiles++;
         }

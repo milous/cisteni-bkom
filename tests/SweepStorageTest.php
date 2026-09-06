@@ -46,6 +46,7 @@ final class SweepStorageTest extends TestCase
             sectionId: 's' . $id,
             sectionName: 'Ulice ' . $id . ' v úseku A-B',
             streetId: '2526',
+            sectionKey: 'sec' . $id,
             lat: 49.1,
             lon: 16.6,
             status: $status,

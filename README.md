@@ -42,9 +42,15 @@ Poznámky k API:
 - Pokud se v `/api/sweep/map` uvede `streetID`, parametry `from`/`to` se ignorují.
   Proto se stahuje celý dataset najednou a filtruje se až lokálně.
 - `section.id` (`sid`) **není stabilní** — stejný úsek dostane při každém termínu
-  jiné id (Bítešská: `3539` v září, `2616` v říjnu). Úseky se proto identifikují
-  podle normalizovaného názvu, což zároveň sloučí drobné rozdíly v zápisu
-  (`Sabinova ||` vs `Sabinova`).
+  jiné id (Holásecká: `4792` v dubnu, `452` v říjnu, přitom jde o tentýž úsek).
+- Název úseku **taky není identifikátor**. V jednom roce dat je 44 případů, kdy
+  jeden název pokrývá různé úseky (Bítešská má dva ~1,5 km od sebe, Palackého
+  náměstí tři), a 69 případů, kdy BKOM tentýž úsek mezi termíny přejmenoval
+  (`Úhlehle` → `Úlehle`, `Lesnická` → `Lesnická úsek Jugoslávská - Provazníkova`).
+- Jednoznačná je až **geometrie úseku**. Klíčem je hash setříděné sady `globalID`
+  jeho waypointů (odkazy na konkrétní úseky cesty); bez nich se sáhne po
+  souřadnicích, bez nich po názvu. Proto mají kalendáře úseků v URL hash
+  (`2526-2bd6c90b.ics`) — odběr přežije přejmenování úseku.
 - Noční úklidy mají konec se stejným datem jako začátek (19:00–05:00 přijde jako
   `from 17:00Z`, `to 03:00Z` téhož dne); konec se posouvá na další den.
 

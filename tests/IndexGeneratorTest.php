@@ -109,13 +109,17 @@ final class IndexGeneratorTest extends TestCase
     {
         $streets = array_column($this->generate()['streets'], null, 'id');
 
-        self::assertCount(2, $streets['2526']['sections']);
-        self::assertSame(
-            ['2526-kridlovicka-v-useku-nove-sady-viadukt', '2526-kridlovicka-v-useku-krizova-nove-sady'],
-            array_column($streets['2526']['sections'], 'id'),
-        );
+        $sections = $streets['2526']['sections'];
+
+        self::assertCount(2, $sections);
+        self::assertNotSame($sections[0]['id'], $sections[1]['id']);
+        foreach ($sections as $section) {
+            self::assertMatchesRegularExpression('/^2526-[a-f0-9]{8}$/', $section['id']);
+        }
+
         // Radi se podle nejblizsiho terminu.
-        self::assertSame('14. 9. 2026, 10:00 - 14:30', $streets['2526']['sections'][0]['nextText']);
+        self::assertSame('14. 9. 2026, 10:00 - 14:30', $sections[0]['nextText']);
+        self::assertSame('Křídlovická v úseku Nové Sady-viadukt', $sections[0]['name']);
     }
 
     public function testStreetCleanedAsWholeHasNoSections(): void

@@ -162,37 +162,100 @@ final class SweepTest extends TestCase
         Sweep::fromArray($data);
     }
 
-    public function testSectionKeyIsStableAcrossChangingSectionIds(): void
+    /**
+     * @param array<int, array{globalID?: string, lat?: float, lon?: float}> $waypoints
+     * @return array<string, mixed>
+     */
+    private function itemWith(string $id, string $sectionName, array $waypoints): array
     {
-        // BKOM prideluje stejnemu useku pri kazdem terminu jine sid, klic se
-        // proto odvozuje od nazvu useku.
-        $first = $this->fixture()[0];
-        $second = $this->fixture()[0];
-        $second['id'] = '99999';
-        $second['section']['id'] = '4242';
+        $item = $this->fixture()[0];
+        $item['id'] = $id;
+        $item['section']['name'] = $sectionName;
+        $item['section']['waypoints'] = $waypoints;
 
-        $sweeps = BkomClient::parseSweeps([$first, $second]);
-
-        self::assertSame(
-            $sweeps['91176']->sectionKey(),
-            $sweeps['99999']->sectionKey(),
-        );
-        self::assertSame('kridlovicka-v-useku-nove-sady-viadukt', $sweeps['91176']->sectionKey());
+        return $item;
     }
 
-    public function testSectionKeyMergesSloppyNameVariants(): void
+    /**
+     * BKOM prideluje stejnemu useku pri kazdem terminu jine sid a nazev mezi
+     * terminy prepisuje. Klic musi drzet na geometrii.
+     */
+    public function testSectionKeyIgnoresChangingIdAndName(): void
     {
-        $variants = ['Sabinova', 'Sabinova ||', 'sabinova', 'Sabinova  '];
-        $keys = [];
+        $geometry = [
+            ['globalID' => '1103437250', 'lat' => 49.148, 'lon' => 16.664],
+            ['globalID' => '1103437251', 'lat' => 49.149, 'lon' => 16.665],
+        ];
 
-        foreach ($variants as $i => $name) {
-            $item = $this->fixture()[0];
-            $item['id'] = (string) (1000 + $i);
-            $item['section']['name'] = $name;
-            $keys[] = BkomClient::parseSweeps([$item])[(string) (1000 + $i)]->sectionKey();
+        $april = $this->itemWith('4792', 'Úhlehle', $geometry);
+        $april['section']['id'] = '4792';
+
+        $october = $this->itemWith('452', 'Úlehle', array_reverse($geometry));
+        $october['section']['id'] = '452';
+
+        $sweeps = BkomClient::parseSweeps([$april, $october]);
+
+        self::assertSame($sweeps['4792']->sectionKey, $sweeps['452']->sectionKey);
+    }
+
+    /**
+     * Bitesska ma dva ruzne useky pod stejnym nazvem - slouceni by lidem
+     * poslalo upozorneni na cast ulice, kde neparkuji.
+     */
+    public function testSectionKeySeparatesDifferentSectionsWithSameName(): void
+    {
+        $north = $this->itemWith('1', 'Bítešská', [['globalID' => '1103714390', 'lat' => 49.177, 'lon' => 16.563]]);
+        $south = $this->itemWith('2', 'Bítešská', [['globalID' => '1103713984', 'lat' => 49.168, 'lon' => 16.548]]);
+
+        $sweeps = BkomClient::parseSweeps([$north, $south]);
+
+        self::assertNotSame($sweeps['1']->sectionKey, $sweeps['2']->sectionKey);
+    }
+
+    public function testSectionKeyFallsBackToCoordinatesWithoutGlobalId(): void
+    {
+        $a = $this->itemWith('1', 'Bez ID', [['lat' => 49.1, 'lon' => 16.6]]);
+        $b = $this->itemWith('2', 'Jiny nazev', [['lat' => 49.1, 'lon' => 16.6]]);
+        $c = $this->itemWith('3', 'Bez ID', [['lat' => 49.2, 'lon' => 16.7]]);
+
+        $sweeps = BkomClient::parseSweeps([$a, $b, $c]);
+
+        self::assertSame($sweeps['1']->sectionKey, $sweeps['2']->sectionKey);
+        self::assertNotSame($sweeps['1']->sectionKey, $sweeps['3']->sectionKey);
+    }
+
+    public function testSectionKeyFallsBackToNameWithoutGeometry(): void
+    {
+        $sweeps = BkomClient::parseSweeps([
+            $this->itemWith('1', 'Srnčí', []),
+            $this->itemWith('2', 'srnčí ', []),
+            $this->itemWith('3', 'Jiná', []),
+        ]);
+
+        self::assertSame($sweeps['1']->sectionKey, $sweeps['2']->sectionKey);
+        self::assertNotSame($sweeps['1']->sectionKey, $sweeps['3']->sectionKey);
+    }
+
+    public function testSectionKeyIsSafeForUseInFileName(): void
+    {
+        foreach (BkomClient::parseSweeps($this->fixture()) as $sweep) {
+            self::assertMatchesRegularExpression('/^[a-f0-9]{8}$/', $sweep->sectionKey);
         }
+    }
 
-        self::assertSame(['sabinova'], array_unique($keys));
+    public function testSectionKeyIsNotPartOfContentComparison(): void
+    {
+        // Prekresleni trasy udalost pro uzivatele nemeni, jen ji presune do
+        // jineho kalendare useku - nesmi zvysovat revizi.
+        $sweeps = BkomClient::parseSweeps([
+            $this->itemWith('1', 'Ulice', [['globalID' => '1']]),
+            $this->itemWith('1', 'Ulice', [['globalID' => '2']]),
+        ]);
+        $one = BkomClient::parseSweeps([$this->itemWith('1', 'Ulice', [['globalID' => '1']])])['1'];
+        $two = BkomClient::parseSweeps([$this->itemWith('1', 'Ulice', [['globalID' => '2']])])['1'];
+
+        self::assertNotSame($one->sectionKey, $two->sectionKey);
+        self::assertTrue($one->hasSameContent($two));
     }
 
     public function testHasSameContentIgnoresStatus(): void

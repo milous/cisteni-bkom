@@ -24,6 +24,10 @@ final class Sweep
         public readonly string $sectionId,
         public readonly string $sectionName,
         public readonly string $streetId,
+        /**
+         * Stabilni klic fyzickeho useku ulice, odvozeny z jeho geometrie.
+         */
+        public readonly string $sectionKey,
         public readonly ?float $lat,
         public readonly ?float $lon,
         public readonly string $status,
@@ -50,6 +54,7 @@ final class Sweep
         $streetId = self::safeId((string) ($section['streetID'] ?? ''), 'section.streetID');
 
         [$lat, $lon] = self::firstWaypoint($section);
+        $sectionKey = self::sectionKey($section);
 
         $from = self::parseDateTime((string) $data['from']);
         $to = self::normalizeEnd($from, self::parseDateTime((string) $data['to']));
@@ -62,6 +67,7 @@ final class Sweep
             sectionId: (string) ($section['id'] ?? $data['sid'] ?? ''),
             sectionName: (string) ($section['name'] ?? $data['name'] ?? ''),
             streetId: $streetId,
+            sectionKey: $sectionKey,
             lat: $lat,
             lon: $lon,
             status: ($data['done'] ?? false) === true ? self::STATUS_DONE : self::STATUS_PLANNED,
@@ -97,6 +103,9 @@ final class Sweep
             sectionId: (string) $data['sectionId'],
             sectionName: (string) $data['sectionName'],
             streetId: self::safeId((string) $data['streetId'], 'streetId'),
+            sectionKey: isset($data['sectionKey'])
+                ? self::safeId((string) $data['sectionKey'], 'sectionKey')
+                : self::nameFallbackKey((string) $data['sectionName']),
             lat: isset($data['lat']) ? (float) $data['lat'] : null,
             lon: isset($data['lon']) ? (float) $data['lon'] : null,
             status: $status,
@@ -118,6 +127,7 @@ final class Sweep
             'sectionId' => $this->sectionId,
             'sectionName' => $this->sectionName,
             'streetId' => $this->streetId,
+            'sectionKey' => $this->sectionKey,
             'lat' => $this->lat,
             'lon' => $this->lon,
             'status' => $this->status,
@@ -141,6 +151,7 @@ final class Sweep
             $this->sectionId,
             $this->sectionName,
             $this->streetId,
+            $this->sectionKey,
             $this->lat,
             $this->lon,
             $status,
@@ -162,6 +173,7 @@ final class Sweep
             $this->sectionId,
             $this->sectionName,
             $this->streetId,
+            $this->sectionKey,
             $this->lat,
             $this->lon,
             $this->status,
@@ -171,19 +183,69 @@ final class Sweep
     }
 
     /**
-     * Stabilni klic useku ulice.
+     * Stabilni klic fyzickeho useku ulice.
      *
-     * sectionId z API pouzit nejde - stejny usek dostane pri kazdem terminu jine
-     * sid (napr. Bitesska: 3539 v zari, 2616 v rijnu). Stabilni je az nazev useku,
-     * ktery se navic normalizuje, cimz se sloucí i drobne rozdily v zapisu
-     * ("Sabinova ||" vs "Sabinova", "jelení" vs "Jelení").
+     * Ani sid, ani nazev useku pouzit nejde:
+     *  - sid je pro kazdy termin jine (Holasecka: 4792 v dubnu, 452 v rijnu,
+     *    pritom jde o tentyz usek),
+     *  - nazev neni jednoznacny (Bitesska ma dva ruzne useky stejneho jmena)
+     *    a BKOM ho mezi terminy prepisuje ("Uhlehle" -> "Ulehle").
+     *
+     * Jednoznacna je az geometrie useku. Klicem je sada globalID jeho bodu -
+     * to jsou odkazy na konkretni useky cesty, takze prezijou i drobne
+     * prekresleni trasy. Kdyz chybi, sahne se po samotnych souradnicich.
+     *
+     * @param array<string, mixed> $section
      */
-    public function sectionKey(): string
+    private static function sectionKey(array $section): string
     {
-        $slug = Street::normalize($this->sectionName !== '' ? $this->sectionName : $this->name);
-        $slug = preg_replace('/[^a-z0-9]+/', '-', $slug) ?? '';
+        $waypoints = is_array($section['waypoints'] ?? null) ? $section['waypoints'] : [];
 
-        return trim($slug, '-');
+        $globalIds = [];
+        $points = [];
+
+        foreach ($waypoints as $point) {
+            if (!is_array($point)) {
+                continue;
+            }
+
+            if (isset($point['globalID']) && is_scalar($point['globalID'])) {
+                $globalIds[(string) $point['globalID']] = true;
+            }
+
+            if (isset($point['lat'], $point['lon'])) {
+                $points[] = round((float) $point['lat'], 7) . ',' . round((float) $point['lon'], 7);
+            }
+        }
+
+        if ($globalIds !== []) {
+            $keys = array_keys($globalIds);
+            sort($keys, SORT_STRING);
+
+            return substr(sha1('g:' . implode(',', $keys)), 0, 8);
+        }
+
+        if ($points !== []) {
+            sort($points, SORT_STRING);
+
+            return substr(sha1('p:' . implode(';', $points)), 0, 8);
+        }
+
+        // Usek bez geometrie - lepsi nez nic je alespon nazev.
+        return self::nameFallbackKey((string) ($section['name'] ?? ''));
+    }
+
+    /**
+     * Nouzovy klic z nazvu pro useky bez geometrie a pro zaznamy ze starsiho
+     * snapshotu, ktery klic jeste neobsahoval.
+     */
+    private static function nameFallbackKey(string $name): string
+    {
+        // Sjednoceni bilych znaku, aby "Srnčí" a "srnčí " daly stejny klic -
+        // v datech BKOM se takove varianty bezne objevuji.
+        $normalized = trim((string) preg_replace('/\s+/u', ' ', Street::normalize($name)));
+
+        return substr(sha1('n:' . $normalized), 0, 8);
     }
 
     public function isCancelled(): bool
