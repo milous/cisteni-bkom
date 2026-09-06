@@ -69,7 +69,13 @@ final class BkomClient
             if (!is_array($item) || !isset($item['id'], $item['name'])) {
                 continue;
             }
-            $street = Street::fromApi($item);
+            try {
+                $street = Street::fromApi($item);
+            } catch (\InvalidArgumentException) {
+                // Jeden vadny zaznam v ciselniku nesmi shodit cely sync.
+                continue;
+            }
+
             $streets[$street->id] = $street;
         }
 

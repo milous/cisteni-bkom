@@ -39,17 +39,12 @@ final class Sweep
     {
         $section = is_array($data['section'] ?? null) ? $data['section'] : [];
 
-        $streetId = (string) ($section['streetID'] ?? '');
-        if ($streetId === '') {
-            throw new \InvalidArgumentException(
-                'Sweep ' . (string) ($data['id'] ?? '?') . ' nema section.streetID.'
-            );
-        }
+        $streetId = self::safeId((string) ($section['streetID'] ?? ''), 'section.streetID');
 
         [$lat, $lon] = self::firstWaypoint($section);
 
         return new self(
-            id: (string) $data['id'],
+            id: self::safeId((string) $data['id'], 'id'),
             name: (string) ($data['name'] ?? ''),
             from: self::parseDateTime((string) $data['from']),
             to: self::parseDateTime((string) $data['to']),
@@ -142,6 +137,20 @@ final class Sweep
             && $this->sectionId === $other->sectionId
             && $this->sectionName === $other->sectionName
             && $this->streetId === $other->streetId;
+    }
+
+    /**
+     * ID z ciziho API konci v nazvu souboru (output/<streetId>.ics) a v UID
+     * udalosti, takze se nesmi verit jeho tvaru. Pripousti se jen znaky, ktere
+     * neumoznuji vystoupit z adresare ani rozbit strukturu ICS.
+     */
+    private static function safeId(string $value, string $field): string
+    {
+        if (preg_match('/^[A-Za-z0-9_-]{1,64}$/', $value) !== 1) {
+            throw new \InvalidArgumentException("Nepouzitelne {$field}: \"{$value}\".");
+        }
+
+        return $value;
     }
 
     private static function parseDateTime(string $value): \DateTimeImmutable

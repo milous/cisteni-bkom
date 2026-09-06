@@ -26,8 +26,13 @@ final class Street
     {
         [$lat, $lon] = self::boundsCenter($data['bounds'] ?? null);
 
+        $id = (string) $data['id'];
+        if (preg_match('/^[A-Za-z0-9_-]{1,64}$/', $id) !== 1) {
+            throw new \InvalidArgumentException("Nepouzitelne id ulice: \"{$id}\".");
+        }
+
         return new self(
-            id: (string) $data['id'],
+            id: $id,
             name: (string) $data['name'],
             searchName: self::normalize((string) ($data['searchName'] ?? '') ?: (string) $data['name']),
             cityPart: self::cityPart($data['cityPart'] ?? null),

@@ -76,6 +76,42 @@ final class SweepTest extends TestCase
         self::assertSame($original->lat, $restored->lat);
     }
 
+    /**
+     * ID z API konci v nazvu souboru output/<streetId>.ics, takze nesmi
+     * obsahovat lomitka ani tecky, kterymi by slo vystoupit z adresare.
+     *
+     * @return array<string, array{0: string}>
+     */
+    public static function unsafeIdProvider(): array
+    {
+        return [
+            'traversal' => ['../../../../tmp/pwn'],
+            'lomitko' => ['2526/x'],
+            'tecky' => ['..'],
+            'prazdne' => [''],
+            'mezera' => ['25 26'],
+            'novy radek' => ["2526\nSUMMARY:x"],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('unsafeIdProvider')]
+    public function testRejectsUnsafeStreetId(string $streetId): void
+    {
+        $item = $this->fixture()[0];
+        $item['section']['streetID'] = $streetId;
+
+        self::assertSame([], BkomClient::parseSweeps([$item]));
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('unsafeIdProvider')]
+    public function testRejectsUnsafeSweepId(string $sweepId): void
+    {
+        $item = $this->fixture()[0];
+        $item['id'] = $sweepId;
+
+        self::assertSame([], BkomClient::parseSweeps([$item]));
+    }
+
     public function testHasSameContentIgnoresStatus(): void
     {
         $sweep = BkomClient::parseSweeps($this->fixture())['91176'];

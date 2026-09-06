@@ -2,5 +2,4 @@
 /output/*
 !/output/.gitkeep
 /.phpunit.cache/
-composer.lock
 .DS_Store
