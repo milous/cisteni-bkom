@@ -17,6 +17,8 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+# Akce jsou pripnute na commit SHA - plovouci tag "v2" by pri kompromitaci
+# upstreamu spustil cizi kod s pravem zapisovat do repozitare.
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -32,10 +34,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          # Token se nesmi valet v .git/config po cely job - composer skripty ani
+          # akce tretich stran ho nemaji videt. Push si ho preda explicitne.
+          persist-credentials: false
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
         with:
           php-version: '8.3'
           extensions: mbstring, json, curl
@@ -43,46 +49,56 @@ jobs:
 
       - name: Get composer cache directory
         id: composer-cache
-        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Cache composer dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
-        run: composer install --optimize-autoloader
+        # Bez skriptu a pluginu - zavislosti nemaji co spoustet kod v CI.
+        run: composer install --no-scripts --no-plugins --no-interaction --optimize-autoloader
+
+      - name: Audit dependencies
+        run: composer audit --no-interaction
 
       - name: Run tests
         run: ./vendor/bin/phpunit tests/
 
       - name: Install production dependencies
-        run: composer install --no-dev --optimize-autoloader
+        run: composer install --no-dev --no-scripts --no-plugins --no-interaction --optimize-autoloader
 
       - name: Run calendar sync
         run: php sync.php
 
       - name: Commit snapshot
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "chore: sync sweeps"
-          git push
+          if git diff --staged --quiet; then
+            echo "Snapshot beze zmeny."
+            exit 0
+          fi
+          git commit -m "chore: sync sweeps"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: output
 
       - name: Deploy to GitHub Pages
         id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
 
       - name: Send failure email
         if: failure()
@@ -92,26 +108,39 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
+          # Kontexty GitHubu jdou pres env, ne primo do skriptu - pri pridani
+          # dalsiho triggeru by se jinak z ${{ }} stala script injection.
+          REPOSITORY: ${{ github.repository }}
+          WORKFLOW: ${{ github.workflow }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           if [ -z "$SMTP_URL" ]; then
             echo "SMTP secrets nejsou nastavene, notifikaci preskakuji."
             exit 0
           fi
+
+          # Heslo se curlu predava konfiguracnim souborem (0600), ne v argumentech
+          # prikazu, kde by bylo videt v seznamu procesu.
+          CONFIG="$(mktemp)"
+          trap 'rm -f "$CONFIG"' EXIT
+          escape() { printf '%s' "$1" | sed 's/[\\"]/\\&/g'; }
+          printf 'user = "%s:%s"\n' "$(escape "$SMTP_USER")" "$(escape "$SMTP_PASSWORD")" > "$CONFIG"
+
           curl --ssl-reqd \
+            --config "$CONFIG" \
             --url "$SMTP_URL" \
-            --user "$SMTP_USER:$SMTP_PASSWORD" \
             --mail-from "$MAIL_FROM" \
             --mail-rcpt "$MAIL_TO" \
-            --upload-file - <<EOF
+            --upload-file - <<EOM
           From: $MAIL_FROM
           To: $MAIL_TO
           Subject: Cisteni BKOM sync failed
 
           Synchronizace kalendare blokoveho cisteni selhala.
 
-          Repository: ${{ github.repository }}
-          Workflow: ${{ github.workflow }}
-          Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Repository: $REPOSITORY
+          Workflow: $WORKFLOW
+          Run: $RUN_URL
 
           Zkontrolujte, zda se nezmenilo API na cisteni.bkom.cz.
-          EOF
+          EOM

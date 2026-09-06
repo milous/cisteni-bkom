@@ -1,0 +1,11 @@
+version: 2
+updates:
+  # Akce jsou pripnute na SHA, Dependabot je udrzuje aktualni.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: composer
+    directory: /
+    schedule:
+      interval: monthly
