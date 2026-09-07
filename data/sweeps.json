@@ -29761,8 +29761,9 @@
             "sectionKey": "3315ef10",
             "lat": 49.1686365372996,
             "lon": 16.678714009167777,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-09-07T02:59:24Z"
         },
         {
             "id": "90395",
@@ -29789,6 +29790,20 @@
             "sectionKey": "7c742a5e",
             "lat": 49.1732623649186,
             "lon": 16.689833500737848,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "90401",
+            "name": "Tuřanka silnice k Airproducts a parkoviště před Areálem Slatina",
+            "from": "2026-09-17T06:00:00Z",
+            "to": "2026-09-17T15:00:00Z",
+            "sectionId": "5010",
+            "sectionName": "Tuřanka silnice k Airproducts a parkoviště před Areálem Slatina",
+            "streetId": "3376",
+            "sectionKey": "3315ef10",
+            "lat": 49.1686365372996,
+            "lon": 16.678714009167777,
             "status": "planned",
             "sequence": 0
         },
