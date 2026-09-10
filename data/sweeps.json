@@ -22121,6 +22121,20 @@
             "sequence": 0
         },
         {
+            "id": "88818",
+            "name": "Filipínského (úsek Klíny- Šámalova účel.k.)",
+            "from": "2026-03-26T07:00:00Z",
+            "to": "2026-03-26T14:00:00Z",
+            "sectionId": "5159",
+            "sectionName": "Filipínského (úsek Klíny- Šámalova účel.k.)",
+            "streetId": "2153",
+            "sectionKey": "bc835f1d",
+            "lat": 49.1966518849682,
+            "lon": 16.6334749013984,
+            "status": "done",
+            "sequence": 0
+        },
+        {
             "id": "88819",
             "name": "Závodského",
             "from": "2026-09-10T06:00:00Z",
@@ -22271,7 +22285,7 @@
             "sectionKey": "bc835f1d",
             "lat": 49.1966518849682,
             "lon": 16.6334749013984,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
