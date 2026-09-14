@@ -33583,9 +33583,8 @@
             "sectionKey": "7c742a5e",
             "lat": 49.1732623649186,
             "lon": 16.689833500737848,
-            "status": "cancelled",
-            "sequence": 1,
-            "cancelledAt": "2026-09-11T03:06:29Z"
+            "status": "planned",
+            "sequence": 2
         },
         {
             "id": "90393",
@@ -33598,8 +33597,9 @@
             "sectionKey": "3315ef10",
             "lat": 49.1686365372996,
             "lon": 16.678714009167777,
-            "status": "planned",
-            "sequence": 2
+            "status": "cancelled",
+            "sequence": 3,
+            "cancelledAt": "2026-09-14T03:28:57Z"
         },
         {
             "id": "90394",
@@ -33612,9 +33612,8 @@
             "sectionKey": "f7d5b3c4",
             "lat": 49.1633645902679,
             "lon": 16.687681912398,
-            "status": "cancelled",
-            "sequence": 3,
-            "cancelledAt": "2026-09-12T03:12:53Z"
+            "status": "planned",
+            "sequence": 4
         },
         {
             "id": "90395",
@@ -33642,8 +33641,9 @@
             "sectionKey": "7c742a5e",
             "lat": 49.1732623649186,
             "lon": 16.689833500737848,
-            "status": "planned",
-            "sequence": 2
+            "status": "cancelled",
+            "sequence": 3,
+            "cancelledAt": "2026-09-14T03:28:57Z"
         },
         {
             "id": "90401",
@@ -33656,9 +33656,8 @@
             "sectionKey": "3315ef10",
             "lat": 49.1686365372996,
             "lon": 16.678714009167777,
-            "status": "cancelled",
-            "sequence": 1,
-            "cancelledAt": "2026-09-09T03:11:23Z"
+            "status": "planned",
+            "sequence": 2
         },
         {
             "id": "90402",
@@ -33671,8 +33670,9 @@
             "sectionKey": "f7d5b3c4",
             "lat": 49.1633645902679,
             "lon": 16.687681912398,
-            "status": "planned",
-            "sequence": 4
+            "status": "cancelled",
+            "sequence": 5,
+            "cancelledAt": "2026-09-14T03:28:57Z"
         },
         {
             "id": "90403",
