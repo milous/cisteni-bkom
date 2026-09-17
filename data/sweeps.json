@@ -34647,9 +34647,8 @@
             "sectionKey": "7c742a5e",
             "lat": 49.1732623649186,
             "lon": 16.689833500737848,
-            "status": "cancelled",
-            "sequence": 3,
-            "cancelledAt": "2026-09-15T03:29:53Z"
+            "status": "planned",
+            "sequence": 4
         },
         {
             "id": "90393",
@@ -34662,9 +34661,8 @@
             "sectionKey": "3315ef10",
             "lat": 49.1686365372996,
             "lon": 16.678714009167777,
-            "status": "cancelled",
-            "sequence": 3,
-            "cancelledAt": "2026-09-14T03:28:57Z"
+            "status": "planned",
+            "sequence": 4
         },
         {
             "id": "90394",
@@ -34691,9 +34689,8 @@
             "sectionKey": "a144e11a",
             "lat": 49.1732864931537,
             "lon": 16.6747123754958,
-            "status": "cancelled",
-            "sequence": 5,
-            "cancelledAt": "2026-09-16T03:25:48Z"
+            "status": "planned",
+            "sequence": 6
         },
         {
             "id": "90400",
@@ -34706,7 +34703,7 @@
             "sectionKey": "7c742a5e",
             "lat": 49.1732623649186,
             "lon": 16.689833500737848,
-            "status": "planned",
+            "status": "done",
             "sequence": 4
         },
         {
@@ -34720,7 +34717,7 @@
             "sectionKey": "3315ef10",
             "lat": 49.1686365372996,
             "lon": 16.678714009167777,
-            "status": "planned",
+            "status": "done",
             "sequence": 2
         },
         {
@@ -34749,7 +34746,7 @@
             "sectionKey": "a144e11a",
             "lat": 49.1732864931537,
             "lon": 16.6747123754958,
-            "status": "planned",
+            "status": "done",
             "sequence": 4
         },
         {
