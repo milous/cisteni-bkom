@@ -16027,7 +16027,7 @@
             "sectionKey": "8ff10aec",
             "lat": 49.2425648320193,
             "lon": 16.5861963978717,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16041,7 +16041,7 @@
             "sectionKey": "49f12a05",
             "lat": 49.2380951717615,
             "lon": 16.5882550868379,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16055,7 +16055,7 @@
             "sectionKey": "b121da1f",
             "lat": 49.2405671746185,
             "lon": 16.5878849947343,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16069,7 +16069,7 @@
             "sectionKey": "9885c515",
             "lat": 49.2445156279529,
             "lon": 16.5882393914554,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16083,7 +16083,7 @@
             "sectionKey": "686a9466",
             "lat": 49.2464166196078,
             "lon": 16.5848208505558,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16097,7 +16097,7 @@
             "sectionKey": "10046cd3",
             "lat": 49.2449066488524,
             "lon": 16.5772384520169,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16111,7 +16111,7 @@
             "sectionKey": "cca5b161",
             "lat": 49.2477144242355,
             "lon": 16.574129745374,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16119,6 +16119,118 @@
             "name": "Družstevní (parkoviště před domy č.o. 4 a 12) (ú)",
             "from": "2026-09-16T06:00:00Z",
             "to": "2026-09-16T13:00:00Z",
+            "sectionId": "5382",
+            "sectionName": "Družstevní (parkoviště před domy č.o. 4 a 12) (ú)",
+            "streetId": "2114",
+            "sectionKey": "3f08b67b",
+            "lat": 49.24791886727864,
+            "lon": 16.57735085423587,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "87303",
+            "name": "Žitná 1 - 3 (parkoviště)",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T14:00:00Z",
+            "sectionId": "4042",
+            "sectionName": "Žitná 1 - 3 (parkoviště)",
+            "streetId": "3635",
+            "sectionKey": "8ff10aec",
+            "lat": 49.2425648320193,
+            "lon": 16.5861963978717,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87304",
+            "name": "Novoměstská 3 - 5a (parkoviště)",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T14:00:00Z",
+            "sectionId": "4129",
+            "sectionName": "Novoměstská 3 - 5a (parkoviště)",
+            "streetId": "2813",
+            "sectionKey": "49f12a05",
+            "lat": 49.2380951717615,
+            "lon": 16.5882550868379,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87305",
+            "name": "Kořískova 47 - 55 (parkoviště)",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T14:00:00Z",
+            "sectionId": "4130",
+            "sectionName": "Kořískova 47 - 55 (parkoviště)",
+            "streetId": "2483",
+            "sectionKey": "b121da1f",
+            "lat": 49.2405671746185,
+            "lon": 16.5878849947343,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87306",
+            "name": "Novoměstská 23 - 41 (parkoviště)",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T14:00:00Z",
+            "sectionId": "4132",
+            "sectionName": "Novoměstská 23 - 41 (parkoviště)",
+            "streetId": "2813",
+            "sectionKey": "9885c515",
+            "lat": 49.2445156279529,
+            "lon": 16.5882393914554,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87307",
+            "name": "Kunštátská (parkoviště)",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T14:00:00Z",
+            "sectionId": "4133",
+            "sectionName": "Kunštátská (parkoviště)",
+            "streetId": "2561",
+            "sectionKey": "686a9466",
+            "lat": 49.2464166196078,
+            "lon": 16.5848208505558,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87308",
+            "name": "Medlánecká 22 - 26 (parkoviště)",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T14:00:00Z",
+            "sectionId": "4134",
+            "sectionName": "Medlánecká 22 - 26 (parkoviště)",
+            "streetId": "2680",
+            "sectionKey": "10046cd3",
+            "lat": 49.2449066488524,
+            "lon": 16.5772384520169,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87309",
+            "name": "Renčova 11 (parkoviště)",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T14:00:00Z",
+            "sectionId": "4135",
+            "sectionName": "Renčova 11 (parkoviště)",
+            "streetId": "3056",
+            "sectionKey": "cca5b161",
+            "lat": 49.2477144242355,
+            "lon": 16.574129745374,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87310",
+            "name": "Družstevní (parkoviště před domy č.o. 4 a 12) (ú)",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T14:00:00Z",
             "sectionId": "5382",
             "sectionName": "Družstevní (parkoviště před domy č.o. 4 a 12) (ú)",
             "streetId": "2114",
@@ -18939,7 +19051,7 @@
             "sectionKey": "158dbb99",
             "lat": 49.2232268737154,
             "lon": 16.5927552751682,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18953,7 +19065,7 @@
             "sectionKey": "2b0243be",
             "lat": 49.2158733288073,
             "lon": 16.5870296551462,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18967,7 +19079,7 @@
             "sectionKey": "184721f7",
             "lat": 49.2304653767272,
             "lon": 16.5847493142236,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18981,7 +19093,7 @@
             "sectionKey": "2e24c199",
             "lat": 49.2316860225362,
             "lon": 16.5845072252589,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18989,6 +19101,76 @@
             "name": "Herčíkova dlážděná plocha u č.o.8 (účel.k.)",
             "from": "2026-09-16T06:00:00Z",
             "to": "2026-09-16T10:00:00Z",
+            "sectionId": "5244",
+            "sectionName": "Herčíkova dlážděná plocha u č.o.8 (účel.k.)",
+            "streetId": "2227",
+            "sectionKey": "f5e14789",
+            "lat": 49.2292375504188,
+            "lon": 16.5828740362817,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "87904",
+            "name": "Slovinská",
+            "from": "2026-10-15T06:00:00Z",
+            "to": "2026-10-15T10:00:00Z",
+            "sectionId": "1809",
+            "sectionName": "Slovinská",
+            "streetId": "3205",
+            "sectionKey": "158dbb99",
+            "lat": 49.2232268737154,
+            "lon": 16.5927552751682,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87905",
+            "name": "Tererova",
+            "from": "2026-10-15T06:00:00Z",
+            "to": "2026-10-15T10:00:00Z",
+            "sectionId": "2021",
+            "sectionName": "Tererova",
+            "streetId": "3330",
+            "sectionKey": "2b0243be",
+            "lat": 49.2158733288073,
+            "lon": 16.5870296551462,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87906",
+            "name": "Herčíkova",
+            "from": "2026-10-15T06:00:00Z",
+            "to": "2026-10-15T10:00:00Z",
+            "sectionId": "2058",
+            "sectionName": "Herčíkova",
+            "streetId": "2227",
+            "sectionKey": "184721f7",
+            "lat": 49.2304653767272,
+            "lon": 16.5847493142236,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87907",
+            "name": "Herčíkova slepá část (mezi ZUŠ č.o.17 a ZŠ č.o.19 účel.k.)",
+            "from": "2026-10-15T06:00:00Z",
+            "to": "2026-10-15T10:00:00Z",
+            "sectionId": "5135",
+            "sectionName": "Herčíkova slepá část (mezi ZUŠ č.o.17 a ZŠ č.o.19 účel.k.)",
+            "streetId": "2227",
+            "sectionKey": "2e24c199",
+            "lat": 49.2316860225362,
+            "lon": 16.5845072252589,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87908",
+            "name": "Herčíkova dlážděná plocha u č.o.8 (účel.k.)",
+            "from": "2026-10-15T06:00:00Z",
+            "to": "2026-10-15T10:00:00Z",
             "sectionId": "5244",
             "sectionName": "Herčíkova dlážděná plocha u č.o.8 (účel.k.)",
             "streetId": "2227",
@@ -19009,7 +19191,7 @@
             "sectionKey": "21bdcdd8",
             "lat": 49.2111380346961,
             "lon": 16.5940456361813,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19023,7 +19205,7 @@
             "sectionKey": "5241b6e1",
             "lat": 49.2206642661366,
             "lon": 16.5872092317958,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19031,6 +19213,48 @@
             "name": "Svatopluka Čecha slepá část (od č.o.106 až 106c soukr.účel.k.)",
             "from": "2026-09-16T09:00:00Z",
             "to": "2026-09-16T13:00:00Z",
+            "sectionId": "5131",
+            "sectionName": "Svatopluka Čecha slepá část (od č.o.106 až 106c soukr.účel.k.)",
+            "streetId": "3308",
+            "sectionKey": "314fd60f",
+            "lat": 49.2199821797785,
+            "lon": 16.584839403269,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "87923",
+            "name": "Šumavská včetně parkoviště",
+            "from": "2026-10-15T09:00:00Z",
+            "to": "2026-10-15T13:00:00Z",
+            "sectionId": "1657",
+            "sectionName": "Šumavská včetně parkoviště",
+            "streetId": "3300",
+            "sectionKey": "21bdcdd8",
+            "lat": 49.2111380346961,
+            "lon": 16.5940456361813,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87924",
+            "name": "Svatopluka Čecha",
+            "from": "2026-10-15T09:00:00Z",
+            "to": "2026-10-15T13:00:00Z",
+            "sectionId": "1758",
+            "sectionName": "Svatopluka Čecha",
+            "streetId": "3308",
+            "sectionKey": "5241b6e1",
+            "lat": 49.2206642661366,
+            "lon": 16.5872092317958,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87925",
+            "name": "Svatopluka Čecha slepá část (od č.o.106 až 106c soukr.účel.k.)",
+            "from": "2026-10-15T09:00:00Z",
+            "to": "2026-10-15T13:00:00Z",
             "sectionId": "5131",
             "sectionName": "Svatopluka Čecha slepá část (od č.o.106 až 106c soukr.účel.k.)",
             "streetId": "3308",
@@ -21473,7 +21697,7 @@
             "sectionKey": "df7ecbcd",
             "lat": 49.2155999981335,
             "lon": 16.5803347210202,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21487,7 +21711,7 @@
             "sectionKey": "e8525646",
             "lat": 49.2112123815437,
             "lon": 16.588677538115,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21501,7 +21725,7 @@
             "sectionKey": "3bae6b13",
             "lat": 49.2131090938787,
             "lon": 16.58766498003,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21515,7 +21739,7 @@
             "sectionKey": "bab6a2d4",
             "lat": 49.2122944901672,
             "lon": 16.5858023172784,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21529,7 +21753,7 @@
             "sectionKey": "2f1941d3",
             "lat": 49.2154393341409,
             "lon": 16.584959223306,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21543,7 +21767,7 @@
             "sectionKey": "652073e7",
             "lat": 49.2141463832218,
             "lon": 16.5861537203229,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21557,7 +21781,7 @@
             "sectionKey": "f9ad2f94",
             "lat": 49.2128193513379,
             "lon": 16.5847904412597,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21571,7 +21795,7 @@
             "sectionKey": "9aefb7d4",
             "lat": 49.215471605995,
             "lon": 16.5862023516511,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21585,7 +21809,7 @@
             "sectionKey": "b2a55ba9",
             "lat": 49.2110793741979,
             "lon": 16.5902139271932,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21599,7 +21823,7 @@
             "sectionKey": "ed472c4e",
             "lat": 49.2117803928839,
             "lon": 16.5897757845788,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21613,7 +21837,7 @@
             "sectionKey": "a7578d09",
             "lat": 49.2120289212153,
             "lon": 16.5907287509299,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21627,7 +21851,7 @@
             "sectionKey": "467cfa3e",
             "lat": 49.2119203769273,
             "lon": 16.5903463121087,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21641,7 +21865,7 @@
             "sectionKey": "78da3305",
             "lat": 49.2123661646871,
             "lon": 16.5920398341929,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21655,7 +21879,7 @@
             "sectionKey": "fb260750",
             "lat": 49.2106169162536,
             "lon": 16.5898726168239,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -21669,7 +21893,7 @@
             "sectionKey": "4ba824c7",
             "lat": 49.211072127470786,
             "lon": 16.590218276929743,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -33611,7 +33835,7 @@
             "sectionKey": "0f3f4294",
             "lat": 49.2528812167381,
             "lon": 16.6228793015067,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -33625,7 +33849,7 @@
             "sectionKey": "823ad1d8",
             "lat": 49.2593682988022,
             "lon": 16.623843919396,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -33639,7 +33863,7 @@
             "sectionKey": "8262e9c0",
             "lat": 49.2571775551703,
             "lon": 16.622554634318,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -34339,7 +34563,7 @@
             "sectionKey": "42130147",
             "lat": 49.1811173214494,
             "lon": 16.6902433369542,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -34353,7 +34577,7 @@
             "sectionKey": "72733443",
             "lat": 49.1792918857275,
             "lon": 16.6840634702667,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -34367,7 +34591,7 @@
             "sectionKey": "d944defd",
             "lat": 49.1794551016508,
             "lon": 16.6905995112021,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -34381,7 +34605,7 @@
             "sectionKey": "98fe0a08",
             "lat": 49.1810846306076,
             "lon": 16.6904580920702,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -34395,7 +34619,7 @@
             "sectionKey": "edee6ee4",
             "lat": 49.1798708080348,
             "lon": 16.68720067189,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -34409,7 +34633,7 @@
             "sectionKey": "2d35a881",
             "lat": 49.1801379653758,
             "lon": 16.686423408099,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -34453,9 +34677,8 @@
             "sectionKey": "f7d5b3c4",
             "lat": 49.1633645902679,
             "lon": 16.687681912398,
-            "status": "cancelled",
-            "sequence": 5,
-            "cancelledAt": "2026-09-15T03:29:53Z"
+            "status": "planned",
+            "sequence": 6
         },
         {
             "id": "90395",
@@ -34511,8 +34734,9 @@
             "sectionKey": "f7d5b3c4",
             "lat": 49.1633645902679,
             "lon": 16.687681912398,
-            "status": "planned",
-            "sequence": 6
+            "status": "cancelled",
+            "sequence": 7,
+            "cancelledAt": "2026-09-17T03:31:44Z"
         },
         {
             "id": "90403",
@@ -38025,7 +38249,7 @@
             "sectionKey": "1de97112",
             "lat": 49.1871792739858,
             "lon": 16.5886528100141,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -38039,7 +38263,7 @@
             "sectionKey": "4d4d312b",
             "lat": 49.1871792739858,
             "lon": 16.5886528100141,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -38047,6 +38271,48 @@
             "name": "Poříčí v úseku Křížkovského-Bauerova",
             "from": "2026-09-16T06:00:00Z",
             "to": "2026-09-16T09:00:00Z",
+            "sectionId": "3569",
+            "sectionName": "Poříčí v úseku Křížkovského-Bauerova",
+            "streetId": "2978",
+            "sectionKey": "58668ea5",
+            "lat": 49.1852962632959,
+            "lon": 16.5870298551444,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91193",
+            "name": "Rybářská",
+            "from": "2026-11-12T07:00:00Z",
+            "to": "2026-11-12T10:00:00Z",
+            "sectionId": "2088",
+            "sectionName": "Rybářská",
+            "streetId": "3106",
+            "sectionKey": "1de97112",
+            "lat": 49.1871792739858,
+            "lon": 16.5886528100141,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91194",
+            "name": "Zedníkova",
+            "from": "2026-11-12T07:00:00Z",
+            "to": "2026-11-12T10:00:00Z",
+            "sectionId": "2191",
+            "sectionName": "Zedníkova",
+            "streetId": "3616",
+            "sectionKey": "4d4d312b",
+            "lat": 49.1871792739858,
+            "lon": 16.5886528100141,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91195",
+            "name": "Poříčí v úseku Křížkovského-Bauerova",
+            "from": "2026-11-12T07:00:00Z",
+            "to": "2026-11-12T10:00:00Z",
             "sectionId": "3569",
             "sectionName": "Poříčí v úseku Křížkovského-Bauerova",
             "streetId": "2978",
@@ -38067,7 +38333,7 @@
             "sectionKey": "57810d79",
             "lat": 49.1874740845591,
             "lon": 16.5932539701893,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -38075,6 +38341,34 @@
             "name": "Výstavní",
             "from": "2026-09-16T08:00:00Z",
             "to": "2026-09-16T12:30:00Z",
+            "sectionId": "2056",
+            "sectionName": "Výstavní",
+            "streetId": "3554",
+            "sectionKey": "4b8c46ee",
+            "lat": 49.1904914853336,
+            "lon": 16.5925450635542,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91202",
+            "name": "Bělidla",
+            "from": "2026-11-12T09:00:00Z",
+            "to": "2026-11-12T13:30:00Z",
+            "sectionId": "2003",
+            "sectionName": "Bělidla",
+            "streetId": "1917",
+            "sectionKey": "57810d79",
+            "lat": 49.1874740845591,
+            "lon": 16.5932539701893,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91203",
+            "name": "Výstavní",
+            "from": "2026-11-12T09:00:00Z",
+            "to": "2026-11-12T13:30:00Z",
             "sectionId": "2056",
             "sectionName": "Výstavní",
             "streetId": "3554",
@@ -39565,7 +39859,7 @@
             "sectionKey": "da62146c",
             "lat": 49.2057197476004,
             "lon": 16.6131832448493,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -39573,6 +39867,34 @@
             "name": "Třída Kapitána Jaroše - lichá str. + slepá",
             "from": "2026-09-16T06:00:00Z",
             "to": "2026-09-16T09:00:00Z",
+            "sectionId": "1508",
+            "sectionName": "Třída Kapitána Jaroše - lichá str. + slepá",
+            "streetId": "3364",
+            "sectionKey": "14881da8",
+            "lat": 49.2018804936737,
+            "lon": 16.610704650797,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91594",
+            "name": "Drobného v úseku č.orient.18-30(záliv)",
+            "from": "2026-11-16T07:00:00Z",
+            "to": "2026-11-16T10:00:00Z",
+            "sectionId": "1355",
+            "sectionName": "Drobného v úseku č.orient.18-30(záliv)",
+            "streetId": "2112",
+            "sectionKey": "da62146c",
+            "lat": 49.2057197476004,
+            "lon": 16.6131832448493,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91595",
+            "name": "Třída Kapitána Jaroše - lichá str. + slepá",
+            "from": "2026-11-16T07:00:00Z",
+            "to": "2026-11-16T10:00:00Z",
             "sectionId": "1508",
             "sectionName": "Třída Kapitána Jaroše - lichá str. + slepá",
             "streetId": "3364",
@@ -39587,6 +39909,20 @@
             "name": "Smetanova",
             "from": "2026-09-16T08:00:00Z",
             "to": "2026-09-16T12:30:00Z",
+            "sectionId": "1563",
+            "sectionName": "Smetanova",
+            "streetId": "3210",
+            "sectionKey": "637a47db",
+            "lat": 49.2015640829714,
+            "lon": 16.602041998779,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91599",
+            "name": "Smetanova",
+            "from": "2026-11-16T09:00:00Z",
+            "to": "2026-11-16T13:30:00Z",
             "sectionId": "1563",
             "sectionName": "Smetanova",
             "streetId": "3210",
