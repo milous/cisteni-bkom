@@ -211,34 +211,6 @@
             "sequence": 0
         },
         {
-            "id": "83350",
-            "name": "Záhřebská - Poznaňská",
-            "from": "2025-09-18T08:00:00Z",
-            "to": "2025-09-18T12:00:00Z",
-            "sectionId": "3643",
-            "sectionName": "Záhřebská - Poznaňská",
-            "streetId": "3581",
-            "sectionKey": "d8849ea8",
-            "lat": 49.2164853057,
-            "lon": 16.5802757110158,
-            "status": "done",
-            "sequence": 0
-        },
-        {
-            "id": "83351",
-            "name": "Poznaňská - bývalé průjezdní parkoviště",
-            "from": "2025-09-18T08:00:00Z",
-            "to": "2025-09-18T12:00:00Z",
-            "sectionId": "3662",
-            "sectionName": "Poznaňská - bývalé průjezdní parkoviště",
-            "streetId": "5168",
-            "sectionKey": "34aff3cb",
-            "lat": 49.2183723930853,
-            "lon": 16.5776560425362,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "83457",
             "name": "Purkyňova (před pol. domem Eden) ",
             "from": "2025-11-18T07:00:00Z",
