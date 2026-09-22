@@ -7795,7 +7795,7 @@
             "sectionKey": "25e84762",
             "lat": 49.2060363162006,
             "lon": 16.6732650865354,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -7809,7 +7809,7 @@
             "sectionKey": "cc501043",
             "lat": 49.2115311785202,
             "lon": 16.6757256765361,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -7823,7 +7823,7 @@
             "sectionKey": "83bf8a21",
             "lat": 49.2028341924638,
             "lon": 16.6672758451882,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -7837,7 +7837,7 @@
             "sectionKey": "e16225ef",
             "lat": 49.2082474593132,
             "lon": 16.673134493998,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16391,7 +16391,7 @@
             "sectionKey": "b98cf0ad",
             "lat": 49.2454194662621,
             "lon": 16.5875286205408,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16405,7 +16405,7 @@
             "sectionKey": "6e343a0b",
             "lat": 49.2384959208593,
             "lon": 16.5860214432238,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16419,7 +16419,7 @@
             "sectionKey": "24d292bf",
             "lat": 49.2403659733712,
             "lon": 16.587906132797,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16433,7 +16433,7 @@
             "sectionKey": "b8908007",
             "lat": 49.246909785726,
             "lon": 16.5832397518985,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16447,7 +16447,7 @@
             "sectionKey": "e45557a7",
             "lat": 49.2457830956441,
             "lon": 16.5779266504591,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16461,7 +16461,7 @@
             "sectionKey": "3de0e3c6",
             "lat": 49.247764786791265,
             "lon": 16.576814412432892,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -16469,6 +16469,104 @@
             "name": "Banskobystrcká 178-182 (2x parkoviště od Podpěrovy) (ů)",
             "from": "2026-09-21T06:00:00Z",
             "to": "2026-09-21T13:00:00Z",
+            "sectionId": "5384",
+            "sectionName": "Banskobystrcká 178-182 (2x parkoviště od Podpěrovy) (ů)",
+            "streetId": "2949",
+            "sectionKey": "02c82c9d",
+            "lat": 49.2389031827223,
+            "lon": 16.5840094702391,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "87377",
+            "name": "Novoměstská 45 - 59 (parkoviště)",
+            "from": "2026-11-20T07:00:00Z",
+            "to": "2026-11-20T14:00:00Z",
+            "sectionId": "4045",
+            "sectionName": "Novoměstská 45 - 59 (parkoviště)",
+            "streetId": "2813",
+            "sectionKey": "b98cf0ad",
+            "lat": 49.2454194662621,
+            "lon": 16.5875286205408,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87378",
+            "name": "Žitná 21 - 23 (parkoviště)",
+            "from": "2026-11-20T07:00:00Z",
+            "to": "2026-11-20T14:00:00Z",
+            "sectionId": "4139",
+            "sectionName": "Žitná 21 - 23 (parkoviště)",
+            "streetId": "3635",
+            "sectionKey": "6e343a0b",
+            "lat": 49.2384959208593,
+            "lon": 16.5860214432238,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87379",
+            "name": "Žitná 13 (parkoviště)",
+            "from": "2026-11-20T07:00:00Z",
+            "to": "2026-11-20T14:00:00Z",
+            "sectionId": "4140",
+            "sectionName": "Žitná 13 (parkoviště)",
+            "streetId": "2483",
+            "sectionKey": "24d292bf",
+            "lat": 49.2403659733712,
+            "lon": 16.587906132797,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87380",
+            "name": "Měřičkova 54 (parkoviště)",
+            "from": "2026-11-20T07:00:00Z",
+            "to": "2026-11-20T14:00:00Z",
+            "sectionId": "4142",
+            "sectionName": "Měřičkova 54 (parkoviště)",
+            "streetId": "2687",
+            "sectionKey": "b8908007",
+            "lat": 49.246909785726,
+            "lon": 16.5832397518985,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87381",
+            "name": "Medlánecká 10 - 14 (parkoviště)",
+            "from": "2026-11-20T07:00:00Z",
+            "to": "2026-11-20T14:00:00Z",
+            "sectionId": "4143",
+            "sectionName": "Medlánecká 10 - 14 (parkoviště)",
+            "streetId": "2680",
+            "sectionKey": "e45557a7",
+            "lat": 49.2457830956441,
+            "lon": 16.5779266504591,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87382",
+            "name": "Družstevní (parkoviště před domy č.o. 8 a 16) (ú)",
+            "from": "2026-11-20T07:00:00Z",
+            "to": "2026-11-20T14:00:00Z",
+            "sectionId": "5383",
+            "sectionName": "Družstevní (parkoviště před domy č.o. 8 a 16) (ú)",
+            "streetId": "2114",
+            "sectionKey": "3de0e3c6",
+            "lat": 49.247764786791265,
+            "lon": 16.576814412432892,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87383",
+            "name": "Banskobystrcká 178-182 (2x parkoviště od Podpěrovy) (ů)",
+            "from": "2026-11-20T07:00:00Z",
+            "to": "2026-11-20T14:00:00Z",
             "sectionId": "5384",
             "sectionName": "Banskobystrcká 178-182 (2x parkoviště od Podpěrovy) (ů)",
             "streetId": "2949",
@@ -19723,7 +19821,7 @@
             "sectionKey": "afaca40f",
             "lat": 49.2293638068961,
             "lon": 16.5901568472286,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19737,7 +19835,7 @@
             "sectionKey": "95b2442f",
             "lat": 49.2289498797874,
             "lon": 16.5942019264576,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19751,7 +19849,7 @@
             "sectionKey": "6f06a5c5",
             "lat": 49.230382502227,
             "lon": 16.5884141465975,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19765,7 +19863,7 @@
             "sectionKey": "181f596e",
             "lat": 49.2307251469858,
             "lon": 16.5827552757123,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19779,7 +19877,7 @@
             "sectionKey": "43df4f8e",
             "lat": 49.2232425810383,
             "lon": 16.5979265100012,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19793,7 +19891,7 @@
             "sectionKey": "9ef6f9f6",
             "lat": 49.2245729961276,
             "lon": 16.5973252726691,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19807,7 +19905,7 @@
             "sectionKey": "d5a1e10e",
             "lat": 49.2329990609229,
             "lon": 16.5897135585328,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19821,7 +19919,7 @@
             "sectionKey": "75549cae",
             "lat": 49.2312873425383,
             "lon": 16.5883617971092,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19835,7 +19933,7 @@
             "sectionKey": "81017c37",
             "lat": 49.2324380053701,
             "lon": 16.5897353992533,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -19843,6 +19941,146 @@
             "name": "Sportovní (včetně parkoviště u hokejové haly, u tenisových kurtů) (ú)",
             "from": "2026-09-21T06:00:00Z",
             "to": "2026-09-21T12:00:00Z",
+            "sectionId": "5358",
+            "sectionName": "Sportovní (včetně parkoviště u hokejové haly, u tenisových kurtů) (ú)",
+            "streetId": "4029",
+            "sectionKey": "be163d26",
+            "lat": 49.2128311898328,
+            "lon": 16.6067696630636,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "88020",
+            "name": "Boženy Němcové - parkoviště",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "4359",
+            "sectionName": "Boženy Němcové - parkoviště",
+            "streetId": "1971",
+            "sectionKey": "afaca40f",
+            "lat": 49.2293638068961,
+            "lon": 16.5901568472286,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88021",
+            "name": "Božetěchova - parkoviště",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "4360",
+            "sectionName": "Božetěchova - parkoviště",
+            "streetId": "1972",
+            "sectionKey": "95b2442f",
+            "lat": 49.2289498797874,
+            "lon": 16.5942019264576,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88022",
+            "name": "Bystřinova - parkoviště",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "4361",
+            "sectionName": "Bystřinova - parkoviště",
+            "streetId": "2009",
+            "sectionKey": "6f06a5c5",
+            "lat": 49.230382502227,
+            "lon": 16.5884141465975,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88023",
+            "name": "Herčíkova - parkoviště",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "4362",
+            "sectionName": "Herčíkova - parkoviště",
+            "streetId": "2227",
+            "sectionKey": "181f596e",
+            "lat": 49.2307251469858,
+            "lon": 16.5827552757123,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88024",
+            "name": "Rostislavovo náměstí - parkoviště",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "4363",
+            "sectionName": "Rostislavovo náměstí - parkoviště",
+            "streetId": "3083",
+            "sectionKey": "43df4f8e",
+            "lat": 49.2232425810383,
+            "lon": 16.5979265100012,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88025",
+            "name": "Mojmírovo náměstí - parkoviště",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "4364",
+            "sectionName": "Mojmírovo náměstí - parkoviště",
+            "streetId": "2715",
+            "sectionKey": "9ef6f9f6",
+            "lat": 49.2245729961276,
+            "lon": 16.5973252726691,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88026",
+            "name": "Dalimilova č.o.102 naproti (účel.k.)",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "5246",
+            "sectionName": "Dalimilova č.o.102 naproti (účel.k.)",
+            "streetId": "2074",
+            "sectionKey": "d5a1e10e",
+            "lat": 49.2329990609229,
+            "lon": 16.5897135585328,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88027",
+            "name": "Mánesova parkoviště (účel.k.) boční parkoviště",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "5247",
+            "sectionName": "Mánesova parkoviště (účel.k.) boční parkoviště",
+            "streetId": "4959",
+            "sectionKey": "75549cae",
+            "lat": 49.2312873425383,
+            "lon": 16.5883617971092,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88028",
+            "name": "Palackého tř. (za Zagrebem- účel.k.)",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
+            "sectionId": "5248",
+            "sectionName": "Palackého tř. (za Zagrebem- účel.k.)",
+            "streetId": "4312",
+            "sectionKey": "81017c37",
+            "lat": 49.2324380053701,
+            "lon": 16.5897353992533,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88029",
+            "name": "Sportovní (včetně parkoviště u hokejové haly, u tenisových kurtů) (ú)",
+            "from": "2026-10-21T06:00:00Z",
+            "to": "2026-10-21T12:00:00Z",
             "sectionId": "5358",
             "sectionName": "Sportovní (včetně parkoviště u hokejové haly, u tenisových kurtů) (ú)",
             "streetId": "4029",
@@ -20255,7 +20493,7 @@
             "sectionKey": "6fc8e928",
             "lat": 49.22572425731,
             "lon": 16.6612870267449,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20269,7 +20507,7 @@
             "sectionKey": "b2f5ff30",
             "lat": 49.2276773545641,
             "lon": 16.6503581412931,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20283,7 +20521,7 @@
             "sectionKey": "883d5a47",
             "lat": 49.2265908835437,
             "lon": 16.6497483983898,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20297,7 +20535,7 @@
             "sectionKey": "f1dc69b7",
             "lat": 49.2260663487738,
             "lon": 16.6477572008657,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20311,7 +20549,7 @@
             "sectionKey": "532370ea",
             "lat": 49.2180054153122,
             "lon": 16.6449993263031,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20325,7 +20563,7 @@
             "sectionKey": "72b38cc9",
             "lat": 49.2164712873338,
             "lon": 16.6449926832998,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20339,7 +20577,7 @@
             "sectionKey": "4fdc2dbd",
             "lat": 49.2208483957818,
             "lon": 16.6435281353712,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20353,7 +20591,7 @@
             "sectionKey": "bf8b2879",
             "lat": 49.2180451674067,
             "lon": 16.6431829762993,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20367,7 +20605,7 @@
             "sectionKey": "e1154667",
             "lat": 49.2221188815252,
             "lon": 16.6410739336877,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20381,7 +20619,7 @@
             "sectionKey": "3cb0ae00",
             "lat": 49.222469499191,
             "lon": 16.6410221152502,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20395,7 +20633,7 @@
             "sectionKey": "864c1496",
             "lat": 49.221778957069745,
             "lon": 16.642600182739898,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -20409,7 +20647,7 @@
             "sectionKey": "d00c9b90",
             "lat": 49.2269666318101,
             "lon": 16.6509114639694,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25015,7 +25253,7 @@
             "sectionKey": "b7743292",
             "lat": 49.2019128796488,
             "lon": 16.64530240951,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25029,7 +25267,7 @@
             "sectionKey": "bdf53777",
             "lat": 49.1944667422213,
             "lon": 16.6549963834131,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25043,7 +25281,7 @@
             "sectionKey": "5bb63a96",
             "lat": 49.1930989977244,
             "lon": 16.651115301767,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25057,7 +25295,7 @@
             "sectionKey": "22909546",
             "lat": 49.1918745365906,
             "lon": 16.6477921403241,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25065,6 +25303,76 @@
             "name": "Svatoplukova (M.Kuncové - Podsednická- účel.k.)",
             "from": "2026-09-21T06:00:00Z",
             "to": "2026-09-21T13:00:00Z",
+            "sectionId": "4272",
+            "sectionName": "Svatoplukova (M.Kuncové - Podsednická- účel.k.)",
+            "streetId": "3309",
+            "sectionKey": "2899debd",
+            "lat": 49.2088998473124,
+            "lon": 16.6423935006271,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "88954",
+            "name": "Viniční (úsek Svatoplukova-poliklinika vč. slepé části, k MŠ, RD 153-187)",
+            "from": "2026-11-24T07:00:00Z",
+            "to": "2026-11-24T14:00:00Z",
+            "sectionId": "434",
+            "sectionName": "Viniční (úsek Svatoplukova-poliklinika vč. slepé části, k MŠ, RD 153-187)",
+            "streetId": "3481",
+            "sectionKey": "b7743292",
+            "lat": 49.2019128796488,
+            "lon": 16.64530240951,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88955",
+            "name": "Vápenka",
+            "from": "2026-11-24T07:00:00Z",
+            "to": "2026-11-24T14:00:00Z",
+            "sectionId": "493",
+            "sectionName": "Vápenka",
+            "streetId": "3451",
+            "sectionKey": "bdf53777",
+            "lat": 49.1944667422213,
+            "lon": 16.6549963834131,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88956",
+            "name": "Kamenačky",
+            "from": "2026-11-24T07:00:00Z",
+            "to": "2026-11-24T14:00:00Z",
+            "sectionId": "539",
+            "sectionName": "Kamenačky",
+            "streetId": "2391",
+            "sectionKey": "5bb63a96",
+            "lat": 49.1930989977244,
+            "lon": 16.651115301767,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88957",
+            "name": "Otakara Ševčíka (úsek Táborská-Nezamyslova, Dykova-Škroupova)",
+            "from": "2026-11-24T07:00:00Z",
+            "to": "2026-11-24T14:00:00Z",
+            "sectionId": "621",
+            "sectionName": "Otakara Ševčíka (úsek Táborská-Nezamyslova, Dykova-Škroupova)",
+            "streetId": "2860",
+            "sectionKey": "22909546",
+            "lat": 49.1918745365906,
+            "lon": 16.6477921403241,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "88958",
+            "name": "Svatoplukova (M.Kuncové - Podsednická- účel.k.)",
+            "from": "2026-11-24T07:00:00Z",
+            "to": "2026-11-24T14:00:00Z",
             "sectionId": "4272",
             "sectionName": "Svatoplukova (M.Kuncové - Podsednická- účel.k.)",
             "streetId": "3309",
@@ -39548,7 +39856,7 @@
             "sectionKey": "41aed1d5",
             "lat": 49.1804695136109,
             "lon": 16.5917347297273,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -39556,6 +39864,34 @@
             "name": "Strž",
             "from": "2026-09-21T06:00:00Z",
             "to": "2026-09-21T09:00:00Z",
+            "sectionId": "2118",
+            "sectionName": "Strž",
+            "streetId": "3291",
+            "sectionKey": "4da3b120",
+            "lat": 49.1784419045471,
+            "lon": 16.5919509926027,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91330",
+            "name": "Horní",
+            "from": "2026-11-24T07:00:00Z",
+            "to": "2026-11-24T10:00:00Z",
+            "sectionId": "2116",
+            "sectionName": "Horní",
+            "streetId": "2260",
+            "sectionKey": "41aed1d5",
+            "lat": 49.1804695136109,
+            "lon": 16.5917347297273,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91331",
+            "name": "Strž",
+            "from": "2026-11-24T07:00:00Z",
+            "to": "2026-11-24T10:00:00Z",
             "sectionId": "2118",
             "sectionName": "Strž",
             "streetId": "3291",
@@ -39576,7 +39912,7 @@
             "sectionKey": "df48602e",
             "lat": 49.1754062097185,
             "lon": 16.595330315973,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -39590,7 +39926,7 @@
             "sectionKey": "d460206c",
             "lat": 49.1738837626735,
             "lon": 16.5954902254014,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -39604,7 +39940,7 @@
             "sectionKey": "e46fce5f",
             "lat": 49.1745605497159,
             "lon": 16.5946939225263,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -39618,7 +39954,7 @@
             "sectionKey": "00ec84f8",
             "lat": 49.1745605497159,
             "lon": 16.5946939225263,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -39626,6 +39962,76 @@
             "name": "Vysoká",
             "from": "2026-09-21T08:00:00Z",
             "to": "2026-09-21T12:30:00Z",
+            "sectionId": "2092",
+            "sectionName": "Vysoká",
+            "streetId": "3551",
+            "sectionKey": "f9847962",
+            "lat": 49.1732891488819,
+            "lon": 16.5942338838531,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91347",
+            "name": "Hluboká",
+            "from": "2026-11-24T09:00:00Z",
+            "to": "2026-11-24T13:30:00Z",
+            "sectionId": "2017",
+            "sectionName": "Hluboká",
+            "streetId": "2245",
+            "sectionKey": "df48602e",
+            "lat": 49.1754062097185,
+            "lon": 16.595330315973,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91348",
+            "name": "Pšeník + parkoviště",
+            "from": "2026-11-24T09:00:00Z",
+            "to": "2026-11-24T13:30:00Z",
+            "sectionId": "2046",
+            "sectionName": "Pšeník + parkoviště",
+            "streetId": "3027",
+            "sectionKey": "d460206c",
+            "lat": 49.1738837626735,
+            "lon": 16.5954902254014,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91349",
+            "name": "Oblouková",
+            "from": "2026-11-24T09:00:00Z",
+            "to": "2026-11-24T13:30:00Z",
+            "sectionId": "2050",
+            "sectionName": "Oblouková",
+            "streetId": "2821",
+            "sectionKey": "e46fce5f",
+            "lat": 49.1745605497159,
+            "lon": 16.5946939225263,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91350",
+            "name": "Sovinec",
+            "from": "2026-11-24T09:00:00Z",
+            "to": "2026-11-24T13:30:00Z",
+            "sectionId": "2066",
+            "sectionName": "Sovinec",
+            "streetId": "3235",
+            "sectionKey": "00ec84f8",
+            "lat": 49.1745605497159,
+            "lon": 16.5946939225263,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91351",
+            "name": "Vysoká",
+            "from": "2026-11-24T09:00:00Z",
+            "to": "2026-11-24T13:30:00Z",
             "sectionId": "2092",
             "sectionName": "Vysoká",
             "streetId": "3551",
@@ -40290,7 +40696,7 @@
             "sectionKey": "8a47decb",
             "lat": 49.1988587165186,
             "lon": 16.6166319051131,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -40304,7 +40710,7 @@
             "sectionKey": "c5c65343",
             "lat": 49.1992140032662,
             "lon": 16.6182020387061,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -40318,7 +40724,7 @@
             "sectionKey": "55a5e301",
             "lat": 49.2014792578894,
             "lon": 16.6155532392708,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -40326,6 +40732,62 @@
             "name": "Stará",
             "from": "2026-09-21T06:00:00Z",
             "to": "2026-09-21T09:00:00Z",
+            "sectionId": "4860",
+            "sectionName": "Stará",
+            "streetId": "3258",
+            "sectionKey": "69380033",
+            "lat": 49.201335937457,
+            "lon": 16.617084186397,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91504",
+            "name": "Bratislavská v úseku Příkop-Soudní",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T10:00:00Z",
+            "sectionId": "4857",
+            "sectionName": "Bratislavská v úseku Příkop-Soudní",
+            "streetId": "1976",
+            "sectionKey": "8a47decb",
+            "lat": 49.1988587165186,
+            "lon": 16.6166319051131,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91505",
+            "name": "Körnerova",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T10:00:00Z",
+            "sectionId": "4858",
+            "sectionName": "Körnerova",
+            "streetId": "2484",
+            "sectionKey": "c5c65343",
+            "lat": 49.1992140032662,
+            "lon": 16.6182020387061,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91506",
+            "name": "Příční",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T10:00:00Z",
+            "sectionId": "4859",
+            "sectionName": "Příční",
+            "streetId": "3003",
+            "sectionKey": "55a5e301",
+            "lat": 49.2014792578894,
+            "lon": 16.6155532392708,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91507",
+            "name": "Stará",
+            "from": "2026-11-19T07:00:00Z",
+            "to": "2026-11-19T10:00:00Z",
             "sectionId": "4860",
             "sectionName": "Stará",
             "streetId": "3258",
@@ -40346,7 +40808,7 @@
             "sectionKey": "f630a48c",
             "lat": 49.1926366546821,
             "lon": 16.6178634673609,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -40354,6 +40816,34 @@
             "name": "Vlhká",
             "from": "2026-09-21T08:00:00Z",
             "to": "2026-09-21T12:30:00Z",
+            "sectionId": "4862",
+            "sectionName": "Vlhká",
+            "streetId": "3496",
+            "sectionKey": "ec62e35f",
+            "lat": 49.1963599289881,
+            "lon": 16.6166423975559,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91514",
+            "name": "Skořepka",
+            "from": "2026-11-19T09:00:00Z",
+            "to": "2026-11-19T13:30:00Z",
+            "sectionId": "4861",
+            "sectionName": "Skořepka",
+            "streetId": "3171",
+            "sectionKey": "f630a48c",
+            "lat": 49.1926366546821,
+            "lon": 16.6178634673609,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91515",
+            "name": "Vlhká",
+            "from": "2026-11-19T09:00:00Z",
+            "to": "2026-11-19T13:30:00Z",
             "sectionId": "4862",
             "sectionName": "Vlhká",
             "streetId": "3496",
