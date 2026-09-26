@@ -113,34 +113,6 @@
             "sequence": 0
         },
         {
-            "id": "80799",
-            "name": "Kosatcová (Trtílkova - Kosatcová)",
-            "from": "2025-09-26T09:00:00Z",
-            "to": "2025-09-26T14:30:00Z",
-            "sectionId": "5261",
-            "sectionName": "Kosatcová (Trtílkova - Kosatcová)",
-            "streetId": "3369",
-            "sectionKey": "465934ab",
-            "lat": 49.2247863860121,
-            "lon": 16.6140319824968,
-            "status": "done",
-            "sequence": 0
-        },
-        {
-            "id": "80800",
-            "name": "Zvonková (Kosatcová- Zvonková č.o.1)",
-            "from": "2025-09-26T09:00:00Z",
-            "to": "2025-09-26T14:30:00Z",
-            "sectionId": "5262",
-            "sectionName": "Zvonková (Kosatcová- Zvonková č.o.1)",
-            "streetId": "3369",
-            "sectionKey": "27c67a00",
-            "lat": 49.2244622719952,
-            "lon": 16.615069757785,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "81029",
             "name": "Loosova parkoviště pod TJ Startem + příjezd ",
             "from": "2025-11-03T10:00:00Z",
