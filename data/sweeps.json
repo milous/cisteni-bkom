@@ -27703,7 +27703,7 @@
             "sectionKey": "0cb93936",
             "lat": 49.2064604698781,
             "lon": 16.64378017769,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27717,7 +27717,7 @@
             "sectionKey": "7f3972a0",
             "lat": 49.2064604698781,
             "lon": 16.64378017769,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27731,7 +27731,7 @@
             "sectionKey": "48c3ea61",
             "lat": 49.2027766154346,
             "lon": 16.642391576364,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27745,7 +27745,7 @@
             "sectionKey": "c33d785c",
             "lat": 49.2012011446347,
             "lon": 16.6380512327546,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27759,7 +27759,7 @@
             "sectionKey": "9be086bf",
             "lat": 49.2037891734674,
             "lon": 16.6370877523956,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27773,7 +27773,7 @@
             "sectionKey": "2817934d",
             "lat": 49.1972433274609,
             "lon": 16.6459936999761,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27787,7 +27787,7 @@
             "sectionKey": "98107557",
             "lat": 49.2021776933033,
             "lon": 16.6428764148805,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27829,6 +27829,62 @@
             "sectionKey": "25a99379",
             "lat": 49.1951070447638,
             "lon": 16.6463697435749,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "89147",
+            "name": "Rokytova",
+            "from": "2026-11-04T21:00:00Z",
+            "to": "2026-11-04T22:59:00Z",
+            "sectionId": "449",
+            "sectionName": "Rokytova",
+            "streetId": "3076",
+            "sectionKey": "0cb93936",
+            "lat": 49.2064604698781,
+            "lon": 16.64378017769,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "89148",
+            "name": "Rokytova - ZKS",
+            "from": "2026-11-04T21:00:00Z",
+            "to": "2026-11-04T22:59:00Z",
+            "sectionId": "3925",
+            "sectionName": "Rokytova - ZKS",
+            "streetId": "3076",
+            "sectionKey": "7f3972a0",
+            "lat": 49.2064604698781,
+            "lon": 16.64378017769,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "89149",
+            "name": "Stará osada - terminál MHD",
+            "from": "2026-11-04T21:00:00Z",
+            "to": "2026-11-04T22:59:00Z",
+            "sectionId": "3932",
+            "sectionName": "Stará osada - terminál MHD",
+            "streetId": "3260",
+            "sectionKey": "48c3ea61",
+            "lat": 49.2027766154346,
+            "lon": 16.642391576364,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "89150",
+            "name": "Svatoplukova - ZKS",
+            "from": "2026-11-04T21:00:00Z",
+            "to": "2026-11-04T22:59:00Z",
+            "sectionId": "3936",
+            "sectionName": "Svatoplukova - ZKS",
+            "streetId": "3309",
+            "sectionKey": "98107557",
+            "lat": 49.2021776933033,
+            "lon": 16.6428764148805,
             "status": "planned",
             "sequence": 0
         },
