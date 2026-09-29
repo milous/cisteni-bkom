@@ -36598,6 +36598,20 @@
             "sequence": 4
         },
         {
+            "id": "90420",
+            "name": "Karlova",
+            "from": "2026-06-30T06:00:00Z",
+            "to": "2026-06-30T14:00:00Z",
+            "sectionId": "5047",
+            "sectionName": "Karlova",
+            "streetId": "2405",
+            "sectionKey": "1558ff18",
+            "lat": 49.2117844970688,
+            "lon": 16.6431710884538,
+            "status": "done",
+            "sequence": 0
+        },
+        {
             "id": "90422",
             "name": "Hády (po smyčku MHD u eg.d)",
             "from": "2026-09-30T06:00:00Z",
@@ -36706,8 +36720,9 @@
             "sectionKey": "1558ff18",
             "lat": 49.2117844970688,
             "lon": 16.6431710884538,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-09-29T12:10:12Z"
         },
         {
             "id": "90430",
@@ -45709,6 +45724,20 @@
             "lat": 49.21213597448881,
             "lon": 16.553268741622645,
             "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "92204",
+            "name": "Karlova ZKS 3",
+            "from": "2026-09-30T06:00:00Z",
+            "to": "2026-09-30T14:00:00Z",
+            "sectionId": "5545",
+            "sectionName": "Karlova ZKS 3",
+            "streetId": "2405",
+            "sectionKey": "2788d1dc",
+            "lat": 49.212379171772,
+            "lon": 16.6432646562814,
+            "status": "planned",
             "sequence": 0
         }
     ]
