@@ -27479,7 +27479,7 @@
             "sectionKey": "52e69b52",
             "lat": 49.2063225938589,
             "lon": 16.6389895788358,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27493,7 +27493,7 @@
             "sectionKey": "915bb864",
             "lat": 49.2038497977084,
             "lon": 16.6381262636258,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27507,7 +27507,7 @@
             "sectionKey": "6f49fe04",
             "lat": 49.1926409909785,
             "lon": 16.633534076011,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27521,7 +27521,7 @@
             "sectionKey": "03bb70a9",
             "lat": 49.1956322400752,
             "lon": 16.650528764612,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -27535,7 +27535,7 @@
             "sectionKey": "eeb1adad",
             "lat": 49.1914134161257,
             "lon": 16.6348925644913,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -36762,7 +36762,7 @@
             "sectionKey": "26d6f6b5",
             "lat": 49.2213247084145,
             "lon": 16.653685074755,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -36776,7 +36776,7 @@
             "sectionKey": "7187a53f",
             "lat": 49.2131275611168,
             "lon": 16.6587920898858,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -36790,7 +36790,7 @@
             "sectionKey": "139c0a23",
             "lat": 49.2146742666583,
             "lon": 16.6528103935431,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -36804,7 +36804,7 @@
             "sectionKey": "a0e29dbf",
             "lat": 49.2145350033168,
             "lon": 16.656927216197,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -36818,7 +36818,7 @@
             "sectionKey": "d7d49501",
             "lat": 49.2213976679493,
             "lon": 16.6531540708874,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -36832,7 +36832,7 @@
             "sectionKey": "2c6cb5f7",
             "lat": 49.2146742666583,
             "lon": 16.6528103935431,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -36846,7 +36846,7 @@
             "sectionKey": "9e6250de",
             "lat": 49.21534166779923,
             "lon": 16.643456158352528,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -36875,7 +36875,7 @@
             "sectionKey": "2ba444b6",
             "lat": 49.2205185581621,
             "lon": 16.6575218801393,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -44981,7 +44981,7 @@
             "sectionKey": "36072e6e",
             "lat": 49.22329921352181,
             "lon": 16.595322126393402,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -44989,6 +44989,34 @@
             "name": "Palackého třída parkovací stání (úsek Husitská po Kartouzská)",
             "from": "2026-09-30T06:00:00Z",
             "to": "2026-09-30T12:00:00Z",
+            "sectionId": "5143",
+            "sectionName": "Palackého třída parkovací stání (úsek Husitská po Kartouzská)",
+            "streetId": "2868",
+            "sectionKey": "99a717ae",
+            "lat": 49.21679392086094,
+            "lon": 16.598792081257486,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91941",
+            "name": "Palackého třída parkovací stání (úsek Antonína Macka po Kollárova)",
+            "from": "2026-10-30T07:00:00Z",
+            "to": "2026-10-30T13:00:00Z",
+            "sectionId": "5142",
+            "sectionName": "Palackého třída parkovací stání (úsek Antonína Macka po Kollárova)",
+            "streetId": "2868",
+            "sectionKey": "36072e6e",
+            "lat": 49.22329921352181,
+            "lon": 16.595322126393402,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91942",
+            "name": "Palackého třída parkovací stání (úsek Husitská po Kartouzská)",
+            "from": "2026-10-30T07:00:00Z",
+            "to": "2026-10-30T13:00:00Z",
             "sectionId": "5143",
             "sectionName": "Palackého třída parkovací stání (úsek Husitská po Kartouzská)",
             "streetId": "2868",
@@ -45233,7 +45261,7 @@
             "sectionKey": "81928b88",
             "lat": 49.206505233876,
             "lon": 16.5952493197633,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -45247,7 +45275,7 @@
             "sectionKey": "1b902e91",
             "lat": 49.2097523732693,
             "lon": 16.5940309471099,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -45261,7 +45289,7 @@
             "sectionKey": "1c2a3bfa",
             "lat": 49.2061093967995,
             "lon": 16.5936410420858,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -45275,7 +45303,7 @@
             "sectionKey": "018db547",
             "lat": 49.2094846398134,
             "lon": 16.5902395711636,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -45283,6 +45311,76 @@
             "name": "Bulínova včetně parkovišť",
             "from": "2026-09-30T17:00:00Z",
             "to": "2026-10-01T03:00:00Z",
+            "sectionId": "5542",
+            "sectionName": "Bulínova včetně parkovišť",
+            "streetId": "2004",
+            "sectionKey": "8939dfeb",
+            "lat": 49.21012381678873,
+            "lon": 16.590780026209995,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91997",
+            "name": "Parkoviště Zahradníkova",
+            "from": "2026-11-04T18:00:00Z",
+            "to": "2026-11-05T04:00:00Z",
+            "sectionId": "1658",
+            "sectionName": "Parkoviště Zahradníkova",
+            "streetId": "3579",
+            "sectionKey": "81928b88",
+            "lat": 49.206505233876,
+            "lon": 16.5952493197633,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91998",
+            "name": "Parkoviště Kounicova u Billy",
+            "from": "2026-11-04T18:00:00Z",
+            "to": "2026-11-05T04:00:00Z",
+            "sectionId": "3949",
+            "sectionName": "Parkoviště Kounicova u Billy",
+            "streetId": "2499",
+            "sectionKey": "1b902e91",
+            "lat": 49.2097523732693,
+            "lon": 16.5940309471099,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91999",
+            "name": "Parkoviště Björnsonův sad",
+            "from": "2026-11-04T18:00:00Z",
+            "to": "2026-11-05T04:00:00Z",
+            "sectionId": "4033",
+            "sectionName": "Parkoviště Björnsonův sad",
+            "streetId": "1",
+            "sectionKey": "1c2a3bfa",
+            "lat": 49.2061093967995,
+            "lon": 16.5936410420858,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92000",
+            "name": "Parkoviště Šumavská pod Kaštany",
+            "from": "2026-11-04T18:00:00Z",
+            "to": "2026-11-05T04:00:00Z",
+            "sectionId": "4450",
+            "sectionName": "Parkoviště Šumavská pod Kaštany",
+            "streetId": "2004",
+            "sectionKey": "018db547",
+            "lat": 49.2094846398134,
+            "lon": 16.5902395711636,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92001",
+            "name": "Bulínova včetně parkovišť",
+            "from": "2026-11-04T18:00:00Z",
+            "to": "2026-11-05T04:00:00Z",
             "sectionId": "5542",
             "sectionName": "Bulínova včetně parkovišť",
             "streetId": "2004",
@@ -46073,7 +46171,7 @@
             "sectionKey": "2788d1dc",
             "lat": 49.212379171772,
             "lon": 16.6432646562814,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         }
     ]
