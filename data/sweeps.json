@@ -211,20 +211,6 @@
             "sequence": 0
         },
         {
-            "id": "83989",
-            "name": "Jihlavská - Pšeník (parkoviště)",
-            "from": "2025-10-03T06:00:00Z",
-            "to": "2025-10-03T12:30:00Z",
-            "sectionId": "4911",
-            "sectionName": "Jihlavská - Pšeník (parkoviště)",
-            "streetId": "2354",
-            "sectionKey": "57c537df",
-            "lat": 49.1726657143709,
-            "lon": 16.5963756360455,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "84409",
             "name": "Lesnická",
             "from": "2025-10-15T06:00:00Z",
