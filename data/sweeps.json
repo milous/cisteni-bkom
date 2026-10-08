@@ -18211,7 +18211,7 @@
             "sectionKey": "279fa09e",
             "lat": 49.2223644507199,
             "lon": 16.6009767013123,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18225,7 +18225,7 @@
             "sectionKey": "e20ae578",
             "lat": 49.2155035530064,
             "lon": 16.60146239205,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18239,7 +18239,7 @@
             "sectionKey": "9e0d08d8",
             "lat": 49.2202151199561,
             "lon": 16.600684351727,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18253,7 +18253,7 @@
             "sectionKey": "b9020551",
             "lat": 49.2208403191442,
             "lon": 16.600454998344,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18267,7 +18267,7 @@
             "sectionKey": "0d1b5e5d",
             "lat": 49.2226505293739,
             "lon": 16.5980903334392,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18281,7 +18281,7 @@
             "sectionKey": "bd9a4c61",
             "lat": 49.2306528279709,
             "lon": 16.6070703285909,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18295,7 +18295,7 @@
             "sectionKey": "c2ca007a",
             "lat": 49.22918888919555,
             "lon": 16.604372367415365,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18309,7 +18309,7 @@
             "sectionKey": "393d2223",
             "lat": 49.23024386742501,
             "lon": 16.60851036474727,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18317,6 +18317,132 @@
             "name": "Jarmily kurandové (úsek kociánka-Moskalykova)",
             "from": "2026-10-07T06:00:00Z",
             "to": "2026-10-07T10:00:00Z",
+            "sectionId": "5034",
+            "sectionName": "Jarmily kurandové (úsek kociánka-Moskalykova)",
+            "streetId": "5280",
+            "sectionKey": "a9f5b790",
+            "lat": 49.23055301480402,
+            "lon": 16.60416663083879,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "87576",
+            "name": "Chelčického",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
+            "sectionId": "1619",
+            "sectionName": "Chelčického",
+            "streetId": "2042",
+            "sectionKey": "279fa09e",
+            "lat": 49.2223644507199,
+            "lon": 16.6009767013123,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87577",
+            "name": "Poděbradova",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
+            "sectionId": "1628",
+            "sectionName": "Poděbradova",
+            "streetId": "2925",
+            "sectionKey": "e20ae578",
+            "lat": 49.2155035530064,
+            "lon": 16.60146239205,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87578",
+            "name": "Florianova",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
+            "sectionId": "1636",
+            "sectionName": "Florianova",
+            "streetId": "2161",
+            "sectionKey": "9e0d08d8",
+            "lat": 49.2202151199561,
+            "lon": 16.600684351727,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87579",
+            "name": "Košinova",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
+            "sectionId": "1638",
+            "sectionName": "Košinova",
+            "streetId": "2487",
+            "sectionKey": "b9020551",
+            "lat": 49.2208403191442,
+            "lon": 16.600454998344,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87580",
+            "name": "Rostislavovo náměstí",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
+            "sectionId": "1699",
+            "sectionName": "Rostislavovo náměstí",
+            "streetId": "3083",
+            "sectionKey": "0d1b5e5d",
+            "lat": 49.2226505293739,
+            "lon": 16.5980903334392,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87581",
+            "name": "Jarmily Kurandové (Moskalykova - Menšíkova)",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
+            "sectionId": "5012",
+            "sectionName": "Jarmily Kurandové (Moskalykova - Menšíkova)",
+            "streetId": "2325",
+            "sectionKey": "bd9a4c61",
+            "lat": 49.2306528279709,
+            "lon": 16.6070703285909,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87582",
+            "name": "Menšíkova ( úsek Kociánka - Gustava Broma )",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
+            "sectionId": "5013",
+            "sectionName": "Menšíkova ( úsek Kociánka - Gustava Broma )",
+            "streetId": "30",
+            "sectionKey": "c2ca007a",
+            "lat": 49.22918888919555,
+            "lon": 16.604372367415365,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87583",
+            "name": "Karla Kryla ( J .Kurandové - Menšíkova)",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
+            "sectionId": "5015",
+            "sectionName": "Karla Kryla ( J .Kurandové - Menšíkova)",
+            "streetId": "5279",
+            "sectionKey": "393d2223",
+            "lat": 49.23024386742501,
+            "lon": 16.60851036474727,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87584",
+            "name": "Jarmily kurandové (úsek kociánka-Moskalykova)",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T11:00:00Z",
             "sectionId": "5034",
             "sectionName": "Jarmily kurandové (úsek kociánka-Moskalykova)",
             "streetId": "5280",
@@ -18379,7 +18505,7 @@
             "sectionKey": "012c5abc",
             "lat": 49.2317992914983,
             "lon": 16.591117103282,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18393,7 +18519,7 @@
             "sectionKey": "3a6bbebc",
             "lat": 49.2272292573665,
             "lon": 16.5957432512507,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18401,6 +18527,48 @@
             "name": "Kosmova vnitroblok (ú)",
             "from": "2026-10-07T09:00:00Z",
             "to": "2026-10-07T13:00:00Z",
+            "sectionId": "3874",
+            "sectionName": "Kosmova vnitroblok (ú)",
+            "streetId": "2489",
+            "sectionKey": "2476e446",
+            "lat": 49.2284736603111,
+            "lon": 16.5928936219079,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "87597",
+            "name": "Dalimilova",
+            "from": "2026-11-05T10:00:00Z",
+            "to": "2026-11-05T14:00:00Z",
+            "sectionId": "1835",
+            "sectionName": "Dalimilova",
+            "streetId": "2074",
+            "sectionKey": "012c5abc",
+            "lat": 49.2317992914983,
+            "lon": 16.591117103282,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87598",
+            "name": "Božetěchova včetně parkoviště",
+            "from": "2026-11-05T10:00:00Z",
+            "to": "2026-11-05T14:00:00Z",
+            "sectionId": "3873",
+            "sectionName": "Božetěchova včetně parkoviště",
+            "streetId": "1972",
+            "sectionKey": "3a6bbebc",
+            "lat": 49.2272292573665,
+            "lon": 16.5957432512507,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "87599",
+            "name": "Kosmova vnitroblok (ú)",
+            "from": "2026-11-05T10:00:00Z",
+            "to": "2026-11-05T14:00:00Z",
             "sectionId": "3874",
             "sectionName": "Kosmova vnitroblok (ú)",
             "streetId": "2489",
@@ -28767,7 +28935,7 @@
             "sectionKey": "56dd9dcf",
             "lat": 49.2147385911734,
             "lon": 16.5697861050883,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28781,7 +28949,7 @@
             "sectionKey": "687f5bb7",
             "lat": 49.2212188752757,
             "lon": 16.5788008241397,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28795,7 +28963,7 @@
             "sectionKey": "207f9cc8",
             "lat": 49.2187679738761,
             "lon": 16.5733020068961,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28809,7 +28977,7 @@
             "sectionKey": "e250b094",
             "lat": 49.2148655431567,
             "lon": 16.5689425020384,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28823,7 +28991,7 @@
             "sectionKey": "2c71f149",
             "lat": 49.214573554587,
             "lon": 16.56834582063,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28837,7 +29005,7 @@
             "sectionKey": "886d3e5b",
             "lat": 49.2201858499924,
             "lon": 16.5794594811532,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28851,7 +29019,7 @@
             "sectionKey": "8a464a39",
             "lat": 49.2130385707986,
             "lon": 16.5911205815219,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28865,7 +29033,7 @@
             "sectionKey": "dec4dadf",
             "lat": 49.2092725861012,
             "lon": 16.5863003969259,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28879,7 +29047,7 @@
             "sectionKey": "2be922df",
             "lat": 49.2073811416542,
             "lon": 16.5825147976146,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28893,7 +29061,7 @@
             "sectionKey": "3c9cafd5",
             "lat": 49.2122674395348,
             "lon": 16.5790633727898,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28907,7 +29075,7 @@
             "sectionKey": "08c8c8ae",
             "lat": 49.2028508092931,
             "lon": 16.5677464635278,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28921,7 +29089,7 @@
             "sectionKey": "cda87c87",
             "lat": 49.2105965433432,
             "lon": 16.5579972895999,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28935,7 +29103,7 @@
             "sectionKey": "46591ffe",
             "lat": 49.2111262412151,
             "lon": 16.572900327897,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28949,7 +29117,7 @@
             "sectionKey": "d29d7914",
             "lat": 49.2108306953759,
             "lon": 16.5741708146254,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -28957,6 +29125,76 @@
             "name": "Kníničská",
             "from": "2026-10-07T16:00:00Z",
             "to": "2026-10-07T21:59:00Z",
+            "sectionId": "3819",
+            "sectionName": "Kníničská",
+            "streetId": "2448",
+            "sectionKey": "9442cbc5",
+            "lat": 49.2118922475423,
+            "lon": 16.5672939968995,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "89228",
+            "name": "Žabovřeská",
+            "from": "2026-10-07T22:00:00Z",
+            "to": "2026-10-08T04:00:00Z",
+            "sectionId": "2149",
+            "sectionName": "Žabovřeská",
+            "streetId": "3570",
+            "sectionKey": "08c8c8ae",
+            "lat": 49.2028508092931,
+            "lon": 16.5677464635278,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "89229",
+            "name": "Veslařská",
+            "from": "2026-10-07T22:00:00Z",
+            "to": "2026-10-08T04:00:00Z",
+            "sectionId": "2606",
+            "sectionName": "Veslařská",
+            "streetId": "3470",
+            "sectionKey": "cda87c87",
+            "lat": 49.2105965433432,
+            "lon": 16.5579972895999,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "89230",
+            "name": "nájezd na Žabovřeskou",
+            "from": "2026-10-07T22:00:00Z",
+            "to": "2026-10-08T04:00:00Z",
+            "sectionId": "3675",
+            "sectionName": "nájezd na Žabovřeskou",
+            "streetId": "3878",
+            "sectionKey": "46591ffe",
+            "lat": 49.2111262412151,
+            "lon": 16.572900327897,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "89231",
+            "name": "nájezd na Žabovřeskou",
+            "from": "2026-10-07T22:00:00Z",
+            "to": "2026-10-08T04:00:00Z",
+            "sectionId": "3676",
+            "sectionName": "nájezd na Žabovřeskou",
+            "streetId": "3880",
+            "sectionKey": "d29d7914",
+            "lat": 49.2108306953759,
+            "lon": 16.5741708146254,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "89232",
+            "name": "Kníničská",
+            "from": "2026-10-07T22:00:00Z",
+            "to": "2026-10-08T04:00:00Z",
             "sectionId": "3819",
             "sectionName": "Kníničská",
             "streetId": "2448",
@@ -34997,7 +35235,7 @@
             "sectionKey": "f75a8163",
             "lat": 49.215317593109,
             "lon": 16.6378660631514,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -35011,7 +35249,7 @@
             "sectionKey": "c6643cda",
             "lat": 49.2177826584182,
             "lon": 16.6359645776899,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -35025,7 +35263,7 @@
             "sectionKey": "3284de6b",
             "lat": 49.2152806033647,
             "lon": 16.6384995035118,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -35039,7 +35277,7 @@
             "sectionKey": "9dda2897",
             "lat": 49.2142164254526,
             "lon": 16.6376288772478,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -35053,7 +35291,7 @@
             "sectionKey": "e691a59b",
             "lat": 49.2168310275066,
             "lon": 16.6410455025436,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -35067,7 +35305,7 @@
             "sectionKey": "ad61d5b2",
             "lat": 49.2117667265156,
             "lon": 16.6384559039697,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -35081,7 +35319,7 @@
             "sectionKey": "383b16d3",
             "lat": 49.2093593658619,
             "lon": 16.6357359497457,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -35095,7 +35333,7 @@
             "sectionKey": "4dd33660",
             "lat": 49.21348446546021,
             "lon": 16.63923170998681,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -35109,7 +35347,7 @@
             "sectionKey": "40432201",
             "lat": 49.2155031670182,
             "lon": 16.6379106663557,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46619,7 +46857,7 @@
             "sectionKey": "a2ed0a85",
             "lat": 49.1477496762417,
             "lon": 16.6687635225787,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46633,7 +46871,7 @@
             "sectionKey": "d3ce1a14",
             "lat": 49.1479845981287,
             "lon": 16.6659380157571,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46647,7 +46885,7 @@
             "sectionKey": "b14a0573",
             "lat": 49.1470548947823,
             "lon": 16.6660618548223,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46661,7 +46899,7 @@
             "sectionKey": "048269e0",
             "lat": 49.1483059546092,
             "lon": 16.6649774673326,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46675,7 +46913,7 @@
             "sectionKey": "67c2d3e7",
             "lat": 49.1488259555168,
             "lon": 16.6645541926984,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46689,7 +46927,7 @@
             "sectionKey": "f0882775",
             "lat": 49.1479317672779,
             "lon": 16.6621191392926,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46703,7 +46941,7 @@
             "sectionKey": "b15cb4de",
             "lat": 49.1489046104632,
             "lon": 16.6618461666806,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46717,7 +46955,7 @@
             "sectionKey": "755f8ca8",
             "lat": 49.1516950207879,
             "lon": 16.656456159937,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46731,7 +46969,7 @@
             "sectionKey": "f58632e1",
             "lat": 49.1419440108488,
             "lon": 16.6523686632846,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46745,7 +46983,7 @@
             "sectionKey": "0bdf46bd",
             "lat": 49.1449382497197,
             "lon": 16.648790861506,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46759,7 +46997,7 @@
             "sectionKey": "5edce16c",
             "lat": 49.1530124531031,
             "lon": 16.6475503024494,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46773,7 +47011,7 @@
             "sectionKey": "bfbc0912",
             "lat": 49.1435264844028,
             "lon": 16.7117361838433,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46787,7 +47025,7 @@
             "sectionKey": "adfa4653",
             "lat": 49.1543788811162,
             "lon": 16.6473756802232,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46801,7 +47039,7 @@
             "sectionKey": "46c0b505",
             "lat": 49.1533801597966,
             "lon": 16.6537727710198,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46815,7 +47053,7 @@
             "sectionKey": "45e7d958",
             "lat": 49.1483680674645,
             "lon": 16.6652612212914,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46829,7 +47067,7 @@
             "sectionKey": "0d111c2d",
             "lat": 49.1495305674699,
             "lon": 16.6702222335636,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46843,7 +47081,7 @@
             "sectionKey": "547366ed",
             "lat": 49.1409023894417,
             "lon": 16.6627000044922,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -46857,7 +47095,7 @@
             "sectionKey": "8a65faee",
             "lat": 49.1640658220157,
             "lon": 16.6752342487202,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
