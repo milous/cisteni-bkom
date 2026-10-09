@@ -44621,6 +44621,34 @@
             "sequence": 0
         },
         {
+            "id": "91717",
+            "name": "Preslova",
+            "from": "2026-06-22T06:00:00Z",
+            "to": "2026-06-22T12:30:00Z",
+            "sectionId": "2304",
+            "sectionName": "Preslova",
+            "streetId": "3000",
+            "sectionKey": "51dde2c2",
+            "lat": 49.1947216222803,
+            "lon": 16.583030861603,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91730",
+            "name": "Preslova or.č.5 - spojka na Neumannovu",
+            "from": "2026-06-22T06:00:00Z",
+            "to": "2026-06-22T12:30:00Z",
+            "sectionId": "4900",
+            "sectionName": "Preslova or.č.5 - spojka na Neumannovu",
+            "streetId": "3000",
+            "sectionKey": "86b661ab",
+            "lat": 49.1964441471567,
+            "lon": 16.5783783268866,
+            "status": "done",
+            "sequence": 0
+        },
+        {
             "id": "91733",
             "name": "Kraví hora",
             "from": "2026-09-07T06:00:00Z",
@@ -44827,8 +44855,9 @@
             "sectionKey": "51dde2c2",
             "lat": 49.1947216222803,
             "lon": 16.583030861603,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-09T12:36:29Z"
         },
         {
             "id": "91752",
@@ -44981,8 +45010,9 @@
             "sectionKey": "4c6705c7",
             "lat": 49.1959221728893,
             "lon": 16.5761244339405,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-09T12:36:29Z"
         },
         {
             "id": "91763",
@@ -44995,8 +45025,9 @@
             "sectionKey": "1d89a383",
             "lat": 49.1945943787029,
             "lon": 16.5805949343539,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-09T12:36:29Z"
         },
         {
             "id": "91764",
@@ -45009,8 +45040,9 @@
             "sectionKey": "86b661ab",
             "lat": 49.1964441471567,
             "lon": 16.5783783268866,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-09T12:36:29Z"
         },
         {
             "id": "91765",
@@ -47417,6 +47449,90 @@
             "sectionKey": "0f95b857",
             "lat": 49.184099163134185,
             "lon": 16.594930829910826,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92212",
+            "name": "Placzkova",
+            "from": "2026-10-16T06:00:00Z",
+            "to": "2026-10-16T12:30:00Z",
+            "sectionId": "5544",
+            "sectionName": "Placzkova",
+            "streetId": "5332",
+            "sectionKey": "808acf07",
+            "lat": 49.18691848510222,
+            "lon": 16.61265043218267,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92213",
+            "name": "Fuchsova (Trnitá-Placzkova)",
+            "from": "2026-10-16T06:00:00Z",
+            "to": "2026-10-16T12:30:00Z",
+            "sectionId": "5553",
+            "sectionName": "Fuchsova (Trnitá-Placzkova)",
+            "streetId": "5326",
+            "sectionKey": "9cc3d383",
+            "lat": 49.18735828681398,
+            "lon": 16.61377628331659,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92214",
+            "name": "Opuštěná (Placzkova - NN1050)",
+            "from": "2026-10-16T06:00:00Z",
+            "to": "2026-10-16T12:30:00Z",
+            "sectionId": "5554",
+            "sectionName": "Opuštěná (Placzkova - NN1050)",
+            "streetId": "2847",
+            "sectionKey": "57759e65",
+            "lat": 49.18613662839138,
+            "lon": 16.61328489361578,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92215",
+            "name": "NN1050 (18473 - Opuštěná)",
+            "from": "2026-10-16T06:00:00Z",
+            "to": "2026-10-16T12:30:00Z",
+            "sectionId": "5555",
+            "sectionName": "NN1050 (18473 - Opuštěná)",
+            "streetId": "3673",
+            "sectionKey": "9d8058aa",
+            "lat": 49.185822441880994,
+            "lon": 16.61348942044853,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92216",
+            "name": "Neumannova ",
+            "from": "2026-10-12T06:00:00Z",
+            "to": "2026-10-12T12:30:00Z",
+            "sectionId": "4897",
+            "sectionName": "Neumannova ",
+            "streetId": "2797",
+            "sectionKey": "4c6705c7",
+            "lat": 49.1959221728893,
+            "lon": 16.5761244339405,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92217",
+            "name": "Neumannova 32 - Lipová",
+            "from": "2026-10-12T06:00:00Z",
+            "to": "2026-10-12T12:30:00Z",
+            "sectionId": "4898",
+            "sectionName": "Neumannova 32 - Lipová",
+            "streetId": "2797",
+            "sectionKey": "1d89a383",
+            "lat": 49.1945943787029,
+            "lon": 16.5805949343539,
             "status": "planned",
             "sequence": 0
         }
