@@ -211,20 +211,6 @@
             "sequence": 0
         },
         {
-            "id": "84409",
-            "name": "Lesnická",
-            "from": "2025-10-15T06:00:00Z",
-            "to": "2025-10-15T14:00:00Z",
-            "sectionId": "4707",
-            "sectionName": "Lesnická",
-            "streetId": "2592",
-            "sectionKey": "168e748c",
-            "lat": 49.2065229237038,
-            "lon": 16.6218401841778,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "84510",
             "name": "Svatopluka Čecha (slepý konec úseku Purkyňova-Hradecká)",
             "from": "2025-11-12T10:00:00Z",
