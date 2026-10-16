@@ -197,20 +197,6 @@
             "sequence": 0
         },
         {
-            "id": "83938",
-            "name": "Bauerova (chodník + obslužná komunikace)",
-            "from": "2025-10-16T06:00:00Z",
-            "to": "2025-10-16T12:30:00Z",
-            "sectionId": "4016",
-            "sectionName": "Bauerova (chodník + obslužná komunikace)",
-            "streetId": "1908",
-            "sectionKey": "bbb41338",
-            "lat": 49.1910119261635,
-            "lon": 16.5700802477103,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "84510",
             "name": "Svatopluka Čecha (slepý konec úseku Purkyňova-Hradecká)",
             "from": "2025-11-12T10:00:00Z",
