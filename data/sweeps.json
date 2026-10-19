@@ -39258,6 +39258,20 @@
             "sequence": 0
         },
         {
+            "id": "90544",
+            "name": "Běloruská",
+            "from": "2026-06-24T06:00:00Z",
+            "to": "2026-06-24T15:00:00Z",
+            "sectionId": "3804",
+            "sectionName": "Běloruská",
+            "streetId": "1920",
+            "sectionKey": "a830f31f",
+            "lat": 49.1689211180603,
+            "lon": 16.5821037578357,
+            "status": "done",
+            "sequence": 0
+        },
+        {
             "id": "90553",
             "name": "Běloruská",
             "from": "2026-10-20T06:00:00Z",
@@ -39268,8 +39282,9 @@
             "sectionKey": "a830f31f",
             "lat": 49.1689211180603,
             "lon": 16.5821037578357,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-19T12:11:36Z"
         },
         {
             "id": "90554",
@@ -46641,17 +46656,17 @@
         },
         {
             "id": "91895",
-            "name": "Labská parkoviště (za trafostanicí, naproti č.o.33) (ú)",
+            "name": "Labská parkoviště (za trafostanicí, naproti č.o.33) ",
             "from": "2026-10-20T07:00:00Z",
             "to": "2026-10-20T15:30:00Z",
             "sectionId": "5377",
-            "sectionName": "Labská parkoviště (za trafostanicí, naproti č.o.33) (ú)",
+            "sectionName": "Labská parkoviště (za trafostanicí, naproti č.o.33) ",
             "streetId": "2575",
             "sectionKey": "916de859",
             "lat": 49.170666106990176,
             "lon": 16.55709414347469,
             "status": "planned",
-            "sequence": 0
+            "sequence": 1
         },
         {
             "id": "91914",
