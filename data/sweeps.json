@@ -39034,6 +39034,20 @@
             "sequence": 0
         },
         {
+            "id": "90441",
+            "name": "Křtinská ZÁKOS",
+            "from": "2026-04-01T06:00:00Z",
+            "to": "2026-04-01T12:00:00Z",
+            "sectionId": "3602",
+            "sectionName": "Křtinská ZÁKOS",
+            "streetId": "2541",
+            "sectionKey": "3865c1d3",
+            "lat": 49.1998859697794,
+            "lon": 16.6636012419634,
+            "status": "done",
+            "sequence": 0
+        },
+        {
             "id": "90443",
             "name": "Bzenecká",
             "from": "2026-11-03T07:00:00Z",
@@ -39044,8 +39058,9 @@
             "sectionKey": "5c93bc60",
             "lat": 49.2066475576587,
             "lon": 16.6627508568077,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-26T12:17:28Z"
         },
         {
             "id": "90444",
@@ -39058,8 +39073,9 @@
             "sectionKey": "d84c5fa1",
             "lat": 49.2006746962368,
             "lon": 16.6629246699871,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-26T12:17:28Z"
         },
         {
             "id": "90445",
@@ -39072,8 +39088,9 @@
             "sectionKey": "e2f4f96d",
             "lat": 49.2013363723195,
             "lon": 16.6603240498462,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-26T12:17:28Z"
         },
         {
             "id": "90446",
@@ -39086,8 +39103,9 @@
             "sectionKey": "3865c1d3",
             "lat": 49.1998859697794,
             "lon": 16.6636012419634,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-26T12:17:28Z"
         },
         {
             "id": "90447",
@@ -39100,8 +39118,9 @@
             "sectionKey": "b5478c42",
             "lat": 49.2019038090661,
             "lon": 16.6601946395781,
-            "status": "planned",
-            "sequence": 0
+            "status": "cancelled",
+            "sequence": 1,
+            "cancelledAt": "2026-10-26T12:17:28Z"
         },
         {
             "id": "90456",
@@ -49073,6 +49092,62 @@
             "sectionKey": "d4ddf173",
             "lat": 49.2202439738622,
             "lon": 16.5724596275222,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92240",
+            "name": "Bzenecká",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T13:00:00Z",
+            "sectionId": "3581",
+            "sectionName": "Bzenecká",
+            "streetId": "2010",
+            "sectionKey": "5c93bc60",
+            "lat": 49.2066475576587,
+            "lon": 16.6627508568077,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92241",
+            "name": "Čejkovická úsek 1",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T13:00:00Z",
+            "sectionId": "3583",
+            "sectionName": "Čejkovická úsek 1",
+            "streetId": "2017",
+            "sectionKey": "d84c5fa1",
+            "lat": 49.2006746962368,
+            "lon": 16.6629246699871,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92242",
+            "name": "Čejkovická úsek 2",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T13:00:00Z",
+            "sectionId": "3584",
+            "sectionName": "Čejkovická úsek 2",
+            "streetId": "3471",
+            "sectionKey": "e2f4f96d",
+            "lat": 49.2013363723195,
+            "lon": 16.6603240498462,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92243",
+            "name": "Čejkovická úsek 3",
+            "from": "2026-11-05T07:00:00Z",
+            "to": "2026-11-05T13:00:00Z",
+            "sectionId": "3740",
+            "sectionName": "Čejkovická úsek 3",
+            "streetId": "1958",
+            "sectionKey": "b5478c42",
+            "lat": 49.2019038090661,
+            "lon": 16.6601946395781,
             "status": "planned",
             "sequence": 0
         }
