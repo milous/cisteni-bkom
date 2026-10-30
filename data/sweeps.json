@@ -49304,6 +49304,48 @@
             "lon": 16.6601946395781,
             "status": "planned",
             "sequence": 0
+        },
+        {
+            "id": "92244",
+            "name": "Barvičova (úsek levá strana od Vaňkovo nám.-Hlávkova)",
+            "from": "2026-11-02T07:00:00Z",
+            "to": "2026-11-02T13:30:00Z",
+            "sectionId": "5556",
+            "sectionName": "Barvičova (úsek levá strana od Vaňkovo nám.-Hlávkova)",
+            "streetId": "1903",
+            "sectionKey": "a2e63392",
+            "lat": 49.196455756842,
+            "lon": 16.5828895547697,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92245",
+            "name": "Křížkovského (parkování podél BVV)",
+            "from": "2026-11-02T07:00:00Z",
+            "to": "2026-11-02T13:30:00Z",
+            "sectionId": "5557",
+            "sectionName": "Křížkovského (parkování podél BVV)",
+            "streetId": "2532",
+            "sectionKey": "25e55bfc",
+            "lat": 49.1864068750283,
+            "lon": 16.5852709789723,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "92246",
+            "name": "Údolní (úsek Husova-Obilní trh-obě strany)",
+            "from": "2026-11-02T07:00:00Z",
+            "to": "2026-11-02T13:30:00Z",
+            "sectionId": "5558",
+            "sectionName": "Údolní (úsek Husova-Obilní trh-obě strany)",
+            "streetId": "3391",
+            "sectionKey": "a14ee474",
+            "lat": 49.1969355860204,
+            "lon": 16.6010709993228,
+            "status": "planned",
+            "sequence": 0
         }
     ]
 }
