@@ -29,20 +29,6 @@
             "sequence": 0
         },
         {
-            "id": "78202",
-            "name": "Tylova k Zagrebu za BD č.o.166 (účel.k.)",
-            "from": "2025-10-31T10:00:00Z",
-            "to": "2025-10-31T14:00:00Z",
-            "sectionId": "5129",
-            "sectionName": "Tylova k Zagrebu za BD č.o.166 (účel.k.)",
-            "streetId": "3383",
-            "sectionKey": "c05b7a55",
-            "lat": 49.2323834332757,
-            "lon": 16.5901456804535,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "78937",
             "name": "Kožíkova (účel.k.)",
             "from": "2025-11-10T10:00:00Z",
