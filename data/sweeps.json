@@ -5163,7 +5163,7 @@
             "sectionKey": "7f38a417",
             "lat": 49.1742919255431,
             "lon": 16.62257029139261,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -5177,7 +5177,7 @@
             "sectionKey": "63402506",
             "lat": 49.1522660744641,
             "lon": 16.6012583893051,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -5191,7 +5191,7 @@
             "sectionKey": "9c04ab49",
             "lat": 49.1664259961776,
             "lon": 16.6158067676721,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -5205,7 +5205,7 @@
             "sectionKey": "3d888ffa",
             "lat": 49.16972279359149,
             "lon": 16.626041490096284,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -5219,7 +5219,7 @@
             "sectionKey": "cacee693",
             "lat": 49.171013771920904,
             "lon": 16.615876267161006,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -5233,7 +5233,7 @@
             "sectionKey": "14142cbc",
             "lat": 49.1667729061372,
             "lon": 16.6239412864161,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10679,7 +10679,7 @@
             "sectionKey": "2a68ed87",
             "lat": 49.2060028590719,
             "lon": 16.6946463365956,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10693,7 +10693,7 @@
             "sectionKey": "2d87b75f",
             "lat": 49.2032343752359,
             "lon": 16.6951127408111,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10707,7 +10707,7 @@
             "sectionKey": "e7c9c228",
             "lat": 49.206806733052,
             "lon": 16.6950758279135,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10721,7 +10721,7 @@
             "sectionKey": "86cc0680",
             "lat": 49.1987330064271,
             "lon": 16.6962615723428,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10735,7 +10735,7 @@
             "sectionKey": "0727fbff",
             "lat": 49.2026821191983,
             "lon": 16.6962404612417,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10749,7 +10749,7 @@
             "sectionKey": "8fda1c3f",
             "lat": 49.2015879699535,
             "lon": 16.6962283599493,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10763,7 +10763,7 @@
             "sectionKey": "1156bacd",
             "lat": 49.2044407557636,
             "lon": 16.6957109037085,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10777,7 +10777,7 @@
             "sectionKey": "6993bd7f",
             "lat": 49.1990100949712,
             "lon": 16.6961878041148,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10791,7 +10791,7 @@
             "sectionKey": "79d556f9",
             "lat": 49.2026522353563,
             "lon": 16.6886152656169,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10805,7 +10805,7 @@
             "sectionKey": "3dcded23",
             "lat": 49.2030999827589,
             "lon": 16.6933058956249,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10819,7 +10819,7 @@
             "sectionKey": "bfd180d0",
             "lat": 49.2033700625048,
             "lon": 16.6902975397004,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10833,7 +10833,7 @@
             "sectionKey": "7a7eb5a9",
             "lat": 49.2071162277087,
             "lon": 16.6923477118014,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10847,7 +10847,7 @@
             "sectionKey": "575f5a77",
             "lat": 49.2052242720841,
             "lon": 16.6923015326603,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10861,7 +10861,7 @@
             "sectionKey": "a7c2bd3e",
             "lat": 49.2046487610383,
             "lon": 16.6903212559098,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10875,7 +10875,7 @@
             "sectionKey": "1775b8e9",
             "lat": 49.205276913794,
             "lon": 16.6897364780792,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10889,7 +10889,7 @@
             "sectionKey": "a3645ee3",
             "lat": 49.205952293589,
             "lon": 16.6886267009891,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10903,7 +10903,7 @@
             "sectionKey": "2bbcb623",
             "lat": 49.2007985923547,
             "lon": 16.6968023602234,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10917,7 +10917,7 @@
             "sectionKey": "7a16d4b7",
             "lat": 49.2007985923547,
             "lon": 16.6968023602234,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10931,7 +10931,7 @@
             "sectionKey": "f765cbb2",
             "lat": 49.1984224978325,
             "lon": 16.6985092208796,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10945,7 +10945,7 @@
             "sectionKey": "a3fb81d6",
             "lat": 49.1982006993506,
             "lon": 16.6976191491397,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10959,7 +10959,7 @@
             "sectionKey": "0e11d0b3",
             "lat": 49.2028506241041,
             "lon": 16.6962291192363,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -10973,7 +10973,7 @@
             "sectionKey": "293b6546",
             "lat": 49.205393641326,
             "lon": 16.6945261385805,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -12415,7 +12415,7 @@
             "sectionKey": "23f706d6",
             "lat": 49.1758092200641,
             "lon": 16.5251393184745,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -12429,7 +12429,7 @@
             "sectionKey": "80f9abb5",
             "lat": 49.1726780932695,
             "lon": 16.5259539299592,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -40393,7 +40393,7 @@
             "sectionKey": "110f2c9b",
             "lat": 49.1696168939791,
             "lon": 16.5680149035383,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -47496,7 +47496,7 @@
             "sectionKey": "36072e6e",
             "lat": 49.22329921352181,
             "lon": 16.595322126393402,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -47504,6 +47504,34 @@
             "name": "Palackého třída parkovací stání (úsek Husitská po Kartouzská)",
             "from": "2026-10-30T07:00:00Z",
             "to": "2026-10-30T13:00:00Z",
+            "sectionId": "5143",
+            "sectionName": "Palackého třída parkovací stání (úsek Husitská po Kartouzská)",
+            "streetId": "2868",
+            "sectionKey": "99a717ae",
+            "lat": 49.21679392086094,
+            "lon": 16.598792081257486,
+            "status": "done",
+            "sequence": 0
+        },
+        {
+            "id": "91943",
+            "name": "Palackého třída parkovací stání (úsek Antonína Macka po Kollárova)",
+            "from": "2026-11-25T07:00:00Z",
+            "to": "2026-11-25T13:00:00Z",
+            "sectionId": "5142",
+            "sectionName": "Palackého třída parkovací stání (úsek Antonína Macka po Kollárova)",
+            "streetId": "2868",
+            "sectionKey": "36072e6e",
+            "lat": 49.22329921352181,
+            "lon": 16.595322126393402,
+            "status": "planned",
+            "sequence": 0
+        },
+        {
+            "id": "91944",
+            "name": "Palackého třída parkovací stání (úsek Husitská po Kartouzská)",
+            "from": "2026-11-25T07:00:00Z",
+            "to": "2026-11-25T13:00:00Z",
             "sectionId": "5143",
             "sectionName": "Palackého třída parkovací stání (úsek Husitská po Kartouzská)",
             "streetId": "2868",
