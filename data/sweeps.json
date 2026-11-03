@@ -99,20 +99,6 @@
             "sequence": 0
         },
         {
-            "id": "81029",
-            "name": "Loosova parkoviště pod TJ Startem + příjezd ",
-            "from": "2025-11-03T10:00:00Z",
-            "to": "2025-11-03T15:30:00Z",
-            "sectionId": "3850",
-            "sectionName": "Loosova parkoviště pod TJ Startem + příjezd ",
-            "streetId": "2611",
-            "sectionKey": "ffa892b4",
-            "lat": 49.2316994812139,
-            "lon": 16.6208571779802,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "81953",
             "name": "Nezamyslova (slepá- účel.k.)",
             "from": "2025-11-04T07:00:00Z",
