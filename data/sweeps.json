@@ -99,20 +99,6 @@
             "sequence": 0
         },
         {
-            "id": "81953",
-            "name": "Nezamyslova (slepá- účel.k.)",
-            "from": "2025-11-04T07:00:00Z",
-            "to": "2025-11-04T14:00:00Z",
-            "sectionId": "617",
-            "sectionName": "Nezamyslova (slepá- účel.k.)",
-            "streetId": "2800",
-            "sectionKey": "af857622",
-            "lat": 49.1917169849758,
-            "lon": 16.6405022406163,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "81990",
             "name": "Klíny (úsek Jílkova - Táborská)",
             "from": "2025-11-05T07:00:00Z",
