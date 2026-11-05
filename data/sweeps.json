@@ -99,20 +99,6 @@
             "sequence": 0
         },
         {
-            "id": "81990",
-            "name": "Klíny (úsek Jílkova - Táborská)",
-            "from": "2025-11-05T07:00:00Z",
-            "to": "2025-11-05T14:00:00Z",
-            "sectionId": "5446",
-            "sectionName": "Klíny (úsek Jílkova - Táborská)",
-            "streetId": "2439",
-            "sectionKey": "1aff13c7",
-            "lat": 49.1937062050633,
-            "lon": 16.6395942467569,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "82158",
             "name": "Lazaretní (úsek Zábrdovická - nadjezd ČD, vedle nádraží ČD, ulička vedle lázní)",
             "from": "2025-11-13T07:00:00Z",
