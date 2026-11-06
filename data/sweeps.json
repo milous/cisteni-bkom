@@ -2265,7 +2265,7 @@
             "sectionKey": "e5c882af",
             "lat": 49.1294130185457,
             "lon": 16.6566968271759,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2279,7 +2279,7 @@
             "sectionKey": "1581eac8",
             "lat": 49.1319137971903,
             "lon": 16.6561542806656,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2293,7 +2293,7 @@
             "sectionKey": "2d7f11e6",
             "lat": 49.1306646893711,
             "lon": 16.6563943405355,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2307,7 +2307,7 @@
             "sectionKey": "93075feb",
             "lat": 49.1310834152866,
             "lon": 16.6491833520515,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2321,7 +2321,7 @@
             "sectionKey": "4c8a3445",
             "lat": 49.132886444373,
             "lon": 16.6514437108021,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2335,7 +2335,7 @@
             "sectionKey": "64503de3",
             "lat": 49.1333316728028,
             "lon": 16.6537810514433,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2349,7 +2349,7 @@
             "sectionKey": "4c12cdf2",
             "lat": 49.1318123010455,
             "lon": 16.6539554517275,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2363,7 +2363,7 @@
             "sectionKey": "8ff1cbcd",
             "lat": 49.132886444373,
             "lon": 16.6514437108021,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2377,7 +2377,7 @@
             "sectionKey": "77802011",
             "lat": 49.1313078956468,
             "lon": 16.6503498028351,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2391,7 +2391,7 @@
             "sectionKey": "a160229a",
             "lat": 49.1303052952094,
             "lon": 16.6495188314258,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2405,7 +2405,7 @@
             "sectionKey": "8bcce5e2",
             "lat": 49.12982546227328,
             "lon": 16.65092174953802,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -2419,7 +2419,7 @@
             "sectionKey": "33061c84",
             "lat": 49.1304366073697,
             "lon": 16.652187796003,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -3189,7 +3189,7 @@
             "sectionKey": "76f0103e",
             "lat": 49.1881739894024,
             "lon": 16.6362245870596,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -3203,7 +3203,7 @@
             "sectionKey": "c8d8fa2f",
             "lat": 49.1864992808912,
             "lon": 16.6366740334402,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -3217,7 +3217,7 @@
             "sectionKey": "4c034639",
             "lat": 49.1778019990315,
             "lon": 16.6402240152273,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -11645,7 +11645,7 @@
             "sectionKey": "f944f0d0",
             "lat": 49.2236076387783,
             "lon": 16.5580711807615,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -11659,7 +11659,7 @@
             "sectionKey": "06ba858e",
             "lat": 49.21014024586742,
             "lon": 16.557406649914338,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -11757,7 +11757,7 @@
             "sectionKey": "4ff1d7b5",
             "lat": 49.1727289132021,
             "lon": 16.5635595100086,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -11771,7 +11771,7 @@
             "sectionKey": "c672c7f3",
             "lat": 49.1698711361491,
             "lon": 16.5576116157411,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -11785,7 +11785,7 @@
             "sectionKey": "4e1e39b0",
             "lat": 49.1692402458775,
             "lon": 16.5549986677498,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -11799,7 +11799,7 @@
             "sectionKey": "18a2673f",
             "lat": 49.1670053212449,
             "lon": 16.558742009394,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18253,7 +18253,7 @@
             "sectionKey": "279fa09e",
             "lat": 49.2223644507199,
             "lon": 16.6009767013123,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18267,7 +18267,7 @@
             "sectionKey": "e20ae578",
             "lat": 49.2155035530064,
             "lon": 16.60146239205,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18281,7 +18281,7 @@
             "sectionKey": "9e0d08d8",
             "lat": 49.2202151199561,
             "lon": 16.600684351727,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18295,7 +18295,7 @@
             "sectionKey": "b9020551",
             "lat": 49.2208403191442,
             "lon": 16.600454998344,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18309,7 +18309,7 @@
             "sectionKey": "0d1b5e5d",
             "lat": 49.2226505293739,
             "lon": 16.5980903334392,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18323,7 +18323,7 @@
             "sectionKey": "bd9a4c61",
             "lat": 49.2306528279709,
             "lon": 16.6070703285909,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18337,7 +18337,7 @@
             "sectionKey": "c2ca007a",
             "lat": 49.22918888919555,
             "lon": 16.604372367415365,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18351,7 +18351,7 @@
             "sectionKey": "393d2223",
             "lat": 49.23024386742501,
             "lon": 16.60851036474727,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18365,7 +18365,7 @@
             "sectionKey": "a9f5b790",
             "lat": 49.23055301480402,
             "lon": 16.60416663083879,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18463,7 +18463,7 @@
             "sectionKey": "012c5abc",
             "lat": 49.2317992914983,
             "lon": 16.591117103282,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18477,7 +18477,7 @@
             "sectionKey": "3a6bbebc",
             "lat": 49.2272292573665,
             "lon": 16.5957432512507,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -18491,7 +18491,7 @@
             "sectionKey": "2476e446",
             "lat": 49.2284736603111,
             "lon": 16.5928936219079,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25855,7 +25855,7 @@
             "sectionKey": "d3351e66",
             "lat": 49.1909082462075,
             "lon": 16.6577886096776,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25869,7 +25869,7 @@
             "sectionKey": "aac9cf52",
             "lat": 49.1985659380252,
             "lon": 16.6474044801093,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25883,7 +25883,7 @@
             "sectionKey": "967704b7",
             "lat": 49.1917416475921,
             "lon": 16.6506904390043,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25897,7 +25897,7 @@
             "sectionKey": "7ef6e89f",
             "lat": 49.2025437491081,
             "lon": 16.6465292152467,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25911,7 +25911,7 @@
             "sectionKey": "da046c6c",
             "lat": 49.1979215892012,
             "lon": 16.6438978636013,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25925,7 +25925,7 @@
             "sectionKey": "3e6a7e27",
             "lat": 49.196415277116,
             "lon": 16.6432479246339,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -25939,7 +25939,7 @@
             "sectionKey": "3365fdae",
             "lat": 49.2025437491081,
             "lon": 16.6465292152467,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -30069,7 +30069,7 @@
             "sectionKey": "0cb93936",
             "lat": 49.2064604698781,
             "lon": 16.64378017769,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -30083,7 +30083,7 @@
             "sectionKey": "7f3972a0",
             "lat": 49.2064604698781,
             "lon": 16.64378017769,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -30097,7 +30097,7 @@
             "sectionKey": "48c3ea61",
             "lat": 49.2027766154346,
             "lon": 16.642391576364,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -30111,7 +30111,7 @@
             "sectionKey": "98107557",
             "lat": 49.2021776933033,
             "lon": 16.6428764148805,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -32589,7 +32589,7 @@
             "sectionKey": "095331b5",
             "lat": 49.22197245598794,
             "lon": 16.51320415092699,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -32603,7 +32603,7 @@
             "sectionKey": "fc819f3e",
             "lat": 49.222116674756805,
             "lon": 16.514381068266214,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -32617,7 +32617,7 @@
             "sectionKey": "17186da2",
             "lat": 49.222567130653054,
             "lon": 16.515776625790117,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -32631,7 +32631,7 @@
             "sectionKey": "8b85831a",
             "lat": 49.22497208582651,
             "lon": 16.51305522623329,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -32645,7 +32645,7 @@
             "sectionKey": "4f3b8978",
             "lat": 49.22447296103987,
             "lon": 16.512348665283344,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -32659,7 +32659,7 @@
             "sectionKey": "2ea90ef6",
             "lat": 49.22420511595976,
             "lon": 16.511695442066745,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -32673,7 +32673,7 @@
             "sectionKey": "3be2b1d0",
             "lat": 49.223084181189,
             "lon": 16.51432464584176,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -32687,7 +32687,7 @@
             "sectionKey": "d85bc4be",
             "lat": 49.222646743044926,
             "lon": 16.513123088177476,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -48014,7 +48014,7 @@
             "sectionKey": "2ff86d5e",
             "lat": 49.1901628594349,
             "lon": 16.6149753876853,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -48028,7 +48028,7 @@
             "sectionKey": "5e40677c",
             "lat": 49.1985247163254,
             "lon": 16.6145180673488,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -48042,7 +48042,7 @@
             "sectionKey": "3bebe693",
             "lat": 49.2007039863582,
             "lon": 16.614507991249,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -48056,7 +48056,7 @@
             "sectionKey": "8c593010",
             "lat": 49.1886317791872,
             "lon": 16.6103611609828,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -48070,7 +48070,7 @@
             "sectionKey": "d50fce18",
             "lat": 49.1903075304482,
             "lon": 16.613895476954,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -48084,7 +48084,7 @@
             "sectionKey": "d4211710",
             "lat": 49.1911890701685,
             "lon": 16.6150506944726,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -48098,7 +48098,7 @@
             "sectionKey": "3cdc669a",
             "lat": 49.196257018592355,
             "lon": 16.62397772248756,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -49288,7 +49288,7 @@
             "sectionKey": "5c93bc60",
             "lat": 49.2066475576587,
             "lon": 16.6627508568077,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -49302,7 +49302,7 @@
             "sectionKey": "d84c5fa1",
             "lat": 49.2006746962368,
             "lon": 16.6629246699871,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -49316,7 +49316,7 @@
             "sectionKey": "e2f4f96d",
             "lat": 49.2013363723195,
             "lon": 16.6603240498462,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
@@ -49330,7 +49330,7 @@
             "sectionKey": "b5478c42",
             "lat": 49.2019038090661,
             "lon": 16.6601946395781,
-            "status": "planned",
+            "status": "done",
             "sequence": 0
         },
         {
