@@ -29,34 +29,6 @@
             "sequence": 0
         },
         {
-            "id": "78937",
-            "name": "Kožíkova (účel.k.)",
-            "from": "2025-11-10T10:00:00Z",
-            "to": "2025-11-10T14:00:00Z",
-            "sectionId": "5243",
-            "sectionName": "Kožíkova (účel.k.)",
-            "streetId": "5314",
-            "sectionKey": "203d463e",
-            "lat": 49.23295128170242,
-            "lon": 16.60567975169544,
-            "status": "done",
-            "sequence": 0
-        },
-        {
-            "id": "78938",
-            "name": "Kožíkova slepá (k č.o.25) ",
-            "from": "2025-11-10T10:00:00Z",
-            "to": "2025-11-10T14:00:00Z",
-            "sectionId": "5351",
-            "sectionName": "Kožíkova slepá (k č.o.25) ",
-            "streetId": "5314",
-            "sectionKey": "42cbea80",
-            "lat": 49.23329281183545,
-            "lon": 16.605014563859747,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "79063",
             "name": "NN1427 pokračování ulice Rybníček (parkoviště - rovnoběžně s ul. Sportovní)",
             "from": "2025-11-11T07:00:00Z",
@@ -123,20 +95,6 @@
             "sectionKey": "04327724",
             "lat": 49.22131803680162,
             "lon": 16.585332956453108,
-            "status": "done",
-            "sequence": 0
-        },
-        {
-            "id": "83543",
-            "name": "Kopečná - Lázně",
-            "from": "2025-11-10T09:00:00Z",
-            "to": "2025-11-10T13:30:00Z",
-            "sectionId": "3752",
-            "sectionName": "Kopečná - Lázně",
-            "streetId": "2751",
-            "sectionKey": "f8a5bad2",
-            "lat": 49.1894695538624,
-            "lon": 16.6075527660667,
             "status": "done",
             "sequence": 0
         },
@@ -6415,7 +6373,7 @@
         {
             "id": "85778",
             "name": "Hudcova",
-            "from": "2026-11-11T08:00:00Z",
+            "from": "2026-11-11T07:00:00Z",
             "to": "2026-11-11T15:30:00Z",
             "sectionId": "5017",
             "sectionName": "Hudcova",
@@ -6424,7 +6382,7 @@
             "lat": 49.2377660770597,
             "lon": 16.5794773479041,
             "status": "planned",
-            "sequence": 0
+            "sequence": 1
         },
         {
             "id": "85797",
