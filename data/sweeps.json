@@ -57,20 +57,6 @@
             "sequence": 0
         },
         {
-            "id": "84510",
-            "name": "Svatopluka Čecha (slepý konec úseku Purkyňova-Hradecká)",
-            "from": "2025-11-12T10:00:00Z",
-            "to": "2025-11-12T14:00:00Z",
-            "sectionId": "5486",
-            "sectionName": "Svatopluka Čecha (slepý konec úseku Purkyňova-Hradecká)",
-            "streetId": "3308",
-            "sectionKey": "b27640ed",
-            "lat": 49.2201211185969,
-            "lon": 16.585307037034,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "84527",
             "name": "Lesní",
             "from": "2026-11-02T07:00:00Z",
