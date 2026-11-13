@@ -29,20 +29,6 @@
             "sequence": 0
         },
         {
-            "id": "82158",
-            "name": "Lazaretní (úsek Zábrdovická - nadjezd ČD, vedle nádraží ČD, ulička vedle lázní)",
-            "from": "2025-11-13T07:00:00Z",
-            "to": "2025-11-13T14:00:00Z",
-            "sectionId": "863",
-            "sectionName": "Lazaretní (úsek Zábrdovická - nadjezd ČD, vedle nádraží ČD, ulička vedle lázní)",
-            "streetId": "2583",
-            "sectionKey": "31556018",
-            "lat": 49.2030126362672,
-            "lon": 16.6328575103526,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "83457",
             "name": "Purkyňova (před pol. domem Eden) ",
             "from": "2025-11-18T07:00:00Z",
