@@ -1,34 +1,6 @@
 {
     "sweeps": [
         {
-            "id": "77174",
-            "name": "Výpravní",
-            "from": "2025-11-14T07:00:00Z",
-            "to": "2025-11-14T15:00:00Z",
-            "sectionId": "1724",
-            "sectionName": "Výpravní",
-            "streetId": "3545",
-            "sectionKey": "b1012a6f",
-            "lat": 49.165707445565,
-            "lon": 16.6055170184279,
-            "status": "done",
-            "sequence": 0
-        },
-        {
-            "id": "77175",
-            "name": "Řehákova",
-            "from": "2025-11-14T07:00:00Z",
-            "to": "2025-11-14T15:00:00Z",
-            "sectionId": "1742",
-            "sectionName": "Řehákova",
-            "streetId": "3052",
-            "sectionKey": "7471e03b",
-            "lat": 49.1633337418661,
-            "lon": 16.6057241890454,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "83457",
             "name": "Purkyňova (před pol. domem Eden) ",
             "from": "2025-11-18T07:00:00Z",
