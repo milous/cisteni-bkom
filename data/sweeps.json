@@ -1,20 +1,6 @@
 {
     "sweeps": [
         {
-            "id": "83457",
-            "name": "Purkyňova (před pol. domem Eden) ",
-            "from": "2025-11-18T07:00:00Z",
-            "to": "2025-11-18T13:00:00Z",
-            "sectionId": "4932",
-            "sectionName": "Purkyňova (před pol. domem Eden) ",
-            "streetId": "3032",
-            "sectionKey": "04327724",
-            "lat": 49.22131803680162,
-            "lon": 16.585332956453108,
-            "status": "done",
-            "sequence": 0
-        },
-        {
             "id": "84527",
             "name": "Lesní, úsek 1 z 2",
             "from": "2026-11-02T07:00:00Z",
@@ -31175,8 +31161,9 @@
             "sectionKey": "9c3688f2",
             "lat": 49.218014,
             "lon": 16.583429,
-            "status": "planned",
-            "sequence": 1
+            "status": "cancelled",
+            "sequence": 2,
+            "cancelledAt": "2026-11-18T15:08:21Z"
         },
         {
             "id": "89292",
@@ -31189,8 +31176,9 @@
             "sectionKey": "5730c6a5",
             "lat": 49.211693,
             "lon": 16.578799,
-            "status": "planned",
-            "sequence": 1
+            "status": "cancelled",
+            "sequence": 2,
+            "cancelledAt": "2026-11-18T15:08:21Z"
         },
         {
             "id": "89293",
@@ -31203,8 +31191,9 @@
             "sectionKey": "eab70949",
             "lat": 49.217505,
             "lon": 16.570371,
-            "status": "planned",
-            "sequence": 1
+            "status": "cancelled",
+            "sequence": 2,
+            "cancelledAt": "2026-11-18T15:08:21Z"
         },
         {
             "id": "89294",
@@ -31217,8 +31206,9 @@
             "sectionKey": "f5e42084",
             "lat": 49.219717,
             "lon": 16.575019,
-            "status": "planned",
-            "sequence": 1
+            "status": "cancelled",
+            "sequence": 2,
+            "cancelledAt": "2026-11-18T15:08:21Z"
         },
         {
             "id": "89295",
@@ -31231,8 +31221,9 @@
             "sectionKey": "5b838dbe",
             "lat": 49.220518,
             "lon": 16.57491,
-            "status": "planned",
-            "sequence": 1
+            "status": "cancelled",
+            "sequence": 2,
+            "cancelledAt": "2026-11-18T15:08:21Z"
         },
         {
             "id": "89296",
