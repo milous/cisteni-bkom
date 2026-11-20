@@ -12210,17 +12210,17 @@
         },
         {
             "id": "86712",
-            "name": "Troubská, úsek 3 z 4 (neodtahuje se)",
+            "name": "Troubská, úsek 3 z 4",
             "from": "2026-10-30T07:00:00Z",
             "to": "2026-10-30T15:00:00Z",
             "sectionId": "4669",
-            "sectionName": "Troubská, úsek 3 z 4 (neodtahuje se)",
+            "sectionName": "Troubská, úsek 3 z 4",
             "streetId": "3368",
             "sectionKey": "4a5cc383",
             "lat": 49.172678,
             "lon": 16.525954,
             "status": "done",
-            "sequence": 1
+            "sequence": 2
         },
         {
             "id": "86719",
